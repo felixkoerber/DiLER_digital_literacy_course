@@ -7,7 +7,7 @@ This repository contains a colletion of materials for a course on digital litera
 DiLER or Digital Literacy for Empirical Research aims to provide an cost-free, open Educational Resource using multimodal competence-oriented content for promoting research-based teaching of digital literacy skills in higher eductaion.
 
 
-https://m-earnest.github.io/diler_dgitial_literacy_course/
+Find the course here: https://diler-digitell.github.io/DiLER_digital_literacy_course/
 
 
 ## "If you got questions:"
