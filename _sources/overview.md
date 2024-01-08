@@ -17,7 +17,7 @@ This page should provide all the necessary information to navigate the course we
 
 You can use the following links to navigate through the content of the course:
 
-* [Overview & Procedure ](./content/overview.md)
+* [Overview & Procedure ](https://diler-digitell.github.io/DiLER_digital_literacy_course/overview.html)
 
    What's this course all about? How are things implemented and supposed to work?
 
