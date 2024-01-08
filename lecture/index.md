@@ -106,17 +106,17 @@ More specifically, we will structure our work into the following chapters:
 - [Introduction to Digital Literacy](/introduction/digital_literacy.ipynb)
 
 **Block II:**
-- [Information and Media Literacy]./content/media_information_literacy.ipynb)
+- [Information and Media Literacy](./content/media_information_literacy.ipynb)
     - get to know the tools and dependencies of research in the digital age
-- [Digital Literacy: Coding](. content/coding.ipynb)
+- [Digital Literacy: Coding](.content/coding.ipynb)
     - learn basic programming skills necessary for scientific research
-- [Communication and Collaboration](. content/communcation_collaboration.ipynb)
+- [Communication and Collaboration](.content/communcation_collaboration.ipynb)
     - learn how to network, communicate, and share your work in digital spaces
-- [Digital Scholarship](. content/digital_scholarship.ipynb)
+- [Digital Scholarship](.content/digital_scholarship.ipynb)
     -  learn about academic and professional practices that depend on digital systems and emergent technology
 
 **Block:**
-- [Advanced Content](. advanced/python_numpy.ipynb)
+- [Advanced Content](.advanced/python_numpy.ipynb)
     - more Python tutorials, In-depth tutorial for learning EEG analyses using [MNE](https://mne.tools/stable/index.html#)
 
 ----------------------------------------
