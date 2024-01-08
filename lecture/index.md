@@ -9,13 +9,11 @@ titlesonly: true
 
 ![diler logo](static/logo.png)
 
-
 # **Welcome!**
 
-Hello everyone and welcome to our course on digital literacy in empirical research!
+Hello everyone and welcome to our course on *digital literacy in empirical research*!
 
 Within this course, we will explore the `concept of digital literacy` and its implications for students and researchers in the context of the academic system progressively shifting its curriculum and resources into the digital space. We'll further explore the ways to apply and expand on existing digital skills to maximize students' scientific abilities. 
-
 
 ## **Digital Literacy in Higher Education**
 
@@ -30,18 +28,15 @@ As this course is primarily centered around scientific practice, we will not be 
 As this course is primarily centered around scientific practice, we will not be dealing with basic topics such as "What is this internet?", "what's a meme?" or "How do I use social media?".  We will further not dive into the concepts more commonly labeled under "media literacy," such as how to spot fake news, etc.
 
 
-
 ---------------------------------------------
 
 If you're looking for a `more general introduction` on how to work with computers, check out the following:
 
 - [The bare basics: LinkedIn workshop "working with computers and devices"](https://www.linkedin.com/learning/working-with-computers-and-devices/working-with-computers-to-create-opportunity?autoplay=true&trk=course_preview&upsellOrderOrigin=default_guest_learning)
 
-- [The bare basics: Linkedin workshop "working with computers and devices"](https://www.linkedin.com/learning/working-and-collaborating-online)
-
+- [The bare basics: Linkedin workshop "working and collaborating online"](https://www.linkedin.com/learning/working-and-collaborating-online)
 - General media literacy, also dealing with social media and misinformation: 
 [https://veryverified.eu/](https://veryverified.eu/)
-
 
 ---------------------------------------
 
@@ -75,13 +70,11 @@ Our Introduction to programming content, such as the Python programming language
 
 Other lessons, e.g., on Project design, are focused on the role of digital tools and skills necessary for modern research endeavors. `They will mostly be text-based guides,` with short `tutorials` concerning the `usage of specific digital research tools that you may want to follow along on your Machine.
 
-
 --------------------------------------------
 
 ### What you'll be learning 📍
 
 **At the end of the course, you'll hopefully:**
-
 
 * understand the concept of digital literacy and its implications on society and academic culture
 
@@ -101,22 +94,19 @@ Other lessons, e.g., on Project design, are focused on the role of digital tools
 
 * be able to produce and distribute multimedia content to convey [the subject's] opinions and thoughts, as well as communicate effectively in digital environments, visualize data results
 
-
 ------------------------------------------
 
 ### Course Structure
 
-
 To meet these goals, we will follow a "learning by doing" approach in a tripartite manner. Starting from a basic introduction to `Digital Literacy` (Block I) to `specific abilities and skillsets` (Block II) and `advanced content for scientific work using open-source tools (Block III).)
-
 
 More specifically, we will structure our work into the following chapters:
 
 **Block I:**
-- [Introduction to Digital Literacy](./introduction/digital_literacy.ipynb)
+- [Introduction to Digital Literacy](/introduction/digital_literacy.ipynb)
 
 **Block II:**
-- [Information and Media Literacy](./content/media_information_literacy.ipynb)
+- [Information and Media Literacy]./content/media_information_literacy.ipynb)
     - get to know the tools and dependencies of research in the digital age
 - [Digital Literacy: Coding](. content/coding.ipynb)
     - learn basic programming skills necessary for scientific research
@@ -133,13 +123,11 @@ More specifically, we will structure our work into the following chapters:
 
 ### TL;DR
 
-
 Society is drifting into a digital world, and students are often left to fend for themselves or acquire the necessary skills to adapt to these changes on their own.
 
 This course will, therefore, explore the concept of digital literacy and its components in multiple sections in an attempt to provide students with the necessary understanding and skills to self-sufficiently navigate digital spaces, acquire the necessary skills, and contribute to the academic and scientific communities.
 
 ---------------------------------------
-
 
 ## I've got a question!
 
@@ -148,9 +136,7 @@ If you have any questions or difficulties with the lecture and its materials, pl
 ___
 ## Additional Courses and Resources:
 
-
 There are many courses out there doing a similar thing to this one with different specifications and foci, so feel free to browse and check the following out:
-
 
 You might also be interested in checking out these resources for even more in-depth information worth a read:
 
@@ -162,20 +148,21 @@ You might also be interested in checking out these resources for even more in-de
             
 * **[Digital Footprints: Understanding and managing your online activity**](https://www.internetsociety.org/learning/digital-footprints/)
             
-* [**Data visulaization:**](https://academy.europa.eu/courses/data-visualisation)
+* [**Data Visulaization:**](https://academy.europa.eu/courses/data-visualisation)
     
-**Google-workshops:**    
+**Google Workshops:**    
 
-* [search engines, website design, multimedia content creation, outreach](https://learndigital.withgoogle.com/digitalworkshop-eu/course/enhance-protect-online-campaigns)
+* [Search Engines, Website Design, Multimedia Content Creation, Outreach](https://learndigital.withgoogle.com/digitalworkshop-eu/course/enhance-protect-online-campaigns)
 * [Digital Well-being](https://learndigital.withgoogle.com/digitalworkshop-eu/course/digital-wellbeing)
 * [Version control with Git](https://learndigital.withgoogle.com/digitalworkshop-eu/course/version-control-with-git)
 * [Data-science with Python](https://learndigital.withgoogle.com/digitalworkshop-eu/course/data-science-with-python)
     
 
-* **Google education**: [Applied digital skills](https://applieddigitalskills.withgoogle.com/en/learn)
+* **Google Education**: [Applied Digital Skills](https://applieddigitalskills.withgoogle.com/en/learn)
 
 * **Coursera**: [Information & Digital Literacy for University Success](https://www.coursera.org/learn/digital-literacy)
    
 [**EU - Digital Skills and Jobs Platform**](https://digital-skills-jobs.europa.eu/en/about/digital-skills-and-jobs-platform)
     
+
 
