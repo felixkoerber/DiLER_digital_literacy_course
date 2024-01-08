@@ -17,52 +17,52 @@ This page should provide all the necessary information to navigate the course we
 
 You can use the following links to navigate through the content of the course:
 
-* [Overview & Procedure ](link-to-overview.html)
+* [Overview & Procedure ](./content/overview.md)
 
    What's this course all about? How are things implemented and supposed to work?
 
 
-* [Introduction to Digital literacy](https://m-earnest.github.io/diler_dgitial_literacy_course/introduction/digital_literacy.html)
+* [Introduction to Digital literacy](https://diler-digitell.github.io/DiLER_digital_literacy_course/introduction/digital_literacy.html)
 
    All things gotta start somewhere, but why Digital Literacy?
    
 
-* [Information & Media literacy](): 
-    - [Project Design](https://m-earnest.github.io/diler_dgitial_literacy_course/content/project_design.html)
-    - [Find, evaluate and manage information/data, read and produce academic works using digital media](https://m-earnest.github.io/diler_dgitial_literacy_course/content/lit_review.html)
-    - [Scientific writing & digital tools](https://m-earnest.github.io/diler_dgitial_literacy_course/content/writing.html)
-    - [Documentation/other academic content](https://m-earnest.github.io/diler_dgitial_literacy_course/content/documentation.html)
-    - [Excercise: Introduction to version control using Git](https://m-earnest.github.io/diler_dgitial_literacy_course/content/excercise_intro_git.html)
-    - [Version control: GitHub](https://m-earnest.github.io/diler_dgitial_literacy_course/content/github.html)
-    - [Data Management]()
+* [Information & Media literacy](./content/media_information_literacy.ipynb): 
+    - [Project Design](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/project_design.html)
+    - [Find, evaluate and manage information/data, read and produce academic works using digital media](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/lit_review.html)
+    - [Scientific writing & digital tools](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/writing.html)
+    - [Documentation/other academic content](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/documentation.html)
+    - [Excercise: Introduction to version control using Git](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/excercise_intro_git.html)
+    - [Version control: GitHub](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/github.html)
+    - [Data Management](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/data_management.html)
     
-* [Digital Literacy: Coding]()
-    * [Programming in Empirical Research]()
-    * [Intro to Python]()
-    * [Intro - Unix Command Line Interface - BASH]()
+* [Digital Literacy: Coding](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/coding.html)
+    * [Programming in Empirical Research](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/learn_to_code.html)
+    * [Intro to Python](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/intro_python_I.html)
+    * [Intro - Unix Command Line Interface - BASH](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/intro_to_shell.html)
 
-* [Communcation & Collaboration]()
-    * [Digital Storytelling]()
-    * [Digital Collaboration]()
-    * [Network & Outreach]()
-    * [Science communication: Publication and Beyond]()
+* [Communcation & Collaboration](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/communcation_collaboration.html)
+    * [Digital Storytelling](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/digital_storytelling.html)
+    * [Digital Collaboration](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/digital_collaboration.html)
+    * [Network & Outreach](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/network_outreach.html)
+    * [Science communication: Publication and Beyond](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/science_communication.html)
     
  
-* [Digital Scholarship]
-    * [Big Data]()
-    * [Cloud computing]()
-    * [Applied fields]()
-    * [Machine learning/Artificial Intelligence]()
+* [Digital Scholarship](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/digital_scholarship.html)
+    * [Big Data](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/ds_big_data.html)
+    * [Cloud computing](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/ds_cloud_computing.html)
+    * [Applied fields](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/ds_digital_research.html)
+    * [Machine learning/Artificial Intelligence](https://diler-digitell.github.io/DiLER_digital_literacy_course/content/ds_ml_ai.html)
     
-* [Advanced Content]()
-   - Mostly tutorials based on the Python programming language centered around scientific applications, such as different data management, analysis, or visualization, In-depth tutorial for learning EEG analyses using [MNE](https://mne.tools/stable/index.html#)
+* [Advanced Content](https://diler-digitell.github.io/DiLER_digital_literacy_course/advanced/python_numpy.html)
+   - Tutorials based on the Python programming language centered around scientific applications, such as different data management, analysis, or visualization, In-depth tutorial for learning EEG analyses using [MNE](https://mne.tools/stable/index.html#)
 
 
-* [Diversity, Equity, Inclusion](https://m-earnest.github.io/Python_for_Psychologists_Winter2022/questionnaires.html)
+* [Diversity, Equity, Inclusion](https://diler-digitell.github.io/DiLER_digital_literacy_course/dei.html)
 
    What to look out for, what to keep in mind, and how to treat each other.
 
-* [Code of Conduct](https://m-earnest.github.io/Python_for_Psychologists_Winter2022/CoC.html)
+* [Code of Conduct](https://diler-digitell.github.io/DiLER_digital_literacy_course/CoC.html)
 
    Necessities for creating an open, fair, safe, and inclusive learning
    experience.
