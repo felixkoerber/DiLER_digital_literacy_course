@@ -1,23 +1,16 @@
 # Digital Storytelling
 
-````{margin}
-```{warning}
-These pages are currently under construction and will be updated continuously.
-Please visit these pages again in the next few weeks for further information.
-````
-
-
     
 Digital storytelling as a broader term involves the use of `technology to convey stories`. There are various mediums to tell these stories, such as `text` on a website or social media platform, `images` and `narration` in a video, or `audio narration` in a podcast.
 
 Digital stories are not simply presentations of facts with accompanying visuals; they are carefully crafted narratives that take the audience on a journey. Like novels or documentaries, digital stories have elements such as `plot, characters, and themes`.
 
-#### Digital Storytelling in Education
+## Digital Storytelling in Education
 
 With an everincreasing use of digital media, digital storytelling is of high importance in the field of education, to facilitate engagement of scholars by creating dynamic and interactive narratives. The use of multimedia elements like images, videos and narration can lead to a more immersive experience, promoting creativity and critical thinking.
 Furthermore, digital storytelling helps to convey essential skills of digital literacy!
 
-#### Living Documents
+## Living Documents
 
 Expaning on digital storytelling, there is a growing usage of "living documents" which utilize technology to create `dynamic, constantly evolving narratives`. These living documents are documents that can be `updated in real-time`, with new information and perspectives added as they emerge.
 
@@ -28,16 +21,12 @@ Living documents are also particular relevant in the field of open science, wher
 There are many potential avenues to create living documents.
 
 
-#### Tips on Creating engaging Media 
+## Tips on Creating engaging Media 
 
 There are a couple things you can look out for using better digital storytelling:
 
 
 >For further information on how to use digital storytelling, check out this [awesome walkthrough](https://tlp-lpa.ca/digital-skills/digital-storytelling) from which these tips have been adapted
-
-1. **Make sure of conceptualizing your story using the dramatic arc**
-
-<!-- Codes by HTML.am -->
 
 <!-- CSS Code -->
 <style type="text/css" scoped>
@@ -49,13 +38,16 @@ width:400px;margin:10px;border-width:6px;border-color:#000000;border-style:solid
 <!-- HTML Code -->
 <a href="https://www.researchgate.net/profile/Sara-Elshafie/publication/326720118/figure/fig1/AS:926468729208833@1597898766646/Freytags-pyramid-also-known-as-the-dramatic-arc-showing-a-five-part-story.png" target="_self"><img src="https://www.researchgate.net/profile/Sara-Elshafie/publication/326720118/figure/fig1/AS:926468729208833@1597898766646/Freytags-pyramid-also-known-as-the-dramatic-arc-showing-a-five-part-story.png" alt="Making Science Meaningful for Broad Audiences through Stories" class="Image" title="Wikipedia page for the CSS language"></a>
 
+
+1. **Make sure of conceptualizing your story using the dramatic arc**
+
 2. **Narrate your story in your own voice.** 
 
 3. **Use different types of media like images, videos, and narration**
 
 4. **Choose a tool, that helps you creating great stories**
 
-#### Jupyter Books
+## Jupyter Books
 
 One amazing way to create `living documents` is `Jupyter Book`.
 
@@ -65,20 +57,20 @@ Creating content using Jupyter Books is a simple process and we have created a [
 
 ```{dropdown} Tutorial on Jupyter Book
 
-1. [Installing the prerequisites](https://felixkoerber.github.io/jb/setup.html)
+1. Installing the [prerequisites](https://felixkoerber.github.io/jb/setup.html)
 Before you start setting up your course using Jupyter Book, make sure you have the following tools installed on your machine:
 - **Git**: A version control system that helps you keep track of your code changes.
 - **Jupyter Book**: A tool that helps you build and publish interactive books or documents. You can install Jupyter Book using pip install jupyter-book.
 - A **text editor of your choice**: You can use any text editor, such as Visual Studio Code, Sublime Text, or Atom, to create and edit your content.
 
+2. Create a fresh Git Repository for your [project](https://diler-digitell.github.io/Jupyter-Book/tutorialcontent/publishing/account.html#start-a-project-setup-a-public-repository)
 
-2. [Create a fresh Git Repository for your project](https://felixkoerber.github.io/jb/tutorialcontent/publishing/account.html#start-a-project-setup-a-public-repository)
-2.1. Go to the GitHub website (https://github.com) and click on the plus button on the upper right corner.
+2.1 Go to the GitHub website (https://github.com) and click on the plus button on the upper right corner.
 ![GHNewRepo](https://github.com/felixkoerber/jb/blob/main/static/New_repo.jpg?raw=true)
 
 </br>
 
-2.2. Create a new repository for your course by giving it a name and a description.
+2.2 Create a new repository for your course by giving it a name and a description.
 
 </br>
 
@@ -86,7 +78,7 @@ Before you start setting up your course using Jupyter Book, make sure you have t
 
 </br>
 
-2.3. On GitHub, open up the empty project in your browser.
+2.3 On GitHub, open up the empty project in your browser.
 -  Navigate to `settings`, `actions`, then `general` to change **Workflow permissions** to **Read and Write Permission** to change the Workflow permissions to Read and Write Permission. This will allow you to push changes to the repository from your local machine.
 
 </br>
@@ -95,22 +87,22 @@ Before you start setting up your course using Jupyter Book, make sure you have t
 
 </br>
 
-2.4. Save your changes.
+2.4 Save your changes.
 
-2.5. Open up a terminal window and navigate to the location where you want to store your local course copy.
+2.5 Open up a terminal window and navigate to the location where you want to store your local course copy.
 
-2.6. Copy the project's link and clone the repository using the following command: git clone https://github.com/yourprojectname.
+2.6 Copy the project's link and clone the repository using the following command: git clone https://github.com/yourprojectname.
     
-3. [Copy our course template](https://felixkoerber.github.io/jb/tutorialcontent/publishing/account.html#working-with-the-course-template)
+3. Copy our [course template](https://diler-digitell.github.io/Jupyter-Book/tutorialcontent/publishing/account.html#working-with-the-course-template)
 
-- open our [course template repository](https://github.com/M-earnest/course_template_diler)
+- open our [course template repository](https://github.com/DiLER-Digitell/Course-template)
 
 - click on `code` and then on *Download ZIP*
 ![Download_template](https://github.com/felixkoerber/jb/blob/main/static/Download_template.jpg?raw=true)
 
 - Extract the contents of the ZIP file in the folder linked to your GitHub repository.
     
-4. [Create Content](https://felixkoerber.github.io/jb/tutorialcontent/writing/writing.html)
+4. Create [Content](https://diler-digitell.github.io/Jupyter-Book/tutorialcontent/writing/writing.html)
 
 - Open the Markdown (.md) or Jupyter (.ipynb) files and copy your interactive content and code.
 
@@ -119,7 +111,7 @@ Before you start setting up your course using Jupyter Book, make sure you have t
 - You can use the provided style guide as a reference to see how to effectively implement MyST Markdown.
 
 
-5. [Table of Contents and config](https://felixkoerber.github.io/jb/tutorialcontent/structure.html)
+5. Table of Contents and [Config](https://diler-digitell.github.io/Jupyter-Book/tutorialcontent/structure.html)
 
 -  Once you've created files, open the `_toc.yml`
 
@@ -129,7 +121,7 @@ Before you start setting up your course using Jupyter Book, make sure you have t
 
 -  Change the title, author, and the location of your GitHub repository.
 
-6. [Share it online](https://felixkoerber.github.io/jb/tutorialcontent/publishing/account.html)
+6. Share it [online](https://diler-digitell.github.io/Jupyter-Book/tutorialcontent/publishing/publishing.html)
 
 - In your terminal, navigate to the location of your project and type the following commands:
 
@@ -159,10 +151,10 @@ GitHub Pages is a free web hosting service provided by GitHub. It allows one to 
 You simply create a repository in GitHub and push your website files (HTML, CSS, JavaScript, etc.) to the repository. GitHub Pages then automatically generates the website and makes it available at a unique URL. This URL is typically in the format "username.github.io/repository-name".
 
 GitHub Pages makes it relatively easy to host your own website for developers and programmers, e.g. this course, but can be confusing for non-technical users. 
-A workaround for non-technical users is to work with a preconfigured setup. Our workgroup for example has created a template that you can use to host a website like the one you're seeing right now. This is achieved by using a so called "github-worklflow". Checkout our tutorial for creating a website using Github pages [here](https://felixkoerber.github.io/jb/intro.html)
+A workaround for non-technical users is to work with a preconfigured setup. Our workgroup for example has created a template that you can use to host a website like the one you're seeing right now. This is achieved by using a so called "github-worklflow". Checkout our tutorial for creating a website using Github pages [here](https://diler-digitell.github.io/Jupyter-Book/intro.html)
 
 ```
 
-#### Closing Words
+## Closing Words
 
 Overall, digital storytelling has become an important tool for educators looking to engage students in meaningful, creative projects. By providing a platform for students to explore and express their ideas in new and innovative ways, digital storytelling can help to promote empathy, understanding, and positive change in the classroom and beyond.
