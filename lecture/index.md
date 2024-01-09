@@ -146,7 +146,7 @@ You might also be interested in checking out these resources for even more in-de
 **Career Skills for the 2020s: Navigating the Online World of Work:**:
 * [Social media networks and their benefits when it comes to creating online content](https://www.futurelearn.com/courses/career-skills)
             
-* **[Digital Footprints: Understanding and managing your online activity**](https://www.internetsociety.org/learning/digital-footprints/)
+* [**Digital Footprints: Understanding and managing your online activity**](https://www.internetsociety.org/learning/digital-footprints/)
             
 * [**Data Visulaization:**](https://academy.europa.eu/courses/data-visualisation)
     
@@ -158,9 +158,9 @@ You might also be interested in checking out these resources for even more in-de
 * [Data-science with Python](https://learndigital.withgoogle.com/digitalworkshop-eu/course/data-science-with-python)
     
 
-* **Google Education**: [Applied Digital Skills](https://applieddigitalskills.withgoogle.com/en/learn)
+* *Google Education*: [**Applied Digital Skills**](https://applieddigitalskills.withgoogle.com/en/learn)
 
-* **Coursera**: [Information & Digital Literacy for University Success](https://www.coursera.org/learn/digital-literacy)
+* *Coursera*: [**Information & Digital Literacy for University Success**](https://www.coursera.org/learn/digital-literacy)
    
 [**EU - Digital Skills and Jobs Platform**](https://digital-skills-jobs.europa.eu/en/about/digital-skills-and-jobs-platform)
     
