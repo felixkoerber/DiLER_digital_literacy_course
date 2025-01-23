@@ -4,6 +4,7 @@
 # This is also the "master list" of all allowed keys and values.
 
 #######################################################################################
+
 # Book settings
 title                       : "Digital Literacy in Higher Education"  # The title of the book. Will be placed in the left navbar.
 author                      : Michael Ernst, Felix Körber  # The author of the book
