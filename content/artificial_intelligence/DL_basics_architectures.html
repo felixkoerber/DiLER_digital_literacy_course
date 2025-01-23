@@ -1,764 +1,608 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Deep learning basics &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/artificial_intelligence/DL_basics_architectures';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Introduction to NumPy" href="../../advanced/python_numpy.html" />
     <link rel="prev" title="Model evaluation &amp; cross-validation" href="ML_eval_cv.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data_management.html">
-   Data Management
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../science_communication.html">Science communication: Publication and Beyond</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../digital_scholarship.html">Digital Scholarship/Academic Practice</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="terms_definitions.html">Models, AI and all other buzz words</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Deep learning basics</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/artificial_intelligence/DL_basics_architectures.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/artificial_intelligence/DL_basics_architectures.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/artificial_intelligence/DL_basics_architectures.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/artificial_intelligence/DL_basics_architectures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/artificial_intelligence/DL_basics_architectures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep learning basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aim-s-of-this-section">
-   Aim(s) of this section 🎯
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline-for-this-section">
-   Outline for this section 📝
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-brief-recap-first-overview">
-     A brief recap &amp; first overview
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deep-learning-basics-reasoning">
-     Deep learning - basics &amp; reasoning
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#learning-problems">
-       Learning problems
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-problem-of-variance-how-representations-can-help">
-       The problem of variance &amp; how representations can help
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-biological-to-artificial-neural-neurons-and-networks">
-     From biological to artificial neural neurons and networks
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#universal-function-approximation-theorem">
-       Universal function approximation theorem
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#components-of-anns">
-       Components of
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ANN
-        </span>
-       </code>
-       s
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#building-blocks-of-anns">
-         Building blocks of
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           ANN
-          </span>
-         </code>
-         s
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#learning-in-anns">
-         Learning in
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           ANN
-          </span>
-         </code>
-         s
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#an-example-linear-regression">
-       An example: linear regression
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ann-architectures">
-     ANN architectures
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-moral-of-the-story">
-     The moral of the story
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aim-s-of-this-section">Aim(s) of this section 🎯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-for-this-section">Outline for this section 📝</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-recap-first-overview">A brief recap &amp; first overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-basics-reasoning">Deep learning - basics &amp; reasoning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-problems">Learning problems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-of-variance-how-representations-can-help">The problem of variance &amp; how representations can help</a></li>
 </ul>
-
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-biological-to-artificial-neural-neurons-and-networks">From biological to artificial neural neurons and networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-function-approximation-theorem">Universal function approximation theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-anns">Components of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#building-blocks-of-anns">Building blocks of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-anns">Learning in <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-linear-regression">An example: linear regression</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ann-architectures">ANN architectures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-moral-of-the-story">The moral of the story</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Deep learning basics</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aim-s-of-this-section">
-   Aim(s) of this section 🎯
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline-for-this-section">
-   Outline for this section 📝
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-brief-recap-first-overview">
-     A brief recap &amp; first overview
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deep-learning-basics-reasoning">
-     Deep learning - basics &amp; reasoning
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#learning-problems">
-       Learning problems
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-problem-of-variance-how-representations-can-help">
-       The problem of variance &amp; how representations can help
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-biological-to-artificial-neural-neurons-and-networks">
-     From biological to artificial neural neurons and networks
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#universal-function-approximation-theorem">
-       Universal function approximation theorem
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#components-of-anns">
-       Components of
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ANN
-        </span>
-       </code>
-       s
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#building-blocks-of-anns">
-         Building blocks of
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           ANN
-          </span>
-         </code>
-         s
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#learning-in-anns">
-         Learning in
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           ANN
-          </span>
-         </code>
-         s
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#an-example-linear-regression">
-       An example: linear regression
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ann-architectures">
-     ANN architectures
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-moral-of-the-story">
-     The moral of the story
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="deep-learning-basics">
-<h1>Deep learning basics<a class="headerlink" href="#deep-learning-basics" title="Permalink to this headline">¶</a></h1>
-<div class="margin sidebar">
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deep-learning-basics">
+<h1>Deep learning basics<a class="headerlink" href="#deep-learning-basics" title="Link to this heading">#</a></h1>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.</p>
 </div>
-</div>
+</aside>
 <hr class="docutils" />
-<div class="section" id="aim-s-of-this-section">
-<h2>Aim(s) of this section 🎯<a class="headerlink" href="#aim-s-of-this-section" title="Permalink to this headline">¶</a></h2>
+<section id="aim-s-of-this-section">
+<h2>Aim(s) of this section 🎯<a class="headerlink" href="#aim-s-of-this-section" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>learn about basics behind deep learning, specifically artificial neural networks</p></li>
 <li><p>become aware of central building blocks and aspects of artificial neural networks</p></li>
 <li><p>get to know different model types and architectures</p></li>
 </ul>
-</div>
-<div class="section" id="outline-for-this-section">
-<h2>Outline for this section 📝<a class="headerlink" href="#outline-for-this-section" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="outline-for-this-section">
+<h2>Outline for this section 📝<a class="headerlink" href="#outline-for-this-section" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Deep learning - basics &amp; reasoning</p>
 <ul class="simple">
 <li><p>learning problems</p></li>
@@ -784,8 +628,8 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ol>
-<div class="section" id="a-brief-recap-first-overview">
-<h3>A brief recap &amp; first overview<a class="headerlink" href="#a-brief-recap-first-overview" title="Permalink to this headline">¶</a></h3>
+<section id="a-brief-recap-first-overview">
+<h3>A brief recap &amp; first overview<a class="headerlink" href="#a-brief-recap-first-overview" title="Link to this heading">#</a></h3>
 <img align="right" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/AI.png" alt="logo" title="Github" width="320" height="120" />
 <p><strong>Artificial intelligence (AI)</strong> is <a class="reference external" href="https://en.wikipedia.org/wiki/Intelligence">intelligence</a> demonstrated by <a class="reference external" href="https://en.wikipedia.org/wiki/Machine">machines</a>, as opposed to the natural intelligence <a class="reference external" href="https://en.wikipedia.org/wiki/Human_intelligence">displayed by humans</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Animal_cognition">animals</a>. Leading AI textbooks define the field as the study of <a class="reference external" href="https://en.wikipedia.org/wiki/Intelligent_agent">“intelligent agents”</a>: any system that perceives its environment and takes actions that maximize its chance of achieving its goals. Some popular accounts use the term “artificial intelligence” to describe machines that mimic “cognitive” functions that humans associate with the <a class="reference external" href="https://en.wikipedia.org/wiki/Human_mind">human mind</a>, such as “learning” and “problem solving”, however this definition is rejected by major AI researchers.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_intelligence">https://en.wikipedia.org/wiki/Artificial_intelligence</a></p>
@@ -867,12 +711,12 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="deep-learning-basics-reasoning">
-<h3>Deep learning - basics &amp; reasoning<a class="headerlink" href="#deep-learning-basics-reasoning" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="deep-learning-basics-reasoning">
+<h3>Deep learning - basics &amp; reasoning<a class="headerlink" href="#deep-learning-basics-reasoning" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>as said before: <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> is (a subset of) <code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code></p></li>
-<li><p>it thus includes the core aspects we talked about in the <span class="xref myst">previous section</span> and builds upon them:</p>
+<li><p>it thus includes the core aspects we talked about in the <a class="reference internal" href="#"><span class="xref myst">previous section</span></a> and builds upon them:</p>
 <ul>
 <li><p>different learning problems and resulting models/architectures</p></li>
 <li><p>loss function &amp; optimization</p></li>
@@ -892,9 +736,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-<div class="section" id="learning-problems">
-<h4>Learning problems<a class="headerlink" href="#learning-problems" title="Permalink to this headline">¶</a></h4>
-<p>As in <span class="xref myst">machine learning</span> in general, we have <code class="docutils literal notranslate"><span class="pre">supervised</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">unsupervised</span> <span class="pre">learning</span> <span class="pre">problems</span></code> again:</p>
+<section id="learning-problems">
+<h4>Learning problems<a class="headerlink" href="#learning-problems" title="Link to this heading">#</a></h4>
+<p>As in <a class="reference internal" href="#"><span class="xref myst">machine learning</span></a> in general, we have <code class="docutils literal notranslate"><span class="pre">supervised</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">unsupervised</span> <span class="pre">learning</span> <span class="pre">problems</span></code> again:</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/supervised_unsupervised.png" alt="logo" title="Github" width="1200" height="350" /><p>However, within the world of <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>, we have three more <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">problems</span></code>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">reinforcement learning</a></p></li>
@@ -915,9 +759,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </li>
 </ul>
 <p>But why employ <a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">artificial neural networks</a> at all?</p>
-</div>
-<div class="section" id="the-problem-of-variance-how-representations-can-help">
-<h4>The problem of variance &amp; how representations can help<a class="headerlink" href="#the-problem-of-variance-how-representations-can-help" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="the-problem-of-variance-how-representations-can-help">
+<h4>The problem of variance &amp; how representations can help<a class="headerlink" href="#the-problem-of-variance-how-representations-can-help" title="Link to this heading">#</a></h4>
 <p>Think about all the things you as an <code class="docutils literal notranslate"><span class="pre">biological</span> <span class="pre">agent</span></code> do on a typical day … Everything (most things) you do appear very easy to you. Then why is so hard for <code class="docutils literal notranslate"><span class="pre">artificial</span> <span class="pre">agents</span></code> to achieve a comparable <code class="docutils literal notranslate"><span class="pre">behavior</span></code> and/or <code class="docutils literal notranslate"><span class="pre">performance</span></code>?</p>
 <p>One major problem is the <code class="docutils literal notranslate"><span class="pre">variance</span></code> of the input we encounter which subsequently makes it very hard to find appropriate <code class="docutils literal notranslate"><span class="pre">transformations</span></code> that can lead to/help to achieve <code class="docutils literal notranslate"><span class="pre">generalizable</span> <span class="pre">behavior</span></code>.</p>
 <p>How about an example? We’ll keep it very simple and focus on <code class="docutils literal notranslate"><span class="pre">recognizing</span></code> a certain <code class="docutils literal notranslate"><span class="pre">category</span></code> of the natural world.</p>
@@ -959,7 +803,7 @@ Please visit these pages again in the next few weeks for further information.</p
 <li><p>the “simple models” we talked about so far work with <code class="docutils literal notranslate"><span class="pre">predetermined</span> <span class="pre">transformations</span></code> and thus perform <code class="docutils literal notranslate"><span class="pre">shallow</span> <span class="pre">learning</span></code>, more “complex models” perform <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> in their <code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layers</span></code> to learn <code class="docutils literal notranslate"><span class="pre">representations</span></code></p></li>
 </ul>
 <img align="center" src="https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif?cid=ecf05e47wv88pqvnas5utdrw2qap9xn9lmjvwv4kn3qenjr9&rid=giphy.gif&ct=g" alt="logo" title="Github" width="300" height="300" />
-<p><sub><sup><sub><sup><sup><a class="reference external" href="https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif?cid=ecf05e47wv88pqvnas5utdrw2qap9xn9lmjvwv4kn3qenjr9&amp;rid=giphy.gif&amp;ct=g">https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif?cid=ecf05e47wv88pqvnas5utdrw2qap9xn9lmjvwv4kn3qenjr9&amp;rid=giphy.gif&amp;ct=g</a>
+<p><sub><sup><sub><sup><sup><a class="reference external" href="https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif?cid=ecf05e47wv88pqvnas5utdrw2qap9xn9lmjvwv4kn3qenjr9&amp;amp;rid=giphy.gif&amp;amp;ct=g">https://media1.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif?cid=ecf05e47wv88pqvnas5utdrw2qap9xn9lmjvwv4kn3qenjr9&amp;rid=giphy.gif&amp;ct=g</a>
 </sup></sup></sub></sup></sub></p>
 <p>But how?</p>
 <p>One important aspect to discuss here is another <code class="docutils literal notranslate"><span class="pre">inductive</span> <span class="pre">bias</span></code> we put into <code class="docutils literal notranslate"><span class="pre">models</span></code> (think about the <code class="docutils literal notranslate"><span class="pre">AI</span></code> set again) : the <code class="docutils literal notranslate"><span class="pre">hierarchical</span> <span class="pre">perception</span></code> of the <code class="docutils literal notranslate"><span class="pre">natural</span> <span class="pre">world</span></code>. In other words: the world around is <code class="docutils literal notranslate"><span class="pre">compositional</span></code> which means that the things we perceive are composed of smaller pieces, which themselves are composed of smaller pieces and so on … .</p>
@@ -977,10 +821,10 @@ Please visit these pages again in the next few weeks for further information.</p
 <p><sup><sup>Kell et al. 2018, <a class="reference external" href="https://doi.org/10.1016/j.neuron.2018.03.044">https://doi.org/10.1016/j.neuron.2018.03.044</a>
 </sup></sub></p>
 <p>The question is still: how do <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s do that?</p>
-</div>
-</div>
-<div class="section" id="from-biological-to-artificial-neural-neurons-and-networks">
-<h3>From biological to artificial neural neurons and networks<a class="headerlink" href="#from-biological-to-artificial-neural-neurons-and-networks" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="from-biological-to-artificial-neural-neurons-and-networks">
+<h3>From biological to artificial neural neurons and networks<a class="headerlink" href="#from-biological-to-artificial-neural-neurons-and-networks" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>decades ago researchers started to create artificial neurons to tackle tasks “conventional algorithms” couldn’t handle</p></li>
 <li><p>inspired by the learning and performance of biological neurons and networks</p></li>
@@ -1066,7 +910,7 @@ Please visit these pages again in the next few weeks for further information.</p
 \end{array}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
 
 <span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://polarisation.github.io/tfjs-activation-functions/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
@@ -1074,18 +918,18 @@ Please visit these pages again in the next few weeks for further information.</p
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="700"
-    height="400"
-    src="https://polarisation.github.io/tfjs-activation-functions/"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
+        <iframe
+            width="700"
+            height="400"
+            src="https://polarisation.github.io/tfjs-activation-functions/"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
 </div>
 <ul class="simple">
 <li><p>historically either <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_function">sigmoid</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_function#Hyperbolic_tangent">tanh</a> utilized</p></li>
-<li><p>even though they are <span class="xref myst">non-linear functions</span> their properties make them insufficient for most problems, especially <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code></p>
+<li><p>even though they are <a class="reference internal" href="#"><span class="xref myst">non-linear functions</span></a> their properties make them insufficient for most problems, especially <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code></p>
 <ul>
 <li><p>rather simple <code class="docutils literal notranslate"><span class="pre">polynomials</span></code></p></li>
 <li><p>mainly work for <code class="docutils literal notranslate"><span class="pre">binary</span> <span class="pre">problems</span></code></p></li>
@@ -1107,23 +951,23 @@ Please visit these pages again in the next few weeks for further information.</p
 <ul class="simple">
 <li><p>we could try to iterate over all possible <code class="docutils literal notranslate"><span class="pre">transformations</span></code>/<code class="docutils literal notranslate"><span class="pre">functions</span></code> necessary to enable and/or optimize the <code class="docutils literal notranslate"><span class="pre">output</span></code></p></li>
 </ul>
-<p>However, we could also introduce a <span class="xref myst">hidden layer</span> that learns or more precisely <code class="docutils literal notranslate"><span class="pre">approximates</span></code> what those <code class="docutils literal notranslate"><span class="pre">transformations</span></code>/<code class="docutils literal notranslate"><span class="pre">functions</span></code> are on its own:</p>
+<p>However, we could also introduce a <a class="reference internal" href="#"><span class="xref myst">hidden layer</span></a> that learns or more precisely <code class="docutils literal notranslate"><span class="pre">approximates</span></code> what those <code class="docutils literal notranslate"><span class="pre">transformations</span></code>/<code class="docutils literal notranslate"><span class="pre">functions</span></code> are on its own:</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/UAT_hiddenlayer.png" alt="logo" title="Github" width="600" height="350" />
 <p>The idea: there is a <code class="docutils literal notranslate"><span class="pre">neural</span> <span class="pre">network</span></code> so that for every possible input <code class="docutils literal notranslate"><span class="pre">X</span></code>, the outcome is <code class="docutils literal notranslate"><span class="pre">f(X)</span></code>.</p>
-<p>Importantly, the <span class="xref myst">hidden layer</span> consists of <span class="xref myst">artificial neurons</span> that perceive <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">inputs</span></code> <code class="docutils literal notranslate"><span class="pre">w</span></code> and perform <span class="xref myst">non-linear</span> (<span class="xref myst">non-saturating</span>) <span class="xref myst">activation functions</span> <code class="docutils literal notranslate"><span class="pre">v</span></code> which <code class="docutils literal notranslate"><span class="pre">output</span></code> will be used for the <code class="docutils literal notranslate"><span class="pre">task</span></code> at hand</p>
+<p>Importantly, the <a class="reference internal" href="#"><span class="xref myst">hidden layer</span></a> consists of <a class="reference internal" href="#"><span class="xref myst">artificial neurons</span></a> that perceive <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">inputs</span></code> <code class="docutils literal notranslate"><span class="pre">w</span></code> and perform <a class="reference internal" href="#"><span class="xref myst">non-linear</span></a> (<a class="reference internal" href="#"><span class="xref myst">non-saturating</span></a>) <a class="reference internal" href="#"><span class="xref myst">activation functions</span></a> <code class="docutils literal notranslate"><span class="pre">v</span></code> which <code class="docutils literal notranslate"><span class="pre">output</span></code> will be used for the <code class="docutils literal notranslate"><span class="pre">task</span></code> at hand</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/UAT_hiddenlayer_function.png" alt="logo" title="Github" width="600" height="350" />
 <p>It gets even better: this holds true even if there are multiple <code class="docutils literal notranslate"><span class="pre">inputs</span></code> and <code class="docutils literal notranslate"><span class="pre">outputs</span></code>:</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/UAT_generalizability.png" alt="logo" title="Github" width="600" height="350" />
 <ul class="simple">
 <li><p>this is referred to as <code class="docutils literal notranslate"><span class="pre">universality</span></code> and finally brings us to one core aspect of <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code></p></li>
 </ul>
-<div class="section" id="universal-function-approximation-theorem">
-<h4>Universal function approximation theorem<a class="headerlink" href="#universal-function-approximation-theorem" title="Permalink to this headline">¶</a></h4>
+<section id="universal-function-approximation-theorem">
+<h4>Universal function approximation theorem<a class="headerlink" href="#universal-function-approximation-theorem" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">artificial</span> <span class="pre">neural</span> <span class="pre">networks</span></code> are considered <code class="docutils literal notranslate"><span class="pre">universal</span> <span class="pre">function</span> <span class="pre">approximators</span></code></p>
 <ul>
 <li><p>the possibility of <code class="docutils literal notranslate"><span class="pre">approximating</span></code> a(ny) <code class="docutils literal notranslate"><span class="pre">function</span></code> to some accuracy with<br />
-(a set of) <span class="xref myst">artificial neurons</span> in <span class="xref myst">hidden layer</span></p></li>
+(a set of) <a class="reference internal" href="#"><span class="xref myst">artificial neurons</span></a> in <a class="reference internal" href="#s"><span class="xref myst">hidden layer</span></a></p></li>
 <li><p>instead of providing a predetermined set of <code class="docutils literal notranslate"><span class="pre">transformations</span></code> or <code class="docutils literal notranslate"><span class="pre">functions</span></code>,
 the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> learns/approximates them by itself</p></li>
 </ul>
@@ -1132,7 +976,7 @@ the <code class="docutils literal notranslate"><span class="pre">ANN</span></cod
 <ul class="simple">
 <li><p>two problems:</p>
 <ul>
-<li><p>the theorem doesn’t tell us how many <span class="xref myst">artificial neurons we need</span></p></li>
+<li><p>the theorem doesn’t tell us how many <a class="reference internal" href="#"><span class="xref myst">artificial neurons we need</span></a></p></li>
 <li><p>either arbitrary number of artificial neurons (“arbitrary width” case) or
 arbitrary number of hidden layers, each containing a limited number of artificial neurons (“arbitrary depth”
 case)</p></li>
@@ -1147,11 +991,11 @@ case)</p></li>
 </ul>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/dl_features.png" alt="logo" title="Github" width="500" height="280" /><p>To bring the things we talked about so far together, we will focus on <code class="docutils literal notranslate"><span class="pre">ANN</span></code> components and how <code class="docutils literal notranslate"><span class="pre">learning</span></code> takes place next…but at first, let’s take a breather.</p>
 <img align="center" src="https://media4.giphy.com/media/1LmBFphV4XNSw/giphy.gif?cid=ecf05e47og07li3vrdt89rgz8uux1qjicb3ykg2z5qdgigu7&rid=giphy.gif&ct=g" alt="logo" title="Github" width="300" height="300" />
-<p><sub><sup><sub><sup><sup><a class="reference external" href="https://media4.giphy.com/media/1LmBFphV4XNSw/giphy.gif?cid=ecf05e47og07li3vrdt89rgz8uux1qjicb3ykg2z5qdgigu7&amp;rid=giphy.gif&amp;ct=g">https://media4.giphy.com/media/1LmBFphV4XNSw/giphy.gif?cid=ecf05e47og07li3vrdt89rgz8uux1qjicb3ykg2z5qdgigu7&amp;rid=giphy.gif&amp;ct=g</a>
+<p><sub><sup><sub><sup><sup><a class="reference external" href="https://media4.giphy.com/media/1LmBFphV4XNSw/giphy.gif?cid=ecf05e47og07li3vrdt89rgz8uux1qjicb3ykg2z5qdgigu7&amp;amp;rid=giphy.gif&amp;amp;ct=g">https://media4.giphy.com/media/1LmBFphV4XNSw/giphy.gif?cid=ecf05e47og07li3vrdt89rgz8uux1qjicb3ykg2z5qdgigu7&amp;rid=giphy.gif&amp;ct=g</a>
 </sup></sup></sub></sup></sub></p>
-</div>
-<div class="section" id="components-of-anns">
-<h4>Components of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#components-of-anns" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="components-of-anns">
+<h4>Components of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#components-of-anns" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>now that we’ve spent quite some time on the <code class="docutils literal notranslate"><span class="pre">neurobiological</span> <span class="pre">informed</span></code> underpinnings it’s time to put the respective pieces together and see how they are actually employed within <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</p></li>
 <li><p>for this we will talk about two aspects:</p>
@@ -1161,65 +1005,67 @@ case)</p></li>
 </ul>
 </li>
 </ul>
-<div class="section" id="building-blocks-of-anns">
-<h5>Building blocks of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#building-blocks-of-anns" title="Permalink to this headline">¶</a></h5>
+<section id="building-blocks-of-anns">
+<h5>Building blocks of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#building-blocks-of-anns" title="Link to this heading">#</a></h5>
 <ul class="simple">
 <li><p>we’ve actually already seen quite a few important building blocks before but didn’t defined them appropriately</p></li>
 </ul>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/UAT_generalizability.png" alt="logo" title="Github" width="600" height="350" />
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_layer.png" alt="logo" title="Github" width="600" height="350" />
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
-<th class="text-align:center head"><p>Definition</p></th>
+<th class="head text-center"><p>Definition</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Layer</p></td>
-<td class="text-align:center"><p>Structure or network topology in the architecture of the model that consists of <code class="docutils literal notranslate"><span class="pre">nodes</span></code> and is connected to other layers, receiving and passing information.</p></td>
+<td class="text-center"><p>Structure or network topology in the architecture of the model that consists of <code class="docutils literal notranslate"><span class="pre">nodes</span></code> and is connected to other layers, receiving and passing information.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Input layer</p></td>
-<td class="text-align:center"><p>The layer that receives the external input data.</p></td>
+<td class="text-center"><p>The layer that receives the external input data.</p></td>
 </tr>
 <tr class="row-even"><td><p>Hidden layer(s)</p></td>
-<td class="text-align:center"><p>The layer(s) between <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">layer</span></code> which performs <code class="docutils literal notranslate"><span class="pre">transformations</span></code> via <code class="docutils literal notranslate"><span class="pre">non-linear</span> <span class="pre">activation</span> <span class="pre">functions</span></code> .</p></td>
+<td class="text-center"><p>The layer(s) between <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">layer</span></code> which performs <code class="docutils literal notranslate"><span class="pre">transformations</span></code> via <code class="docutils literal notranslate"><span class="pre">non-linear</span> <span class="pre">activation</span> <span class="pre">functions</span></code> .</p></td>
 </tr>
 <tr class="row-odd"><td><p>Output layer</p></td>
-<td class="text-align:center"><p>The layer that produces the final output/task.</p></td>
+<td class="text-center"><p>The layer that produces the final output/task.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_subparts.png" alt="logo" title="Github" width="600" height="350" />
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
-<th class="text-align:center head"><p>Definition</p></th>
+<th class="head text-center"><p>Definition</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Node</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">Artificial</span> <span class="pre">neurons</span></code>.</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Artificial</span> <span class="pre">neurons</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Connection</p></td>
-<td class="text-align:center"><p>Connection between <code class="docutils literal notranslate"><span class="pre">nodes</span></code>, providing <code class="docutils literal notranslate"><span class="pre">output</span></code> of one <code class="docutils literal notranslate"><span class="pre">node</span></code>/<code class="docutils literal notranslate"><span class="pre">neuron</span></code> as <code class="docutils literal notranslate"><span class="pre">input</span></code> to the next <code class="docutils literal notranslate"><span class="pre">node</span></code>/<code class="docutils literal notranslate"><span class="pre">neuron</span></code>.</p></td>
+<td class="text-center"><p>Connection between <code class="docutils literal notranslate"><span class="pre">nodes</span></code>, providing <code class="docutils literal notranslate"><span class="pre">output</span></code> of one <code class="docutils literal notranslate"><span class="pre">node</span></code>/<code class="docutils literal notranslate"><span class="pre">neuron</span></code> as <code class="docutils literal notranslate"><span class="pre">input</span></code> to the next <code class="docutils literal notranslate"><span class="pre">node</span></code>/<code class="docutils literal notranslate"><span class="pre">neuron</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p>Weight</p></td>
-<td class="text-align:center"><p>The relative importance of the <code class="docutils literal notranslate"><span class="pre">connection</span></code>.</p></td>
+<td class="text-center"><p>The relative importance of the <code class="docutils literal notranslate"><span class="pre">connection</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Bias</p></td>
-<td class="text-align:center"><p>The bias term that can be added to the <code class="docutils literal notranslate"><span class="pre">propagation</span> <span class="pre">function</span></code>, i.e. input to a neuron computed from the outputs of its predecessor neurons and their connections as a weighted sum.</p></td>
+<td class="text-center"><p>The bias term that can be added to the <code class="docutils literal notranslate"><span class="pre">propagation</span> <span class="pre">function</span></code>, i.e. input to a neuron computed from the outputs of its predecessor neurons and their connections as a weighted sum.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ANN</span></code>s can be described based on their amount of <code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layers</span></code> (<code class="docutils literal notranslate"><span class="pre">depth</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>)</p></li>
 </ul>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_multilayer.png" alt="logo" title="Github" width="600" height="350" /><ul class="simple">
 <li><p>having talked about <code class="docutils literal notranslate"><span class="pre">overt</span> <span class="pre">building</span> <span class="pre">blocks</span></code> of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s we need to talk about <code class="docutils literal notranslate"><span class="pre">building</span> <span class="pre">blocks</span></code> that are rather <code class="docutils literal notranslate"><span class="pre">covert</span></code>, that is the aspects that define how <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s learn…</p></li>
 </ul>
-</div>
-<div class="section" id="learning-in-anns">
-<h5>Learning in <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#learning-in-anns" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="learning-in-anns">
+<h5>Learning in <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s<a class="headerlink" href="#learning-in-anns" title="Link to this heading">#</a></h5>
 <ul class="simple">
 <li><p>let’s go back a few hours and talk about <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">fitting</span></code> again</p></li>
 </ul>
@@ -1232,32 +1078,33 @@ case)</p></li>
 </ul>
 </li>
 </ul>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
-<th class="text-align:center head"><p>Definition</p></th>
+<th class="head text-center"><p>Definition</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Model</p></td>
-<td class="text-align:center"><p>A set of parameters that makes a prediction based on a given input. The parameter values are fitted to available data.</p></td>
+<td class="text-center"><p>A set of parameters that makes a prediction based on a given input. The parameter values are fitted to available data.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Loss function</p></td>
-<td class="text-align:center"><p>A function that evaluates how well your algorithm models your dataset</p></td>
+<td class="text-center"><p>A function that evaluates how well your algorithm models your dataset</p></td>
 </tr>
 <tr class="row-even"><td><p>Optimization</p></td>
-<td class="text-align:center"><p>A function that tries to minimize the loss via updating model parameters.</p></td>
+<td class="text-center"><p>A function that tries to minimize the loss via updating model parameters.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="an-example-linear-regression">
-<h4>An example: linear regression<a class="headerlink" href="#an-example-linear-regression" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="an-example-linear-regression">
+<h4>An example: linear regression<a class="headerlink" href="#an-example-linear-regression" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Model:  $<span class="math notranslate nohighlight">\(y=\beta_{0}+\beta_{1} x_{1}^{2}+\beta_{2} x_{2}^{2}\)</span>$</p></li>
 <li><p>Loss function: $<span class="math notranslate nohighlight">\( M S E=\frac{1}{n} \sum_{i=1}^{n}\left(y_{i}-\hat{y}_{i}\right)^{2}\)</span>$</p></li>
-<li><p>optimization: <span class="xref myst">Gradient descent</span></p></li>
+<li><p>optimization: <a class="reference internal" href="#"><span class="xref myst">Gradient descent</span></a></p></li>
 </ul>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Gradient</span> <span class="pre">descent</span></code> with a <code class="docutils literal notranslate"><span class="pre">single</span> <span class="pre">input</span> <span class="pre">variable</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">samples</span></code></p>
@@ -1305,7 +1152,7 @@ case)</p></li>
 <p>Upon <code class="docutils literal notranslate"><span class="pre">building</span></code> our network we also need to <code class="docutils literal notranslate"><span class="pre">initialize</span></code> the <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code>. Both are important <code class="docutils literal notranslate"><span class="pre">hyper-parameters</span></code> for our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> and the way it <code class="docutils literal notranslate"><span class="pre">learns</span></code> as they can help preventing <code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">function</span> <span class="pre">outputs</span></code> from <code class="docutils literal notranslate"><span class="pre">exploding</span></code> or <code class="docutils literal notranslate"><span class="pre">vanishing</span></code> when moving through the <code class="docutils literal notranslate"><span class="pre">ANN</span></code>. This relates directly to the <code class="docutils literal notranslate"><span class="pre">optimization</span></code> as the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">gradient</span></code> might become too large or too small, prolonging the time the network needs to converge or even prevents it completely. Importantly, certain <code class="docutils literal notranslate"><span class="pre">initializers</span></code> work better with certain <code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">functions</span></code>. For example: <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions#Hyperbolic_tangent">tanh</a> likes <code class="docutils literal notranslate"><span class="pre">Glorot/Xavier</span> <span class="pre">initialization</span></code> while <a class="reference external" href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLu</a> likes <code class="docutils literal notranslate"><span class="pre">He</span> <span class="pre">initialization</span></code>.</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_Cat_biases.png" alt="logo" title="Github" width="600" height="350" /><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
 
 <span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://www.deeplearning.ai/ai-notes/initialization/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
@@ -1313,14 +1160,14 @@ case)</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="1000"
-    height="400"
-    src="https://www.deeplearning.ai/ai-notes/initialization/"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
+        <iframe
+            width="1000"
+            height="400"
+            src="https://www.deeplearning.ai/ai-notes/initialization/"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
 </div>
 <p><strong>The input layer &amp; the <a class="reference external" href="https://en.wikipedia.org/wiki/Semantic_gap">semantic gap</a></strong></p>
 <p>One thing we need to talk about is what the <code class="docutils literal notranslate"><span class="pre">ANN</span></code>, or more precisely the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">layer</span></code>, actually receives…
@@ -1337,13 +1184,13 @@ The same thing, that is the picture of the cat, is very different for us than fo
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_labels.png" alt="logo" title="Github" width="700" height="450" /><img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_softmax.png" alt="logo" title="Github" width="700" height="450" /><p><strong>The <code class="docutils literal notranslate"><span class="pre">metric</span></code></strong></p>
 <p>The index of the vector provided by the <code class="docutils literal notranslate"><span class="pre">softmax</span> <span class="pre">output</span> <span class="pre">layer</span></code> with the largest value will be treated as the <code class="docutils literal notranslate"><span class="pre">class</span></code> predicted by the <code class="docutils literal notranslate"><span class="pre">ANN</span></code>, which in our example would be “cat”. The <code class="docutils literal notranslate"><span class="pre">ANN</span></code> will then use the <code class="docutils literal notranslate"><span class="pre">predicted</span> <span class="pre">class</span></code> and compare it to the <code class="docutils literal notranslate"><span class="pre">true</span> <span class="pre">class</span></code>, computing a <code class="docutils literal notranslate"><span class="pre">metric</span></code> to assess its performance. Remember folks: <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> is <code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code> and computing a <code class="docutils literal notranslate"><span class="pre">metric</span></code> is no exception to that. Thus, depending on your data and <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">problem</span></code> you can indicate a variety of <code class="docutils literal notranslate"><span class="pre">metrics</span></code> your <code class="docutils literal notranslate"><span class="pre">ANN</span></code> should utilize, including <code class="docutils literal notranslate"><span class="pre">accuracy</span></code>,  <code class="docutils literal notranslate"><span class="pre">F1</span></code>, <code class="docutils literal notranslate"><span class="pre">AUC</span></code>, etc. . Note: in <code class="docutils literal notranslate"><span class="pre">binary</span> <span class="pre">tasks</span></code> usually only the largest value is treated as a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">prediction</span></code>, this is called <code class="docutils literal notranslate"><span class="pre">Top-1</span> <span class="pre">accuracy</span></code>. On the contrary, in <code class="docutils literal notranslate"><span class="pre">multiclass</span> <span class="pre">tasks</span></code> with many <code class="docutils literal notranslate"><span class="pre">classes</span></code> (animals, cell components, disease propagation types, etc.) quite often the largest <code class="docutils literal notranslate"><span class="pre">5</span></code> values are treated as <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">predictions</span></code> and utilized within the <code class="docutils literal notranslate"><span class="pre">metric</span></code>, which is called <code class="docutils literal notranslate"><span class="pre">Top-5</span> <span class="pre">accuracy</span></code>.</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_accuracy.png" alt="logo" title="Github" width="700" height="450" /><p><strong>The <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code></strong></p>
-<p>Besides the <code class="docutils literal notranslate"><span class="pre">metric</span></code>, our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> will also a compute a <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> that will quantify how far the <code class="docutils literal notranslate"><span class="pre">probabilities</span></code>, computed by the <code class="docutils literal notranslate"><span class="pre">softmax</span> <span class="pre">function</span></code> of the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">layer</span></code>, are away from the <code class="docutils literal notranslate"><span class="pre">true</span> <span class="pre">values</span></code> we want to achieve, i.e. the <code class="docutils literal notranslate"><span class="pre">classes</span></code>. As mentioned in the <span class="xref myst">introduction</span> and comparable to the <code class="docutils literal notranslate"><span class="pre">metric</span></code>, the choice of <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> depends on the data you have and the <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">problem</span></code> you want to solve. If you want to <code class="docutils literal notranslate"><span class="pre">predict</span></code> <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">values</span></code> you might want to employ a <code class="docutils literal notranslate"><span class="pre">regression</span></code> based approach and use <code class="docutils literal notranslate"><span class="pre">MSE</span></code> as the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>. If you want to <code class="docutils literal notranslate"><span class="pre">predict</span></code> <code class="docutils literal notranslate"><span class="pre">classes</span></code> you might to employ a <code class="docutils literal notranslate"><span class="pre">classification</span></code> based approach and use a form of <code class="docutils literal notranslate"><span class="pre">cross-entropy</span></code> as the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>.</p>
+<p>Besides the <code class="docutils literal notranslate"><span class="pre">metric</span></code>, our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> will also a compute a <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> that will quantify how far the <code class="docutils literal notranslate"><span class="pre">probabilities</span></code>, computed by the <code class="docutils literal notranslate"><span class="pre">softmax</span> <span class="pre">function</span></code> of the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">layer</span></code>, are away from the <code class="docutils literal notranslate"><span class="pre">true</span> <span class="pre">values</span></code> we want to achieve, i.e. the <code class="docutils literal notranslate"><span class="pre">classes</span></code>. As mentioned in the <a class="reference internal" href="#"><span class="xref myst">introduction</span></a> and comparable to the <code class="docutils literal notranslate"><span class="pre">metric</span></code>, the choice of <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> depends on the data you have and the <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">problem</span></code> you want to solve. If you want to <code class="docutils literal notranslate"><span class="pre">predict</span></code> <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">values</span></code> you might want to employ a <code class="docutils literal notranslate"><span class="pre">regression</span></code> based approach and use <code class="docutils literal notranslate"><span class="pre">MSE</span></code> as the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>. If you want to <code class="docutils literal notranslate"><span class="pre">predict</span></code> <code class="docutils literal notranslate"><span class="pre">classes</span></code> you might to employ a <code class="docutils literal notranslate"><span class="pre">classification</span></code> based approach and use a form of <code class="docutils literal notranslate"><span class="pre">cross-entropy</span></code> as the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>.</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_loss.png" alt="logo" title="Github" width="700" height="450" /><p>A cool thing about <code class="docutils literal notranslate"><span class="pre">softmax</span></code> with regard to the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>: it is a <code class="docutils literal notranslate"><span class="pre">continuously</span> <span class="pre">differentiable</span> <span class="pre">function</span></code> and thus the <code class="docutils literal notranslate"><span class="pre">derivative</span></code> of the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> can be computed for every <code class="docutils literal notranslate"><span class="pre">weight</span></code> and every <code class="docutils literal notranslate"><span class="pre">input</span></code> in the <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">set</span></code>. Based on that the <code class="docutils literal notranslate"><span class="pre">weights</span></code> of the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> can be adapted to reduce the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>, making the <code class="docutils literal notranslate"><span class="pre">predicted</span> <span class="pre">values</span></code> provided by the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">layer</span></code> closer to the <code class="docutils literal notranslate"><span class="pre">true</span> <span class="pre">values</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">classes</span></code>) and therefore improving the <code class="docutils literal notranslate"><span class="pre">metric</span></code> and performance of the <code class="docutils literal notranslate"><span class="pre">ANN</span></code>. This reducing of the <code class="docutils literal notranslate"><span class="pre">error</span></code> (assessed through the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>) is called the <code class="docutils literal notranslate"><span class="pre">objective</span> <span class="pre">function</span></code> of an <code class="docutils literal notranslate"><span class="pre">ANN</span></code>, while the adaptation of <code class="docutils literal notranslate"><span class="pre">weights</span></code> to improve the performance of an <code class="docutils literal notranslate"><span class="pre">ANN</span></code> is the <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">process</span></code>. But how does this work now? We know it has something to do with <code class="docutils literal notranslate"><span class="pre">optimization</span></code>…Let’s have a look when and how this factors in.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">Batch</span> <span class="pre">size</span></code></strong></p>
 <p>As with other <code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code> approaches, we will ideally have a <code class="docutils literal notranslate"><span class="pre">training</span></code>, <code class="docutils literal notranslate"><span class="pre">validation</span></code> and <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">set</span></code>. One <code class="docutils literal notranslate"><span class="pre">hyperparameter</span></code> that is involved in this process and also can define our entire <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">process</span></code> is <code class="docutils literal notranslate"><span class="pre">batch</span> <span class="pre">size</span></code>. It defines the number of <code class="docutils literal notranslate"><span class="pre">samples</span></code> in the <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">set</span></code> our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> processes before <code class="docutils literal notranslate"><span class="pre">optimization</span></code> is used to update the <code class="docutils literal notranslate"><span class="pre">weights</span></code> based on the result of the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>. For example, if our <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">set</span></code> has <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">samples</span></code> and we set a <code class="docutils literal notranslate"><span class="pre">batch</span> <span class="pre">size</span></code> of <code class="docutils literal notranslate"><span class="pre">5</span></code>, we would divide the <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">set</span></code> into <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">batches</span></code> of <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">samples</span></code> each. In turn this would mean that our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> goes through <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">samples</span></code> before using <code class="docutils literal notranslate"><span class="pre">optimization</span></code> to update the <code class="docutils literal notranslate"><span class="pre">weights</span></code> and thus our <code class="docutils literal notranslate"><span class="pre">ANN</span></code> would update its <code class="docutils literal notranslate"><span class="pre">weights</span></code> <code class="docutils literal notranslate"><span class="pre">20</span></code> times during <code class="docutils literal notranslate"><span class="pre">training</span></code>.</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_batch.png" alt="logo" title="Github" width="700" height="450" />
 <p><strong>The <code class="docutils literal notranslate"><span class="pre">optimization</span></code></strong></p>
-<p>Once a <code class="docutils literal notranslate"><span class="pre">batch</span></code> has been processed by the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> the <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">algorithm</span></code> will get to work. As mentioned before, most <code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span> <span class="pre">problems</span></code> utilize <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> as the <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">algorithm</span></code>. As mentioned during the <span class="xref myst">introduction</span> and a few slides above, we have an <code class="docutils literal notranslate"><span class="pre">objective</span> <span class="pre">function</span></code> we want to <code class="docutils literal notranslate"><span class="pre">optimize</span></code>, for example <code class="docutils literal notranslate"><span class="pre">minimizing</span></code> the <code class="docutils literal notranslate"><span class="pre">error</span></code> computed by our <code class="docutils literal notranslate"><span class="pre">cross-entropy</span> <span class="pre">loss</span> <span class="pre">function</span></code>.  So what happens is the following. At first, an entire <code class="docutils literal notranslate"><span class="pre">batch</span></code> is processed by the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> and <code class="docutils literal notranslate"><span class="pre">accuracy</span></code> as well as <code class="docutils literal notranslate"><span class="pre">loss</span></code> are computed.</p>
+<p>Once a <code class="docutils literal notranslate"><span class="pre">batch</span></code> has been processed by the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> the <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">algorithm</span></code> will get to work. As mentioned before, most <code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span> <span class="pre">problems</span></code> utilize <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> as the <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">algorithm</span></code>. As mentioned during the <a class="reference internal" href="#"><span class="xref myst">introduction</span></a> and a few slides above, we have an <code class="docutils literal notranslate"><span class="pre">objective</span> <span class="pre">function</span></code> we want to <code class="docutils literal notranslate"><span class="pre">optimize</span></code>, for example <code class="docutils literal notranslate"><span class="pre">minimizing</span></code> the <code class="docutils literal notranslate"><span class="pre">error</span></code> computed by our <code class="docutils literal notranslate"><span class="pre">cross-entropy</span> <span class="pre">loss</span> <span class="pre">function</span></code>.  So what happens is the following. At first, an entire <code class="docutils literal notranslate"><span class="pre">batch</span></code> is processed by the <code class="docutils literal notranslate"><span class="pre">ANN</span></code> and <code class="docutils literal notranslate"><span class="pre">accuracy</span></code> as well as <code class="docutils literal notranslate"><span class="pre">loss</span></code> are computed.</p>
 <img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ANN_cat_gd.png" alt="logo" title="Github" width="700" height="450" />
 <p>Subsequently, the <code class="docutils literal notranslate"><span class="pre">error</span></code> computed via the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> will be minimized through <code class="docutils literal notranslate"><span class="pre">gradient</span> <span class="pre">descent</span></code>. Let’s imagine the following: we span a valley-looking like <code class="docutils literal notranslate"><span class="pre">gradient</span></code> that is defined by our <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code> on the <code class="docutils literal notranslate"><span class="pre">horizontal</span></code> or <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> axes and the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> on the <code class="docutils literal notranslate"><span class="pre">vertical</span></code> or <code class="docutils literal notranslate"><span class="pre">z</span></code> axis. This is where our <code class="docutils literal notranslate"><span class="pre">weight</span></code> and <code class="docutils literal notranslate"><span class="pre">bias</span> <span class="pre">initializers</span></code> come back: we <code class="docutils literal notranslate"><span class="pre">initialized</span></code> <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code> at a certain point on the <code class="docutils literal notranslate"><span class="pre">gradient</span></code>, usually on the top or quite high. Now our <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">algorithm</span></code> takes one step after another (after each <code class="docutils literal notranslate"><span class="pre">batch</span></code>) in the steepest downwards direction along the <code class="docutils literal notranslate"><span class="pre">gradient</span></code> via finding <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code> that reduce the <code class="docutils literal notranslate"><span class="pre">loss</span></code> until it reaches the point where the <code class="docutils literal notranslate"><span class="pre">error</span></code> computed by the <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> is as small as possible. It is <code class="docutils literal notranslate"><span class="pre">descending</span></code> through the <code class="docutils literal notranslate"><span class="pre">gradient</span></code>. When it reaches this point, i.e. the <code class="docutils literal notranslate"><span class="pre">error</span></code> can’t be reduced anymore and remains stable, it has <code class="docutils literal notranslate"><span class="pre">converged</span></code>.</p>
 <img align="center" src="https://miro.medium.com/max/1024/1*G1v2WBigWmNzoMuKOYQV_g.png" alt="logo" title="Github" width="600" height="500" />
@@ -1362,7 +1209,7 @@ The same thing, that is the picture of the cat, is very different for us than fo
 <p>Check this cool project, called <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">landscape</span></code> by <a class="reference external" href="https://ideami.com/ideami/">Javier Ideami</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
 
 <span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://losslandscape.com/explorer&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
@@ -1370,14 +1217,14 @@ The same thing, that is the picture of the cat, is very different for us than fo
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="700"
-    height="400"
-    src="https://losslandscape.com/explorer"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
+        <iframe
+            width="700"
+            height="400"
+            src="https://losslandscape.com/explorer"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
 </div>
 <p>What this shows nicely is one aspect we briefly discussed during the <code class="docutils literal notranslate"><span class="pre">introduction</span></code>: <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s are complex <code class="docutils literal notranslate"><span class="pre">models</span></code> and result in <code class="docutils literal notranslate"><span class="pre">non-convex</span> <span class="pre">loss</span> <span class="pre">functions</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">gradients</span></code> with a <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">minimum/maximum</span></code> and various <code class="docutils literal notranslate"><span class="pre">local</span></code> ones.</p>
 <img align="center" src="https://blog.paperspace.com/content/images/size/w1050/2018/05/convex_cost_function.jpg" alt="logo" title="Github" width="600" height="400" />
@@ -1451,10 +1298,10 @@ The same thing, that is the picture of the cat, is very different for us than fo
 <img align="center" src="https://c.tenor.com/87__ss7n4fsAAAAC/stop-cut-it-off.gif" alt="logo" title="Github" width="300" height="300" />
 <p><sub><sup><sub><sup><sup><a class="reference external" href="https://c.tenor.com/87__ss7n4fsAAAAC/stop-cut-it-off.gif">https://c.tenor.com/87__ss7n4fsAAAAC/stop-cut-it-off.gif</a>
 </sup></sup></sub></sup></sub></p>
-</div>
-</div>
-<div class="section" id="ann-architectures">
-<h3>ANN architectures<a class="headerlink" href="#ann-architectures" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="ann-architectures">
+<h3>ANN architectures<a class="headerlink" href="#ann-architectures" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>now that we’ve gone through the underlying basics and important building blocks of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s, we will check out a few of the most commonly used architectures</p></li>
 <li><p>in general we can <a class="reference external" href="https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks">group <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s based on their <code class="docutils literal notranslate"><span class="pre">architecture</span></code></a>, that is how their building blocks are defined and integrated</p></li>
@@ -1493,9 +1340,9 @@ The same thing, that is the picture of the cat, is very different for us than fo
 <ul class="simple">
 <li><p>after that, we will of course also add respective slides to this section!</p></li>
 </ul>
-</div>
-<div class="section" id="the-moral-of-the-story">
-<h3>The moral of the story<a class="headerlink" href="#the-moral-of-the-story" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-moral-of-the-story">
+<h3>The moral of the story<a class="headerlink" href="#the-moral-of-the-story" title="Link to this heading">#</a></h3>
 <p>We heard, saw and learned that <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> can be and already is <em>very</em> powerful but …</p>
 <img align="center" src="https://i.imgflip.com/1gn0wt.jpg" alt="logo" title="Github" width="600" height="300" />
 <p><sub><sup><sub><sup><sup><a class="reference external" href="https://i.imgflip.com/1gn0wt.jpg">https://i.imgflip.com/1gn0wt.jpg</a>
@@ -1536,9 +1383,9 @@ The same thing, that is the picture of the cat, is very different for us than fo
 Research affiliate - <a class="reference external" href="https://neurodatascience.github.io/">NeuroDataScience lab</a> at <a class="reference external" href="https://www.mcgill.ca/neuro/">MNI</a>/<a class="reference external" href="https://www.mcgill.ca/">McGill</a> (&amp; <a class="reference external" href="https://sites.google.com/view/unique-neuro-ai">UNIQUE</a>) &amp; <a class="reference external" href="https://sensein.group/">Senseable Intelligence Group</a> at <a class="reference external" href="https://mcgovern.mit.edu/">McGovern Institute for Brain Research</a>/<a class="reference external" href="https://www.mit.edu/">MIT</a><br />
 Member - <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/">BIDS</a>, <a class="reference external" href="https://www.repronim.org/">ReproNim</a>, <a class="reference external" href="https://brainhack.org/">Brainhack</a>, <a class="reference external" href="https://www.cneuromod.ca/">Neuromod</a>, <a class="reference external" href="https://ohbm-environment.org/">OHBM SEA-SIG</a></p>
 <p><img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/Twitter%20social%20icons%20-%20circle%20-%20blue.png" alt="logo" title="Twitter" width="32" height="20" /> <img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/GitHub-Mark-120px-plus.png" alt="logo" title="Github" width="30" height="20" />     &#64;peerherholz</p>
-<img align="right" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ml-dl_workshop.png" alt="logo" title="Github" width="400" height="280" /></div>
-</div>
-</div>
+<img align="right" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/ml-dl_workshop.png" alt="logo" title="Github" width="400" height="280" /></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1552,7 +1399,7 @@ Member - <a class="reference external" href="https://bids-specification.readthed
             mode: "ex"
         },
         kernelOptions: {
-            kernelName: "ex",
+            name: "ex",
             path: "./content/artificial_intelligence"
         },
         predefinedOutput: true
@@ -1560,44 +1407,125 @@ Member - <a class="reference external" href="https://bids-specification.readthed
     </script>
     <script>kernelName = 'ex'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="ML_eval_cv.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Model evaluation &amp; cross-validation</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ML_eval_cv.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Model evaluation &amp; cross-validation</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../../advanced/python_numpy.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../../advanced/python_numpy.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction to NumPy</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aim-s-of-this-section">Aim(s) of this section 🎯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-for-this-section">Outline for this section 📝</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-recap-first-overview">A brief recap &amp; first overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-basics-reasoning">Deep learning - basics &amp; reasoning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-problems">Learning problems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-of-variance-how-representations-can-help">The problem of variance &amp; how representations can help</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-biological-to-artificial-neural-neurons-and-networks">From biological to artificial neural neurons and networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-function-approximation-theorem">Universal function approximation theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-anns">Components of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#building-blocks-of-anns">Building blocks of <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-in-anns">Learning in <code class="docutils literal notranslate"><span class="pre">ANN</span></code>s</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-linear-regression">An example: linear regression</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ann-architectures">ANN architectures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-moral-of-the-story">The moral of the story</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,683 +1,532 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Course Overview &amp; Procedure &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction - Digital literacy" href="introduction/digital_literacy.html" />
     <link rel="prev" title="Welcome!" href="index.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="content/media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/data_management.html">
-   Data Management
-  </a>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="content/coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="content/intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="content/media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="content/communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="content/digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="content/ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="content/artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="content/artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="content/intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/science_communication.html">Science communication: Publication and Beyond</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="content/ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
 
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/overview.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Source interaction buttons -->
+<div class="article-header-buttons">
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Foverview.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/overview.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-structure">
-   Course Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-reach-the-content-creators">
-     How to reach the content creators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gimme-the-details">
-     Gimme the details
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#when-and-where">
-       When and where
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#can-i-use-my-calculator">
-       Can I use my calculator?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">
-       How do I get all the software, and do I have to apply for a loan to get it?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#where-is-everything">
-       Where is everything?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#syllabus-and-text">
-       Syllabus and Text
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-do-i-get-those-credits">
-       How do I get those credits?
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#exams-and-assignments">
-         Exams and Assignments
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#code-of-conduct">
-     Code of Conduct
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-get-your-question-s-answered-and-or-provide-feedback">
-     How to Get Your Question(s) Answered and/or Provide Feedback
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/overview.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Foverview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/overview.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Course Overview & Procedure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-reach-the-content-creators">How to reach the content creators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gimme-the-details">Gimme the details</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#when-and-where">When and where</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-my-calculator">Can I use my calculator?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">How do I get all the software, and do I have to apply for a loan to get it?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-everything">Where is everything?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#syllabus-and-text">Syllabus and Text</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-those-credits">How do I get those credits?</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exams-and-assignments">Exams and Assignments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-your-question-s-answered-and-or-provide-feedback">How to Get Your Question(s) Answered and/or Provide Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Course Overview & Procedure</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-structure">
-   Course Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-reach-the-content-creators">
-     How to reach the content creators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gimme-the-details">
-     Gimme the details
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#when-and-where">
-       When and where
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#can-i-use-my-calculator">
-       Can I use my calculator?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">
-       How do I get all the software, and do I have to apply for a loan to get it?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#where-is-everything">
-       Where is everything?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#syllabus-and-text">
-       Syllabus and Text
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-do-i-get-those-credits">
-       How do I get those credits?
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#exams-and-assignments">
-         Exams and Assignments
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#code-of-conduct">
-     Code of Conduct
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-get-your-question-s-answered-and-or-provide-feedback">
-     How to Get Your Question(s) Answered and/or Provide Feedback
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="course-overview-procedure">
-<h1>Course Overview &amp; Procedure<a class="headerlink" href="#course-overview-procedure" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="course-overview-procedure">
+<h1>Course Overview &amp; Procedure<a class="headerlink" href="#course-overview-procedure" title="Link to this heading">#</a></h1>
 <p><strong>Within this course, we will explore what it means to be “digitally literate” and provide you with the basic skills and tools, enabling  scientific work using open source tools.</strong></p>
 <p>We actively seek out <code class="docutils literal notranslate"><span class="pre">realistic</span> <span class="pre">examples</span></code> and demonstrate what an open-source <code class="docutils literal notranslate"><span class="pre">workflow</span></code> could look like from a literature review of project conception and design.  Along the way, we will also talk about important adjacent topics such as <code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environments</span> <span class="pre">and</span> <span class="pre">programming</span> <span class="pre">skills,</span></code> <code class="docutils literal notranslate"><span class="pre">reproducibility,</span></code> and <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">science.</span></code></p>
-<p>The course is therefore divided into <code class="docutils literal notranslate"><span class="pre">several</span> <span class="pre">modules</span> <span class="pre">or</span> <span class="pre">lessons,</span></code> each covering a different aspect of digital literacy. The modules include `interactive lectures, readings, activities, and assessments (as well as guest lectures from experts in the field). The following section will illustrate the structure of the contents contained.</p>
+<p>The course is therefore divided into <code class="docutils literal notranslate"><span class="pre">several</span> <span class="pre">modules</span> <span class="pre">or</span> <span class="pre">lessons,</span></code> each covering a different aspect of digital literacy. The modules include <code class="docutils literal notranslate"><span class="pre">interactive</span></code> lectures, readings, activities, and assessments (as well as guest lectures from experts in the field). The following section will illustrate the structure of the contents contained.</p>
 <p>This page should provide all the necessary information to navigate the course website, follow along with the respective lessons, and clear up any relevant questions.</p>
 <hr class="docutils" />
-<div class="section" id="course-structure">
-<h2>Course Structure<a class="headerlink" href="#course-structure" title="Permalink to this headline">¶</a></h2>
+<section id="course-structure">
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Link to this heading">#</a></h2>
 <p>You can use the following links to navigate through the content of the course:</p>
 <ul>
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/overview.html">Overview &amp; Procedure </a></p>
 <p>What’s this course all about? How are things implemented and supposed to work?</p>
 </li>
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/introduction/digital_literacy.html">Introduction to Digital literacy</a></p>
-<p>All things gotta start somewhere, but why Digital Literacy?</p>
+<p>All things gotta start somewhere, but why digital literacy?</p>
 </li>
-<li><p><a class="reference internal" href="content/media_information_literacy.html"><span class="doc std std-doc">Information &amp; Media literacy</span></a>:</p>
+<li><p><a class="reference internal" href="content/media_information_literacy.html"><span class="std std-doc">Information &amp; Media literacy</span></a>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/project_design.html">Project Design</a></p></li>
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/lit_review.html">Find, evaluate and manage information/data, read and produce academic works using digital media</a></p></li>
@@ -713,7 +562,7 @@
 </li>
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/advanced/python_numpy.html">Advanced Content</a></p>
 <ul class="simple">
-<li><p>Tutorials based on the Python programming language centered around scientific applications, such as different data management, analysis, or visualization, In-depth tutorial for learning EEG analyses using <a class="reference external" href="https://mne.tools/stable/index.html">MNE</a></p></li>
+<li><p>Tutorials based on the Python programming language centered around scientific applications, such as different data management, analysis, or visualization, In-depth tutorial for learning EEG analyses using <a class="reference external" href="https://mne.tools/stable/index.html#">MNE</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/dei.html">Diversity, Equity, Inclusion</a></p>
@@ -724,8 +573,8 @@
 experience.</p>
 </li>
 </ul>
-<div class="section" id="how-to-reach-the-content-creators">
-<h3>How to reach the content creators<a class="headerlink" href="#how-to-reach-the-content-creators" title="Permalink to this headline">¶</a></h3>
+<section id="how-to-reach-the-content-creators">
+<h3>How to reach the content creators<a class="headerlink" href="#how-to-reach-the-content-creators" title="Link to this heading">#</a></h3>
 <p align="center"><iframe src="https://giphy.com/embed/U6GunJi6B1o7ecMfKc" width="240" height="240" frameBorder="0" vspace="0" class="giphy-embed" allowFullScreen style="overflow-y: hidden;"></iframe></p><p align="center"><a href="https://giphy.com/gifs/justviralnet-funny-mistake-spelling-U6GunJi6B1o7ecMfKc"><small>via GIPHY</small></a></p></p>
 <p>The contact information of the instructors is as follows:</p>
 <p><a class="reference external" href="https://github.com/M-earnest">Michael Ernst</a></p>
@@ -739,7 +588,7 @@ experience.</p>
 <p>He/Him. When contacting me, please refrain from using honoraries and formal language, “Michael” or “you” is fine as long as the content is respectful, fair, and constructive (I aim for the same when I reply).
 However, please let me know if you have a preferred way of interacting with other folks, including how you would like to be addressed, your pronouns, and the level of formality.</p>
 </div>
-<p><span class="xref myst">Felix Körber</span></p>
+<p><a class="reference internal" href="#x"><span class="xref myst">Felix Körber</span></a></p>
 <ul class="simple">
 <li><p>Office hours: upon request</p></li>
 <li><p>E-mail: <code class="docutils literal notranslate"><span class="pre">koerber&#64;psych.uni-frankfurt.de</span></code></p></li>
@@ -749,70 +598,70 @@ However, please let me know if you have a preferred way of interacting with othe
 <p class="admonition-title">How do we address one another?</p>
 <p>He/Him. If you want to reach out, skip the formalities and just use “Felix” or “you” as long as the content is respectful, fair, and constructive (I aim for the same when I reply). However, please let me know if you have a preferred way of interacting with other folks, including how you would like to be addressed, your pronouns, and the level of formality.</p>
 </div>
-<p>On the right-hand side of this website, overlayed over the scroll bar, you’ll find some <span class="xref myst">symbols looking like this</span> <span class="xref myst">embedd png</span>. This tool (hypothesis) allows you to annotate and highlight relevant information on this website, while clicking on the arrow will reveal the public annotation board. Feel free to use this tool to discuss, annotate, or ask questions regarding the site content there!</p>
-</div>
-<div class="section" id="gimme-the-details">
-<h3>Gimme the details<a class="headerlink" href="#gimme-the-details" title="Permalink to this headline">¶</a></h3>
+<p>On the right-hand side of this website, overlayed over the scroll bar, you’ll find some <a class="reference internal" href="#"><span class="xref myst">symbols looking like this</span></a> <a class="reference internal" href="#"><span class="xref myst">embedd png</span></a>. This tool (<a class="reference external" href="https://web.hypothes.is/">hypothes.is</a>) allows you to annotate and highlight relevant information on this website, while clicking on the arrow will reveal the public annotation board. Feel free to use this tool to discuss, annotate, or ask questions regarding the site content there!</p>
+</section>
+<section id="gimme-the-details">
+<h3>Gimme the details<a class="headerlink" href="#gimme-the-details" title="Link to this heading">#</a></h3>
 <p>Below, you will find important details regarding the course summarized in a compact form. Please consult and familiarize yourself with the information presented there prior to and/or within the first few days of the course.</p>
-<div class="section" id="when-and-where">
-<h4>When and where<a class="headerlink" href="#when-and-where" title="Permalink to this headline">¶</a></h4>
+<section id="when-and-where">
+<h4>When and where<a class="headerlink" href="#when-and-where" title="Link to this heading">#</a></h4>
 <p>This course is designed for self-study; therefore, there will be no meeting dates. Homework and coding assignments are to be treated as exercises to train the application of digital technologies in a research context. Links for downloading solutions will be provided at the end of the respective sections of the assignment.</p>
 <p>We further host a Discord server where you can get in contact, as well as ask and get your questions answered; an invitation will be provided by the content creators upon request (just simply shoot us an e-mail at the above-mentioned address).</p>
-</div>
-<div class="section" id="can-i-use-my-calculator">
-<h4>Can I use my calculator?<a class="headerlink" href="#can-i-use-my-calculator" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="can-i-use-my-calculator">
+<h4>Can I use my calculator?<a class="headerlink" href="#can-i-use-my-calculator" title="Link to this heading">#</a></h4>
 <p>Well, it depends on your calculator, but you’ll need frequent access to a computer that can run different programs, as well as programming languages such as BASH or Python. None of the exercises we will be doing will be especially computationally intensive, so you won’t necessarily need a modern or “fast” computer. Still, your machine will need to be running a standard operating system like Windows, Mac OS X, or Linux. Unfortunately, tablets running mobile operating systems (iOS, Android) probably won’t work for relevant parts of this course. <strong>If you’re a student of the Goethe-University and this is an issue for you, please get in touch with the instructor as soon as possible so that we can try to figure out a solution</strong>. Regarding software and installation thereof, please check the next section.</p>
-</div>
-<div class="section" id="how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">
-<h4>How do I get all the software, and do I have to apply for a loan to get it?<a class="headerlink" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">
+<h4>How do I get all the software, and do I have to apply for a loan to get it?<a class="headerlink" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it" title="Link to this heading">#</a></h4>
 <p>Nah, everything we’ll use is <a class="reference external" href="https://en.wikipedia.org/wiki/Open-source_software">open-source software</a> or, at minimum, free of charge and publicly available.
 Why? Teaching students via <a class="reference external" href="https://en.wikipedia.org/wiki/Proprietary_software">proprietary software</a> is just not fair and won’t help anyone: students have to obtain licenses or use those from the university (which usually doesn’t have enough for everyone), leading to tremendous problems regarding inequity now and in the future. Additionally, <a class="reference external" href="https://en.wikipedia.org/wiki/Open-source_software">open-source software</a> can do everything, if not more than <a class="reference external" href="https://en.wikipedia.org/wiki/Proprietary_software">proprietary software</a> and is furthermore usually better supported, tested, and documented, creating a fantastic sense of community.</p>
-<p>To help you get all the software required for the course, a <span class="xref myst">comprehensive installation instruction</span> was compiled. In a step-by-step manner, it guides you through the installation process, covering several <code class="docutils literal notranslate"><span class="pre">OS</span></code>: <code class="docutils literal notranslate"><span class="pre">Windows,</span></code> <code class="docutils literal notranslate"><span class="pre">MacOs,</span></code> and <code class="docutils literal notranslate"><span class="pre">Linux.</span></code> Now, the installation of the required packages probably goes beyond the scope of how most people engage with their computers daily. Therefore, errors and frustration may occur. <strong>Please do not be discouraged! If any problems occur during the installation process, please feel free to contact us ASAP, and we’ll get that sorted out</strong></p>
-</div>
-<div class="section" id="where-is-everything">
-<h4>Where is everything?<a class="headerlink" href="#where-is-everything" title="Permalink to this headline">¶</a></h4>
-<p>All course materials will be available on this very course website. Everything will be completely open and free to use, thus constituting an <a class="reference external" href="https://en.wikipedia.org/wiki/Open_educational_resources">open educational resource</a>. You are <strong>free to explore, enhance, and share</strong>. Thus, this website and all materials will also remain up ideally to the end of the internet but will possibly be subject to changes and updates. If you need to save this resource as it is at the moment you’re reading this, you can download the complete course from our GitHub repo [here]. The usage of this resource and the materials therein will be explained at the beginning and throughout the course.</p>
-</div>
-<div class="section" id="syllabus-and-text">
-<h4>Syllabus and Text<a class="headerlink" href="#syllabus-and-text" title="Permalink to this headline">¶</a></h4>
-<p>As noted above, this page serves as the syllabus for this course, with the precise outline indicated in the <span class="xref myst">respective section</span>. This syllabus may be subject to change at the content creator’s discretion.</p>
+<p>To help you get all the software required for the course, a <a class="reference internal" href="#x"><span class="xref myst">comprehensive installation instruction</span></a> was compiled. In a step-by-step manner, it guides you through the installation process, covering several <code class="docutils literal notranslate"><span class="pre">OS</span></code>: <code class="docutils literal notranslate"><span class="pre">Windows,</span></code> <code class="docutils literal notranslate"><span class="pre">MacOs,</span></code> and <code class="docutils literal notranslate"><span class="pre">Linux.</span></code> Now, the installation of the required packages probably goes beyond the scope of how most people engage with their computers daily. Therefore, errors and frustration may occur. <strong>Please do not be discouraged! If any problems occur during the installation process, please feel free to contact us ASAP, and we’ll get that sorted out.</strong></p>
+</section>
+<section id="where-is-everything">
+<h4>Where is everything?<a class="headerlink" href="#where-is-everything" title="Link to this heading">#</a></h4>
+<p>All course materials will be available on this very course website. Everything will be completely open and free to use, thus constituting an <a class="reference external" href="https://en.wikipedia.org/wiki/Open_educational_resources">open educational resource</a>. You are <strong>free to explore, enhance, and share</strong>. Thus, this website and all materials will also remain up ideally to the end of the internet but will possibly be subject to changes and updates. If you need to save this resource as it is at the moment you’re reading this, you can download the complete course from our GitHub repo <a class="reference external" href="https://github.com/DiLER-Digitell/Course-template">here</a>. The usage of this resource and the materials therein will be explained at the beginning and throughout the course.</p>
+</section>
+<section id="syllabus-and-text">
+<h4>Syllabus and Text<a class="headerlink" href="#syllabus-and-text" title="Link to this heading">#</a></h4>
+<p>As noted above, this page serves as the syllabus for this course, with the precise outline indicated in the <a class="reference internal" href="#x"><span class="xref myst">respective section</span></a>. This syllabus may be subject to change at the content creator’s discretion.</p>
 <p>Additional reading material might be added but will always be open and free, with students being informed about any addition.
-If you’d like to contribute, share ideas, or feel there are inaccuracies in the course materials, do contact us on the <span class="xref myst">courses GitHub page</span> or via e-mail.</p>
-</div>
-<div class="section" id="how-do-i-get-those-credits">
-<h4>How do I get those credits?<a class="headerlink" href="#how-do-i-get-those-credits" title="Permalink to this headline">¶</a></h4>
+If you’d like to contribute, share ideas, or feel there are inaccuracies in the course materials, do contact us on the <a class="reference internal" href="#x"><span class="xref myst">courses GitHub page</span></a> or via e-mail.</p>
+</section>
+<section id="how-do-i-get-those-credits">
+<h4>How do I get those credits?<a class="headerlink" href="#how-do-i-get-those-credits" title="Link to this heading">#</a></h4>
 <p>This course is not designed for the purpose of collecting course credits in the context of your education at the Goethe University Frankfurt. Should this ever be subject to change, this section will provide all necessary information for students.</p>
-<div class="section" id="exams-and-assignments">
-<h5>Exams and Assignments<a class="headerlink" href="#exams-and-assignments" title="Permalink to this headline">¶</a></h5>
+<section id="exams-and-assignments">
+<h5>Exams and Assignments<a class="headerlink" href="#exams-and-assignments" title="Link to this heading">#</a></h5>
 <p>None, as of yet. There will be a number of exercises accompanying most lessons, though.</p>
-</div>
-</div>
-</div>
-<div class="section" id="code-of-conduct">
-<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h3>
-<p>This course has a <code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">of</span> <span class="pre">Conduct</span></code>. Please inform yourself about the specifics by carefully reading through the <span class="xref myst">respective section</span>.</p>
+</section>
+</section>
+</section>
+<section id="code-of-conduct">
+<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h3>
+<p>This course has a <code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">of</span> <span class="pre">Conduct</span></code>. Please inform yourself about the specifics by carefully reading through the <a class="reference internal" href="#x"><span class="xref myst">respective section</span></a>.</p>
 <iframe src="https://giphy.com/embed/l5s71uAp3CzKwxwkoZ" width="240" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/theoffice-nbc-the-office-tv-l5s71uAp3CzKwxwkoZ">via GIPHY</a></p>
-</div>
-<div class="section" id="how-to-get-your-question-s-answered-and-or-provide-feedback">
-<h3>How to Get Your Question(s) Answered and/or Provide Feedback<a class="headerlink" href="#how-to-get-your-question-s-answered-and-or-provide-feedback" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="how-to-get-your-question-s-answered-and-or-provide-feedback">
+<h3>How to Get Your Question(s) Answered and/or Provide Feedback<a class="headerlink" href="#how-to-get-your-question-s-answered-and-or-provide-feedback" title="Link to this heading">#</a></h3>
 <p>It’s great that we have so many ways to communicate, but it can get tricky to figure out who to contact, where your question belongs, or when to expect a response. These guidelines are to help you get your question answered as quickly as possible and to ensure that we’re able to get to everyone’s questions.</p>
 <p>That said, to ensure that we’re respecting everyone’s time, we’ll mainly answer questions between normal working hours (M-F, 9 AM-6 PM). However, we know that may not be the case when you are doing your work. So, please feel free to post messages whenever is best for you while knowing that if you post late at night or on a weekend, you may not get a response until the next weekday. As such, do your best not to wait until the last minute to ask a question.</p>
 <p>If you have:</p>
 <p><strong>… questions about course content:</strong>
-These are awesome! We want everyone to see them and have their questions answered, so either use the <a class="reference external" href="https://web.hypothes.is/">hypothes.is</a> plugin, <code class="docutils literal notranslate"><span class="pre">e-mail</span></code> or the <span class="xref myst">GitHub repository</span>.</p>
+These are awesome! We want everyone to see them and have their questions answered, so either use the <a class="reference external" href="https://web.hypothes.is/">hypothes.is</a> plugin, <code class="docutils literal notranslate"><span class="pre">e-mail</span></code> or the <a class="reference internal" href="#x"><span class="xref myst">GitHub repository</span></a>.</p>
 <p><strong>… a technical assignment question</strong>
 shoot an e-mail and make an appointment. Answering technical questions is often best accomplished ‘in person,’ where we can discuss the question and talk through ideas. However, if that is impossible, post your question on <code class="docutils literal notranslate"><span class="pre">Discord.</span></code> Be as specific as possible in the question you ask (and include error messages when appropriate!). And, for those answering, help your classmates as much as possible without giving the answer. Help guide them, point them in a direction, and provide pseudo-code, but do not provide code that answers assignment questions.</p>
 <p><strong>…been stuck on something for a while (&gt;30min) and aren’t even really sure where to start:</strong>
 Programming can be frustrating, and it may not always be obvious what is going wrong or why something isn’t working. <strong>That’s OK - we’ve all been there!</strong> IF you are stuck, you can and should reach out for help, even if you aren’t exactly sure what your specific question is. To determine when to reach out, consider the 2-hour rule. This rule states that if you are stuck, work on that problem for an hour. Then, take a 30-minute break and do something else. When you return after your break, try another 30 minutes or so to solve your problem. If you are still completely stuck, stop and contact us (office hours, post on <code class="docutils literal notranslate"><span class="pre">discord</span></code>). If you don’t have a specific question, include the information you have (what you’re stuck on, the code you’ve been trying that hasn’t been happening, and/or the error messages you’ve been getting).</p>
 <p><strong>…something super cool to share related to class or want to talk about a topic in further depth:</strong>
 Feel free to post on Discord, contact the instructors, or come during office hours.</p>
-</div>
-<div class="section" id="references">
-<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
 <p>Shopova, T. (2014). Digital literacy of students and its improvement at the university. Journal on Efficiency and Responsibility in Education and Science, 7(2), 26-32.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -826,7 +675,7 @@ Feel free to post on Discord, contact the instructors, or come during office hou
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -834,44 +683,122 @@ Feel free to post on Discord, contact the instructors, or come during office hou
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><strong>Welcome!</strong></p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Welcome!</strong></p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="introduction/digital_literacy.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="introduction/digital_literacy.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction - Digital literacy</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-reach-the-content-creators">How to reach the content creators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gimme-the-details">Gimme the details</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#when-and-where">When and where</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-my-calculator">Can I use my calculator?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-all-the-software-and-do-i-have-to-apply-for-a-loan-to-get-it">How do I get all the software, and do I have to apply for a loan to get it?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-everything">Where is everything?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#syllabus-and-text">Syllabus and Text</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-those-credits">How do I get those credits?</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#exams-and-assignments">Exams and Assignments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-your-question-s-answered-and-or-provide-feedback">How to Get Your Question(s) Answered and/or Provide Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

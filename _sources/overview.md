@@ -4,7 +4,7 @@
 
 We actively seek out `realistic examples` and demonstrate what an open-source `workflow` could look like from a literature review of project conception and design.  Along the way, we will also talk about important adjacent topics such as `computing environments and programming skills,` `reproducibility,` and `open science.`
 
-The course is therefore divided into `several modules or lessons,` each covering a different aspect of digital literacy. The modules include `interactive lectures, readings, activities, and assessments (as well as guest lectures from experts in the field). The following section will illustrate the structure of the contents contained.
+The course is therefore divided into `several modules or lessons,` each covering a different aspect of digital literacy. The modules include `interactive` lectures, readings, activities, and assessments (as well as guest lectures from experts in the field). The following section will illustrate the structure of the contents contained.
 
 
 This page should provide all the necessary information to navigate the course website, follow along with the respective lessons, and clear up any relevant questions.
@@ -24,7 +24,7 @@ You can use the following links to navigate through the content of the course:
 
 * [Introduction to Digital literacy](https://diler-digitell.github.io/DiLER_digital_literacy_course/introduction/digital_literacy.html)
 
-   All things gotta start somewhere, but why Digital Literacy?
+   All things gotta start somewhere, but why digital literacy?
    
 
 * [Information & Media literacy](./content/media_information_literacy.ipynb): 
@@ -98,7 +98,7 @@ However, please let me know if you have a preferred way of interacting with othe
 He/Him. If you want to reach out, skip the formalities and just use “Felix” or “you” as long as the content is respectful, fair, and constructive (I aim for the same when I reply). However, please let me know if you have a preferred way of interacting with other folks, including how you would like to be addressed, your pronouns, and the level of formality.
 ```
 
-On the right-hand side of this website, overlayed over the scroll bar, you'll find some [symbols looking like this]() [embedd png](). This tool (hypothesis) allows you to annotate and highlight relevant information on this website, while clicking on the arrow will reveal the public annotation board. Feel free to use this tool to discuss, annotate, or ask questions regarding the site content there!
+On the right-hand side of this website, overlayed over the scroll bar, you'll find some [symbols looking like this]() [embedd png](). This tool ([hypothes.is](https://web.hypothes.is/)) allows you to annotate and highlight relevant information on this website, while clicking on the arrow will reveal the public annotation board. Feel free to use this tool to discuss, annotate, or ask questions regarding the site content there!
 
 
 
@@ -127,12 +127,12 @@ Well, it depends on your calculator, but you'll need frequent access to a comput
 Nah, everything we'll use is [open-source software](https://en.wikipedia.org/wiki/Open-source_software) or, at minimum, free of charge and publicly available. 
 Why? Teaching students via [proprietary software](https://en.wikipedia.org/wiki/Proprietary_software) is just not fair and won't help anyone: students have to obtain licenses or use those from the university (which usually doesn't have enough for everyone), leading to tremendous problems regarding inequity now and in the future. Additionally, [open-source software](https://en.wikipedia.org/wiki/Open-source_software) can do everything, if not more than [proprietary software](https://en.wikipedia.org/wiki/Proprietary_software) and is furthermore usually better supported, tested, and documented, creating a fantastic sense of community. 
 
-To help you get all the software required for the course, a [comprehensive installation instruction](x) was compiled. In a step-by-step manner, it guides you through the installation process, covering several `OS`: `Windows,` `MacOs,` and `Linux.` Now, the installation of the required packages probably goes beyond the scope of how most people engage with their computers daily. Therefore, errors and frustration may occur. **Please do not be discouraged! If any problems occur during the installation process, please feel free to contact us ASAP, and we'll get that sorted out**
+To help you get all the software required for the course, a [comprehensive installation instruction](x) was compiled. In a step-by-step manner, it guides you through the installation process, covering several `OS`: `Windows,` `MacOs,` and `Linux.` Now, the installation of the required packages probably goes beyond the scope of how most people engage with their computers daily. Therefore, errors and frustration may occur. **Please do not be discouraged! If any problems occur during the installation process, please feel free to contact us ASAP, and we'll get that sorted out.**
 
 
 #### Where is everything?
 
-All course materials will be available on this very course website. Everything will be completely open and free to use, thus constituting an [open educational resource](https://en.wikipedia.org/wiki/Open_educational_resources). You are **free to explore, enhance, and share**. Thus, this website and all materials will also remain up ideally to the end of the internet but will possibly be subject to changes and updates. If you need to save this resource as it is at the moment you're reading this, you can download the complete course from our GitHub repo [here]. The usage of this resource and the materials therein will be explained at the beginning and throughout the course.  
+All course materials will be available on this very course website. Everything will be completely open and free to use, thus constituting an [open educational resource](https://en.wikipedia.org/wiki/Open_educational_resources). You are **free to explore, enhance, and share**. Thus, this website and all materials will also remain up ideally to the end of the internet but will possibly be subject to changes and updates. If you need to save this resource as it is at the moment you're reading this, you can download the complete course from our GitHub repo [here](https://github.com/DiLER-Digitell/Course-template). The usage of this resource and the materials therein will be explained at the beginning and throughout the course.  
 
 
 #### Syllabus and Text

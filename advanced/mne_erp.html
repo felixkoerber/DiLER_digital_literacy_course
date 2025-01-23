@@ -1,673 +1,598 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Evoked potentials/ERPs with MNE &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/mne_erp';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/data_management.html">
-   Data Management
-  </a>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../content/media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/science_communication.html">Science communication: Publication and Beyond</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/advanced/mne_erp.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fadvanced/mne_erp.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/advanced/mne_erp.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/advanced/mne_erp.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/advanced/mne_erp.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/advanced/mne_erp.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/advanced/mne_erp.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/advanced/mne_erp.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fadvanced/mne_erp.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/advanced/mne_erp.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Evoked potentials/ERPs with MNE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preprocessing-and-epoching">
-   1. Preprocessing and epoching
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-the-signal-average">
-   2. Calculate the signal average
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-regions-of-interest-roi">
-   3. Define regions of interest (ROI)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-a-href-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-title-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-compare-evokeds-a-function">
-     We can further compare the average activity of channels for differnent conditions via the
-     <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">
-      compare_evokeds()
-     </a>
-     function.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#virtual-roi-channel">
-     Virtual ROI channel
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grand-averages">
-     Grand averages
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#save-export-data">
-     Save/Export data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">
-   If you’re interested in more complex ways to analyse EEG data you can check-out the following:
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-and-epoching">1. Preprocessing and epoching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-signal-average">2. Calculate the signal average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-regions-of-interest-roi">3. Define regions of interest (ROI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-compare-evokeds-function">We can further compare the average activity of channels for differnent conditions via the <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">compare_evokeds()</a> function.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-roi-channel">Virtual ROI channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-averages">Grand averages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-export-data">Save/Export data</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">If you’re interested in more complex ways to analyse EEG data you can check-out the following:</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Evoked potentials/ERPs with MNE</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preprocessing-and-epoching">
-   1. Preprocessing and epoching
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-the-signal-average">
-   2. Calculate the signal average
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-regions-of-interest-roi">
-   3. Define regions of interest (ROI)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-a-href-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-title-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-compare-evokeds-a-function">
-     We can further compare the average activity of channels for differnent conditions via the
-     <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">
-      compare_evokeds()
-     </a>
-     function.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#virtual-roi-channel">
-     Virtual ROI channel
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grand-averages">
-     Grand averages
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#save-export-data">
-     Save/Export data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">
-   If you’re interested in more complex ways to analyse EEG data you can check-out the following:
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="evoked-potentials-erps-with-mne">
-<h1>Evoked potentials/ERPs with MNE<a class="headerlink" href="#evoked-potentials-erps-with-mne" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="evoked-potentials-erps-with-mne">
+<h1>Evoked potentials/ERPs with MNE<a class="headerlink" href="#evoked-potentials-erps-with-mne" title="Link to this heading">#</a></h1>
 <br/>
 Arguably one of the easiest and most common ways to analyse EEG data is to look at evoked/event-related potentials. ERPs are observed for most sensory or cognitive processes. They further may be significantly altered for people suffering from psychological disorders <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3016705/" title="ncbi: Event-related potential: An overview">(Sur & Sinha1, 2009)</a>. For an overview of different ERPs see e.g. <a href="https://www.neuroelectrics.com/blog/2014/12/18/14-event-related-potentials-erp-components-and-modalities/" title="https://www.neuroelectrics.com/blog/2014/12/18/14-event-related-potentials-erp-components-and-modalities/">Event Related Potentials (ERP) – Components and Modalities</a>. You can also follow the <a href="https://mne.tools/stable/auto_tutorials/evoked/30_eeg_erp.html" title="https://mne.tools/stable/auto_tutorials/evoked/30_eeg_erp.html">MNE tutorial: EEG processing and Event Related Potentials (ERPs)</a> and the <a href="https://mne.tools/stable/auto_tutorials/evoked/10_evoked_overview.html" title="https://mne.tools/stable/auto_tutorials/evoked/10_evoked_overview.html">MNE tutorial on the Evoked data structure</a>, which we'll use to store and manipulate our averaged EEG data.
 <p><strong>As the sample dataset provided by MNE involves the presentation of visual and auditory stimuli, we should be able to observe evoked potentials related to early sensory processing when we look at the average activity in our previously build epochs</strong>. These sensory processess should further be constrained to specific regions in the brain by their modality, therefore we should be able to distinguish between e.g. visual and auditory information processing based on defined regions of interest.</p>
 <br/>
 <p><strong>To calculate Evoked potentials/ERPs we first have to</strong></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>clean and subsequently separate the EEG data into epochs</p></li>
 <li><p>calculate the signal average over epochs based on their condition for each channel</p></li>
 <li><p>define our regions of interest (roi) (i.e. retain only data from electrodes of interest)</p></li>
 </ol>
 <p>Although steps 2. and 3. can be used interchangably, as it’s more efficient to select only a subset of your channels based on the defined regions of interest to average over. To get a better overview of the overall channel activity we’ll look at the averaged acitivity for all channels in this chapter.</p>
 <p>Afterwards we could use common statistical tools (such as ANOVAs or t-tests) to compare evoked potentials/ERPs based on condition, peak amplitude between conditions etc.</p>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>As in the previous chapter we’ll first import our necessary libraries and the <a href="https://mne.tools/stable/overview/datasets_index.html" title="https://mne.tools/stable/overview/datasets_index.html">sample dataset</a> provided by MNE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries/functions</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 
 <span class="c1"># this allows for interactive pop-up plots</span>
 <span class="c1">#%matplotlib qt</span>
@@ -676,15 +601,15 @@ Arguably one of the easiest and most common ways to analyse EEG data is to look 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># import mne library</span>
-<span class="kn">import</span> <span class="nn">mne</span>
-<span class="kn">from</span> <span class="nn">mne_bids</span> <span class="kn">import</span> <span class="n">BIDSPath</span><span class="p">,</span> <span class="n">write_raw_bids</span><span class="p">,</span> <span class="n">print_dir_tree</span><span class="p">,</span> <span class="n">make_report</span><span class="p">,</span> <span class="n">read_raw_bids</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne_bids</span><span class="w"> </span><span class="kn">import</span> <span class="n">BIDSPath</span><span class="p">,</span> <span class="n">write_raw_bids</span><span class="p">,</span> <span class="n">print_dir_tree</span><span class="p">,</span> <span class="n">make_report</span><span class="p">,</span> <span class="n">read_raw_bids</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="preprocessing-and-epoching">
-<h2>1. Preprocessing and epoching<a class="headerlink" href="#preprocessing-and-epoching" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="preprocessing-and-epoching">
+<h2>1. Preprocessing and epoching<a class="headerlink" href="#preprocessing-and-epoching" title="Link to this heading">#</a></h2>
 <br/>
 <p>As we’ve already preprocessed the sample-dataset and separated the continous raw data into epochs based on stimuli modality in the previous step we’ll simply import the prepared Epochs object using the <a href="https://mne.tools/stable/generated/mne.read_epochs.html" title="https://mne.tools/stable/generated/mne.read_epochs.html">mne.read_epochs()</a> function.</p>
 <div class="cell docutils container">
@@ -728,26 +653,26 @@ Looking at the output of our .info object reveals that we've previosuly applied 
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -764,35 +689,40 @@ Looking at the output of our .info object reveals that we've previosuly applied 
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
+    
+    
 </table></div></div>
 </div>
 <br/>
 <p>The <strong>epochs.events</strong> object contains the respective <strong>starting sample of events and their numerical identifier</strong></p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span><span class="o">.</span><span class="n">events</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 27977,      0,      2],
        [ 28345,      0,      3],
@@ -1061,6 +991,7 @@ Looking at the output of our .info object reveals that we've previosuly applied 
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <br/>
 <p>So we can plot our epochs with the corresponding events marked again using the <strong>.plot()</strong> function</p>
@@ -1076,7 +1007,7 @@ Using matplotlib as 2D backend.
 Opening epochs-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_14_1.png" src="../_images/mne_erp_14_1.png" />
+<img alt="../_images/1f2e274afb45f450b18333d7478e847e770884fb18c76e853fd5db4b26101b7b.png" src="../_images/1f2e274afb45f450b18333d7478e847e770884fb18c76e853fd5db4b26101b7b.png" />
 </div>
 </div>
 <br/>
@@ -1107,13 +1038,13 @@ function<div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_18_0.png" src="../_images/mne_erp_18_0.png" />
+<img alt="../_images/2d1f3811b8d560dfe9d48b43808a4232af2cbcc6dfa43b2d1c6cd20ac5642602.png" src="../_images/2d1f3811b8d560dfe9d48b43808a4232af2cbcc6dfa43b2d1c6cd20ac5642602.png" />
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="calculate-the-signal-average">
-<h2>2. Calculate the signal average<a class="headerlink" href="#calculate-the-signal-average" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calculate-the-signal-average">
+<h2>2. Calculate the signal average<a class="headerlink" href="#calculate-the-signal-average" title="Link to this heading">#</a></h2>
 <p>To construct our evoked objects we’ll use the epochs<a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs.average" title="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs.average">.average()</a> function. We can further <strong>specify which channels we want to include (can also be a single channel or a subset of channels), how to calculate the average (aritmethic mean or median) and, using the by_event_type parameter, if we want to average over all events or if the function should return a list of evoked objects for each event_id</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1171,7 +1102,7 @@ and we can plot the average activity per channel for the specific evoked object 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_25_0.png" src="../_images/mne_erp_25_0.png" />
+<img alt="../_images/8c70911793e8194fd6915ffce9f23c570198858d2c0cc4df42b815eddd86a24a.png" src="../_images/8c70911793e8194fd6915ffce9f23c570198858d2c0cc4df42b815eddd86a24a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1181,7 +1112,7 @@ and we can plot the average activity per channel for the specific evoked object 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_26_0.png" src="../_images/mne_erp_26_0.png" />
+<img alt="../_images/b9e1cf67bded28dfe1080d5c0aed86f2d1d8d4d7faf2e6e4a316fd7bb3059f81.png" src="../_images/b9e1cf67bded28dfe1080d5c0aed86f2d1d8d4d7faf2e6e4a316fd7bb3059f81.png" />
 </div>
 </div>
 <br/>
@@ -1238,7 +1169,7 @@ This way we can also select evoked objects based on subsets of events, such as e
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_34_0.png" src="../_images/mne_erp_34_0.png" />
+<img alt="../_images/05f9f650f5027f096954ae4fbf433423befa6621dd73d03809c9d582af73fb5f.png" src="../_images/05f9f650f5027f096954ae4fbf433423befa6621dd73d03809c9d582af73fb5f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1248,7 +1179,7 @@ This way we can also select evoked objects based on subsets of events, such as e
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_35_0.png" src="../_images/mne_erp_35_0.png" />
+<img alt="../_images/e81920e21867eaf25a86bae24585bb0981bd9882c6ca00f4e9a366f13558790a.png" src="../_images/e81920e21867eaf25a86bae24585bb0981bd9882c6ca00f4e9a366f13558790a.png" />
 </div>
 </div>
 <br/>
@@ -1267,7 +1198,7 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_38_0.png" src="../_images/mne_erp_38_0.png" />
+<img alt="../_images/d3738d9d12c905efd5402a2a99f307ef06f7607da25f743ebfb575183f2e43ac.png" src="../_images/d3738d9d12c905efd5402a2a99f307ef06f7607da25f743ebfb575183f2e43ac.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1277,7 +1208,7 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_39_0.png" src="../_images/mne_erp_39_0.png" />
+<img alt="../_images/923bd89baab21b5153817245b415553fa8cd0a5dd645a19ddf02c3ca22fb8de9.png" src="../_images/923bd89baab21b5153817245b415553fa8cd0a5dd645a19ddf02c3ca22fb8de9.png" />
 </div>
 </div>
 <br/>
@@ -1293,7 +1224,7 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_41_0.png" src="../_images/mne_erp_41_0.png" />
+<img alt="../_images/94761e61cf3f54cfa6e4972b70e7128cf4d1559834107b31ad7afb3651f98ace.png" src="../_images/94761e61cf3f54cfa6e4972b70e7128cf4d1559834107b31ad7afb3651f98ace.png" />
 </div>
 </div>
 <br/>
@@ -1308,7 +1239,7 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_43_1.png" src="../_images/mne_erp_43_1.png" />
+<img alt="../_images/1a2765491ab8e4f0bd134b2179c4f370a547faf0a2213b90ed9f5b923ad56fe9.png" src="../_images/1a2765491ab8e4f0bd134b2179c4f370a547faf0a2213b90ed9f5b923ad56fe9.png" />
 </div>
 </div>
 <br/>
@@ -1322,14 +1253,14 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_45_0.png" src="../_images/mne_erp_45_0.png" />
+<img alt="../_images/bd9aeb25e16eb95301e74ec1aaf9c121af21dfb484b41bc8cf110ebb1b36f98f.png" src="../_images/bd9aeb25e16eb95301e74ec1aaf9c121af21dfb484b41bc8cf110ebb1b36f98f.png" />
 </div>
 </div>
-</div>
-<div class="section" id="define-regions-of-interest-roi">
-<h2>3. Define regions of interest (ROI)<a class="headerlink" href="#define-regions-of-interest-roi" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-a-href-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-title-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-compare-evokeds-a-function">
-<h3>We can further compare the average activity of channels for differnent conditions via the <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">compare_evokeds()</a> function.<a class="headerlink" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-a-href-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-title-https-mne-tools-stable-generated-mne-viz-plot-compare-evokeds-html-compare-evokeds-a-function" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="define-regions-of-interest-roi">
+<h2>3. Define regions of interest (ROI)<a class="headerlink" href="#define-regions-of-interest-roi" title="Link to this heading">#</a></h2>
+<section id="we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-compare-evokeds-function">
+<h3>We can further compare the average activity of channels for differnent conditions via the <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">compare_evokeds()</a> function.<a class="headerlink" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-compare-evokeds-function" title="Link to this heading">#</a></h3>
 <p>If a channel or a subset of channels is provided via the <strong>“picks” parameter</strong> the average activity in the specified channels for the specified evoked objects will be plotted. If no channels were specified the global field power (gfp) will be displayed (which is the the spatial variability of the signal across all channels, calculated by taking the standard deviation of each channel value for each time point. I.e a measure of elecromagnetic non-uniformity). The <strong>conditions to compare are specified as a dictionary with a label assigned to the evoked object of the form “dict(audio=aud_ev,visual=vis_ev)”</strong>. Using this we can specifiy which regions or subsets of channels we wish to visualize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1345,7 +1276,7 @@ or evoked objects for stimuli presented on the right vs stimuli presented on the
 combining channels using &quot;gfp&quot;
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_48_1.png" src="../_images/mne_erp_48_1.png" />
+<img alt="../_images/e0e800952bbfefb79629fa1dcd1e9b2714fc6f87f0066046f1ddf27780e0839f.png" src="../_images/e0e800952bbfefb79629fa1dcd1e9b2714fc6f87f0066046f1ddf27780e0839f.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 1 Axes&gt;]
 </pre></div>
 </div>
@@ -1363,7 +1294,7 @@ Let's compare some different ERPs across different modalities and channel locati
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_50_0.png" src="../_images/mne_erp_50_0.png" />
+<img alt="../_images/690e8289335178cc091f65843e80ea6e345139f9c20b2912c140e81cbf8b4343.png" src="../_images/690e8289335178cc091f65843e80ea6e345139f9c20b2912c140e81cbf8b4343.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 2 Axes&gt;]
 </pre></div>
 </div>
@@ -1380,7 +1311,7 @@ Let's compare some different ERPs across different modalities and channel locati
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_51_0.png" src="../_images/mne_erp_51_0.png" />
+<img alt="../_images/a7ef3db4781f34e984f867381e4d0d18f74a204d73c1d04f8bae689c63454530.png" src="../_images/a7ef3db4781f34e984f867381e4d0d18f74a204d73c1d04f8bae689c63454530.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 2 Axes&gt;]
 </pre></div>
 </div>
@@ -1397,7 +1328,7 @@ Let's compare some different ERPs across different modalities and channel locati
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_52_0.png" src="../_images/mne_erp_52_0.png" />
+<img alt="../_images/530a77ecf7aea5e86cee62386564fd6a7c5b8062f293931328d17843e786480b.png" src="../_images/530a77ecf7aea5e86cee62386564fd6a7c5b8062f293931328d17843e786480b.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 2 Axes&gt;]
 </pre></div>
 </div>
@@ -1447,7 +1378,7 @@ combining channels using &quot;mean&quot;
 combining channels using &quot;mean&quot;
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_57_1.png" src="../_images/mne_erp_57_1.png" />
+<img alt="../_images/ca8e5c5762eca691835efda30666111f69edc0860ed77c9415a51cfb79414951.png" src="../_images/ca8e5c5762eca691835efda30666111f69edc0860ed77c9415a51cfb79414951.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 1 Axes&gt;]
 </pre></div>
 </div>
@@ -1476,7 +1407,7 @@ combining channels using &quot;mean&quot;
 combining channels using &quot;mean&quot;
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_61_1.png" src="../_images/mne_erp_61_1.png" />
+<img alt="../_images/35e9add6d523c6f671acd7aadda85f4333b51e8472e2b94f75506476c808dde3.png" src="../_images/35e9add6d523c6f671acd7aadda85f4333b51e8472e2b94f75506476c808dde3.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Figure size 576x432 with 1 Axes&gt;]
 </pre></div>
 </div>
@@ -1497,7 +1428,7 @@ combining channels using &quot;mean&quot;
 combining channels using &quot;mean&quot;
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_63_1.png" src="../_images/mne_erp_63_1.png" />
+<img alt="../_images/758840ccf3529d81c428a6facbc96ba1be1d113859be429f0d0c218144842b0a.png" src="../_images/758840ccf3529d81c428a6facbc96ba1be1d113859be429f0d0c218144842b0a.png" />
 </div>
 </div>
 <br/>
@@ -1515,12 +1446,12 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_65_0.png" src="../_images/mne_erp_65_0.png" />
+<img alt="../_images/fa599a8850e10152a654666d73cad6720318df7bba02b945a986b3b6a829e9ad.png" src="../_images/fa599a8850e10152a654666d73cad6720318df7bba02b945a986b3b6a829e9ad.png" />
 </div>
 </div>
-</div>
-<div class="section" id="virtual-roi-channel">
-<h3>Virtual ROI channel<a class="headerlink" href="#virtual-roi-channel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="virtual-roi-channel">
+<h3>Virtual ROI channel<a class="headerlink" href="#virtual-roi-channel" title="Link to this heading">#</a></h3>
 <p>If we want to want to <strong>build a single “ROI-channel” for an evoked object</strong> we can use the <a href="https://mne.tools/stable/generated/mne.channels.combine_channels.html#mne.channels.combine_channels" title="https://mne.tools/stable/generated/mne.channels.combine_channels.html#mne.channels.combine_channels">mne.channels.combine_channels()</a> function, which combines a number of channels into one virtual channel. If we further specify a number of evoked objects to pass to the function a separate virtual channel will be build for each evoked object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1562,7 +1493,7 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_erp_70_0.png" src="../_images/mne_erp_70_0.png" />
+<img alt="../_images/14dc4de2b08a2a0c9277c1ef48bcb742642e1a0eea58d9267640eb7ec416ad18.png" src="../_images/14dc4de2b08a2a0c9277c1ef48bcb742642e1a0eea58d9267640eb7ec416ad18.png" />
 </div>
 </div>
 <br/>
@@ -1579,7 +1510,7 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_72_1.png" src="../_images/mne_erp_72_1.png" />
+<img alt="../_images/9cae4554a7dd583f67b1c35aa4fb4ce5db2b5bb4916ddde3d2681f6e27deeee2.png" src="../_images/9cae4554a7dd583f67b1c35aa4fb4ce5db2b5bb4916ddde3d2681f6e27deeee2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1594,7 +1525,7 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_73_1.png" src="../_images/mne_erp_73_1.png" />
+<img alt="../_images/1208c1defb3751bae37c7b799810f84ab11f47ac30ac8683ec4b276bd6a0bd31.png" src="../_images/1208c1defb3751bae37c7b799810f84ab11f47ac30ac8683ec4b276bd6a0bd31.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1609,7 +1540,7 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_74_1.png" src="../_images/mne_erp_74_1.png" />
+<img alt="../_images/fa3ecbf4b269dbefd99f7d1db3b824ad70c653f87a5b652c3eb69c89eaae2fc4.png" src="../_images/fa3ecbf4b269dbefd99f7d1db3b824ad70c653f87a5b652c3eb69c89eaae2fc4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1624,19 +1555,19 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_erp_75_1.png" src="../_images/mne_erp_75_1.png" />
+<img alt="../_images/fee6da6f27b98078f05935dba3a2b1037e2ce6fd7d86eea69064f0e08443d217.png" src="../_images/fee6da6f27b98078f05935dba3a2b1037e2ce6fd7d86eea69064f0e08443d217.png" />
 </div>
 </div>
 <br/>
 <p>For more input on how to visualize evoked data head to the <a href="https://mne.tools/stable/auto_tutorials/evoked/20_visualize_evoked.html" title="https://mne.tools/stable/auto_tutorials/evoked/20_visualize_evoked.html">MNE tutorial: Visualizing Evoked data</a>. You can also check out the blog-post <a href="https://davidmathlogic.com/colorblind/#%23005AB5-%23DC3220" title="https://davidmathlogic.com/colorblind/#%23005AB5-%23DC3220">Coloring for Colorblindness</a> on how non-inclusive choices may affect your plots and which contrasting color pairs may be more fitting.</p>
 <p>If you’re interested in how to plot statistical significance threshholds over your ERP plot you can follow this <a href="https://mne.tools/stable/auto_tutorials/stats-sensor-space/20_erp_stats.html" title="https://mne.tools/stable/auto_tutorials/stats-sensor-space/20_erp_stats.html">MNE tutorial: Visualising statistical significance thresholds on EEG data</a></p>
-</div>
-<div class="section" id="grand-averages">
-<h3>Grand averages<a class="headerlink" href="#grand-averages" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="grand-averages">
+<h3>Grand averages<a class="headerlink" href="#grand-averages" title="Link to this heading">#</a></h3>
 <p>For group level analysis we could further compute so called grand averages, i.e. averaging the signal of all subjects for a certain condition. As this would make no sense for the present single subject data, see “Grand averages” in the <a href="https://mne.tools/stable/auto_tutorials/evoked/30_eeg_erp.html" title="MNE tutorial: EEG processing and Event Related Potentials">MNE tutorial: EEG processing and Event Related Potentials</a> for more info.</p>
-</div>
-<div class="section" id="save-export-data">
-<h3>Save/Export data<a class="headerlink" href="#save-export-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="save-export-data">
+<h3>Save/Export data<a class="headerlink" href="#save-export-data" title="Link to this heading">#</a></h3>
 <p>Let’s first get our paths in order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1660,12 +1591,17 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 <br/>
 <p>And to save or export evoked data we proceed in the same manner as in the previous chapters. We can either write the evoked data to a pandas DataFrame and export the DataFrame as a .tsv file</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">aud_ev</span><span class="o">.</span><span class="n">to_data_frame</span><span class="p">()</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1977,6 +1913,7 @@ Again, consulte the <a href="https://mne.tools/stable/generated/mne.viz.plot_com
 </table>
 <p>601 rows × 60 columns</p>
 </div></div></div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2023,18 +1960,18 @@ To save our previously created figures we can use the <a href="https://matplotli
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">
-<h2>If you’re interested in more complex ways to analyse EEG data you can check-out the following:<a class="headerlink" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">
+<h2>If you’re interested in more complex ways to analyse EEG data you can check-out the following:<a class="headerlink" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following" title="Link to this heading">#</a></h2>
 <p><a href="https://mne.tools/stable/auto_examples/time_frequency/index.html" title="https://mne.tools/stable/auto_examples/time_frequency/index.html">MNE tutorial overview: Time-Frequency analysis</a></p>
 <p><a href="https://mne.tools/stable/auto_examples/decoding/index.html" title="https://mne.tools/stable/auto_examples/decoding/index.html">MNE tutorial overview: Machine Learning (Decoding, Encoding, and MVPA)</a></p>
 <p><a href="https://mne.tools/mne-connectivity/stable/auto_examples/index.html#sphx-glr-auto-examples" title="https://mne.tools/mne-connectivity/stable/auto_examples/index.html#sphx-glr-auto-examples">MNE_connectivity tutorial overview:  Connectivity analysis in Sensor and Source space</a></p>
 <hr class="docutils" />
 <p><a class="reference external" href="https://github.com/M-earnest">Michael Ernst</a><br />
 Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fiebach Lab</a>, <a class="reference external" href="https://www.psychologie.uni-frankfurt.de/49868684/Abteilungen">Neurocognitive Psychology</a> at <a class="reference external" href="https://www.goethe-university-frankfurt.de/en?locale=en">Goethe-University Frankfurt</a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2048,7 +1985,7 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
             mode: "neuro_ai"
         },
         kernelOptions: {
-            kernelName: "neuro_ai",
+            name: "neuro_ai",
             path: "./advanced"
         },
         predefinedOutput: true
@@ -2056,30 +1993,96 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
     </script>
     <script>kernelName = 'neuro_ai'</script>
 
-              </div>
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-and-epoching">1. Preprocessing and epoching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-signal-average">2. Calculate the signal average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-regions-of-interest-roi">3. Define regions of interest (ROI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-further-compare-the-average-activity-of-channels-for-differnent-conditions-via-the-compare-evokeds-function">We can further compare the average activity of channels for differnent conditions via the <a href="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html" title="https://mne.tools/stable/generated/mne.viz.plot_compare_evokeds.html">compare_evokeds()</a> function.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-roi-channel">Virtual ROI channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grand-averages">Grand averages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save-export-data">Save/Export data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-re-interested-in-more-complex-ways-to-analyse-eeg-data-you-can-check-out-the-following">If you’re interested in more complex ways to analyse EEG data you can check-out the following:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
+          </div>
+          <footer class="bd-footer-content">
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,640 +1,569 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Homework assignment #4 &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/PFP_assignment_4_intro_python_2';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/data_management.html">
-   Data Management
-  </a>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../content/media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/science_communication.html">Science communication: Publication and Beyond</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/homework/PFP_assignment_4_intro_python_2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fhomework/PFP_assignment_4_intro_python_2.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/homework/PFP_assignment_4_intro_python_2.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/homework/PFP_assignment_4_intro_python_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/homework/PFP_assignment_4_intro_python_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/homework/PFP_assignment_4_intro_python_2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/homework/PFP_assignment_4_intro_python_2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/homework/PFP_assignment_4_intro_python_2.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fhomework/PFP_assignment_4_intro_python_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/homework/PFP_assignment_4_intro_python_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework assignment #4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operators-comparisons">
-   <span class="xref myst">
-    1. Operators &amp; comparisons
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optional-bonus">
-   <strong>
-    Optional Bonus
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strings">
-   <span class="xref myst">
-    2. Strings
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lists">
-   <span class="xref myst">
-    3. Lists
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   <span class="xref myst">
-    4. Dictionaries
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optional-bonus-round">
-   Optional Bonus Round:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outro-q-a">
-   <span class="xref myst">
-    5. Outro/Q&amp;A
-   </span>
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-comparisons"><span class="xref myst">1. Operators &amp; comparisons</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-bonus"><strong>Optional Bonus</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings"><span class="xref myst">2. Strings</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists"><span class="xref myst">3. Lists</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries"><span class="xref myst">4. Dictionaries</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-bonus-round">Optional Bonus Round:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outro-q-a"><span class="xref myst">5. Outro/Q&amp;A</span></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Homework assignment #4</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operators-comparisons">
-   <span class="xref myst">
-    1. Operators &amp; comparisons
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optional-bonus">
-   <strong>
-    Optional Bonus
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strings">
-   <span class="xref myst">
-    2. Strings
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lists">
-   <span class="xref myst">
-    3. Lists
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   <span class="xref myst">
-    4. Dictionaries
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optional-bonus-round">
-   Optional Bonus Round:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outro-q-a">
-   <span class="xref myst">
-    5. Outro/Q&amp;A
-   </span>
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <img src="https://github.com/M-earnest/Python_for_Psychologists_Winter2022/blob/main/lecture/static/pfp_logo.png?raw=true" width=300 />
 <center><h3>Homework assignment #4 - Introduction to Python - 2</h3></center>
 <p>Welcome to homework assignment #4 of the “Python for Psychologists” course, winter term 2022. We’ll continue working on <code class="docutils literal notranslate"><span class="pre">python</span></code> in this  <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>. Again, if you encounter any problems along the way, please don’t hesitate to get in touch (via e-mail or the discord server) or check back in the <a class="reference external" href="https://m-earnest.github.io/Python_for_Psychologists_Winter2022/introduction/introduction_4.html"><code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Jupyter</span></code></a>  or the <a class="reference external" href="https://m-earnest.github.io/Python_for_Psychologists_Winter2022/introduction/introduction_6.html"><code class="docutils literal notranslate"><span class="pre">Intro</span> <span class="pre">to</span> <span class="pre">Python</span> <span class="pre">II</span></code></a> chapters on the course website.</p>
@@ -643,18 +572,18 @@
 “, you can just click (or double-click) on it to make it a <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">cell</span></code>. If any of this sounds confusing or unclear you can again consult the <a class="reference external" href="https://m-earnest.github.io/Python_for_Psychologists_Winter2022/introduction/introduction_4.html"><code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Jupyter</span></code></a> page.</p>
 <p>Please don’t forget to save your <code class="docutils literal notranslate"><span class="pre">notebook</span></code> regularly (maybe every few minutes) either via <code class="docutils literal notranslate"><span class="pre">strg</span> <span class="pre">+</span> <span class="pre">s</span></code> on <code class="docutils literal notranslate"><span class="pre">windows</span></code> and <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">s</span></code> on <code class="docutils literal notranslate"><span class="pre">macOS</span></code>. Once you finished the <code class="docutils literal notranslate"><span class="pre">assignment</span></code>, pleas save the entire <code class="docutils literal notranslate"><span class="pre">notebook</span></code> via <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">as...</span></code> and provide the following name <code class="docutils literal notranslate"><span class="pre">FirstNameSurname_pfp_2022_homework_assignment_3</span></code> where <code class="docutils literal notranslate"><span class="pre">FirstName</span></code> should be changed to your first name and <code class="docutils literal notranslate"><span class="pre">Surname</span></code> to your surname.</p>
 <p>The aim of this homework assignment is to go through the things we talked about in the session again and deepen your understanding of them. This will entail the following parts:</p>
-<p><span class="xref myst">1. Operators &amp; Comparisons</span><br />
-<span class="xref myst">2. Strings</span><br />
-<span class="xref myst">3. Lists</span><br />
-<span class="xref myst">4. Dictionaries</span><br />
-<span class="xref myst">5. Outro/Q&amp;A</span></p>
+<p><a class="reference internal" href="#"><span class="xref myst">1. Operators &amp; Comparisons</span></a><br />
+<a class="reference internal" href="#"><span class="xref myst">2. Strings</span></a><br />
+<a class="reference internal" href="#"><span class="xref myst">3. Lists</span></a><br />
+<a class="reference internal" href="#"><span class="xref myst">4. Dictionaries</span></a><br />
+<a class="reference internal" href="#"><span class="xref myst">5. Outro/Q&amp;A</span></a></p>
 <p>You should be able to answer all of the following questions given the content included in the respective sections on the website, as well as the things covered in during the session. <strong>If you feel like some of the things asked here were actually not (sufficiently) covered during the session, please don’t hesitate to let me know ASAP and we’ll figure that out.</strong> Otherwise you of course are welcome to train your “google muscles”, just keep in mind that code directly copied from the internet should include sufficient credits (i.e. include links to the respective website as a comment in code/markdown cells. And remember that there is always more than one correct answer in <code class="docutils literal notranslate"><span class="pre">programming</span></code>.</p>
 <p>However, after this way too long intro, I wish you a great time and hope this will feel less like an assignment and more like a fun add on to the session. Again: learning new things takes time and programming is by no means an exception to that. Thus don’t worry if you have to look back and fourth between the assignment and the materials: we all start somewhere and you putting in the effort is already fantastic. You got this!</p>
 <img src="https://media4.giphy.com/media/11F0d3IVhQbreE/giphy.gif?cid=ecf05e47mwgbxua2plvfxralxf36ahupi2mubqdc416b6l8f&rid=giphy.gif&ct=g" width=300 />
-<center><a href="https://giphy.com/gifs/bill-murray-pointing-you-got-this-11F0d3IVhQbreE">via GIPHY</a></center><div class="section" id="homework-assignment-4">
-<h1>Homework assignment #4<a class="headerlink" href="#homework-assignment-4" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="operators-comparisons">
-<h2><span class="xref myst">1. Operators &amp; comparisons</span><a class="headerlink" href="#operators-comparisons" title="Permalink to this headline">¶</a></h2>
+<center><a href="https://giphy.com/gifs/bill-murray-pointing-you-got-this-11F0d3IVhQbreE">via GIPHY</a></center><section id="homework-assignment-4">
+<h1>Homework assignment #4<a class="headerlink" href="#homework-assignment-4" title="Link to this heading">#</a></h1>
+<section id="operators-comparisons">
+<h2><a class="reference internal" href="#"><span class="xref myst">1. Operators &amp; comparisons</span></a><a class="headerlink" href="#operators-comparisons" title="Link to this heading">#</a></h2>
 <p>During the session we talked about <code class="docutils literal notranslate"><span class="pre">arithmetic</span> <span class="pre">operations</span></code> and <code class="docutils literal notranslate"><span class="pre">comparison</span></code> being on of the most basic utilization of <code class="docutils literal notranslate"><span class="pre">Python</span></code>. Explain what they refer to and what types of them we have available in <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <p>Please provide your solution here</p>
 <p>arithmetic operations:</p>
@@ -745,9 +674,9 @@
 </div>
 <p>Before we dive into other things, a quick important question: does <code class="docutils literal notranslate"><span class="pre">python</span></code> actually follow <code class="docutils literal notranslate"><span class="pre">arithmetic</span> <span class="pre">rules</span></code> that would guide how we have to define <code class="docutils literal notranslate"><span class="pre">equations</span></code>, e.g. the succession of <code class="docutils literal notranslate"><span class="pre">+</span></code>/<code class="docutils literal notranslate"><span class="pre">-</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code>/<code class="docutils literal notranslate"><span class="pre">/</span></code>?</p>
 <p>Please write your solution here</p>
-</div>
-<div class="section" id="optional-bonus">
-<h2><strong>Optional Bonus</strong><a class="headerlink" href="#optional-bonus" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="optional-bonus">
+<h2><strong>Optional Bonus</strong><a class="headerlink" href="#optional-bonus" title="Link to this heading">#</a></h2>
 <p><em>(The remaining tasks within this first part are <strong>optional</strong> and thus don’t need to be completed if you don’t want to, this won’t affect the final assessment of your <code class="docutils literal notranslate"><span class="pre">homework</span> <span class="pre">assignment</span></code>. However, we obviously strongly suggest that you give it a try as it will deepen your understanding of <code class="docutils literal notranslate"><span class="pre">operators</span></code> and <code class="docutils literal notranslate"><span class="pre">comparisons</span></code> as well as their important role regarding complex analyses. Here, this will entail the “manual” computation/derivation of the <code class="docutils literal notranslate"><span class="pre">t-test</span></code> you computed above via <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.)</em></p>
 <p>Now that we’ve assigne our test statistic and p-value to a separate variable each we could move on with our lives, but lets compute the <code class="docutils literal notranslate"><span class="pre">independent</span> <span class="pre">t-test</span></code> again, this time “manually”.</p>
 <p>Thinking back to the intro to stats classes, we know that we need a few <code class="docutils literal notranslate"><span class="pre">values</span></code> to do that:</p>
@@ -899,9 +828,9 @@ Regarding the latter, we’ll go “classic” and assume <code class="docutils 
 <p>We know all of these things are a lot and for most of you completely new. However, you’ll definitely learn them by just keeping at it. You’re putting in a real effort, thanks for that!</p>
 <img src="https://media4.giphy.com/media/qiMbL701IR1PTRUeDY/giphy.gif?cid=ecf05e477s1y16aet98p0yym5tlb9slhbagq9sbtt2if33i9&rid=giphy.gif&ct=g" width=300 />
 <center><a href="https://media4.giphy.com/media/qiMbL701IR1PTRUeDY/giphy.gif?cid=ecf05e477s1y16aet98p0yym5tlb9slhbagq9sbtt2if33i9&rid=giphy.gif&ct=g">via GIPHY</a></center></br>
-</div>
-<div class="section" id="strings">
-<h2><span class="xref myst">2. Strings</span><a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="strings">
+<h2><a class="reference internal" href="#"><span class="xref myst">2. Strings</span></a><a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
 <p>Welcome back!</p>
 <p>After talking about different <code class="docutils literal notranslate"><span class="pre">operations</span></code> and <code class="docutils literal notranslate"><span class="pre">comparison</span></code> we talked about different <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">types</span></code> and <code class="docutils literal notranslate"><span class="pre">structures</span></code>, starting with <code class="docutils literal notranslate"><span class="pre">strings</span></code>.</p>
 <p>However, didn’t we talk about <code class="docutils literal notranslate"><span class="pre">strings</span></code> before as one of the <code class="docutils literal notranslate"><span class="pre">fundamental</span> <span class="pre">data</span> <span class="pre">types</span></code>?. Is there something more going on with them? Could you please provide some pointers on why <code class="docutils literal notranslate"><span class="pre">strings</span></code> are somewhat different than say <code class="docutils literal notranslate"><span class="pre">integers</span></code>or <code class="docutils literal notranslate"><span class="pre">floats</span></code> in the <code class="docutils literal notranslate"><span class="pre">cell</span></code> below?</p>
@@ -998,9 +927,9 @@ Please define a new <code class="docutils literal notranslate"><span class="pre"
 </div>
 <p>Assuming there’s a way to do that, are there things one should be careful with regarding <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">formatting</span></code>?</p>
 <p>Please write your solution here</p>
-</div>
-<div class="section" id="lists">
-<h2><span class="xref myst">3. Lists</span><a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lists">
+<h2><a class="reference internal" href="#"><span class="xref myst">3. Lists</span></a><a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>The next <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">type</span></code> on our list are <code class="docutils literal notranslate"><span class="pre">lists</span></code>. Please explain what <code class="docutils literal notranslate"><span class="pre">lists</span></code> are and what makes them somewhat special (e.g. compared to othe <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">types</span></code> or <code class="docutils literal notranslate"><span class="pre">structures</span></code> such as strings or <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">arrays</span></code>)?</p>
 <p>Please write your solution here</p>
 <p>As you might remember, it was said that the <code class="docutils literal notranslate"><span class="pre">values</span></code> of our <code class="docutils literal notranslate"><span class="pre">group_control</span></code> and <code class="docutils literal notranslate"><span class="pre">group_target</span></code> <code class="docutils literal notranslate"><span class="pre">variables</span></code> were provided as <code class="docutils literal notranslate"><span class="pre">list</span></code>s. Please briefly verify that the really have this <code class="docutils literal notranslate"><span class="pre">type</span></code>!</p>
@@ -1090,9 +1019,9 @@ Could you briefly get the <code class="docutils literal notranslate"><span class
 <p>Please provide your solution here</p>
 </br>
 </br>
-</div>
-<div class="section" id="dictionaries">
-<h2><span class="xref myst">4. Dictionaries</span><a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dictionaries">
+<h2><a class="reference internal" href="#"><span class="xref myst">4. Dictionaries</span></a><a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
 <p>The last <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">type</span></code> we had a look at where <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code>. Could you name some of the prominent differences to <code class="docutils literal notranslate"><span class="pre">strings</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code>s?</p>
 <p>Please provide your solution here</p>
 <p>Damn, <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code> seem pretty handy and you’ve might have guessed already above, that these will come in useful for our future analyzes, if we’d need something we can store and access all of the above obtained information, i.e. our <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">test</span></code> results, in a explicit manner.</p>
@@ -1189,9 +1118,9 @@ For reasons of completeness, could you please add the number of responses and re
 </div>
 </div>
 </br>
-</div>
-<div class="section" id="optional-bonus-round">
-<h2>Optional Bonus Round:<a class="headerlink" href="#optional-bonus-round" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="optional-bonus-round">
+<h2>Optional Bonus Round:<a class="headerlink" href="#optional-bonus-round" title="Link to this heading">#</a></h2>
 <p>I hope you’ve guessed by now that i’m not making you keep two kind of lists for fun, right?</p>
 <p>Now, looking at the coefficients of our <code class="docutils literal notranslate"><span class="pre">pearson_correlations</span></code> we see a difference between the original and our sorted groups, yeah?</p>
 <p>Can you first evaluate that using the <code class="docutils literal notranslate"><span class="pre">operators</span></code> we’ve been talking about?</p>
@@ -1346,7 +1275,7 @@ For reasons of completeness, could you please add the number of responses and re
 </br>
 <p><strong>Last point, i promise!</strong></p>
 <p>Quickly note what <code class="docutils literal notranslate"><span class="pre">differences</span></code> you see and <code class="docutils literal notranslate"><span class="pre">what</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">the</span> <span class="pre">resaon</span> <span class="pre">for</span> <span class="pre">this</span></code>?</p>
-<p>(<em>Hint</em>: <span class="xref myst">‘Stackoverflow’</span> the home for every programming question and one of it’s <a class="reference external" href="https://stats.stackexchange.com/questions/185507/what-happens-if-the-explanatory-and-response-variables-are-sorted-independently">most famous posts of all time</a> already holds the answer for you and may provide an hilarious insight on how truly dumb oblivious some researchers can be.)</p>
+<p>(<em>Hint</em>: <a class="reference internal" href="#"><span class="xref myst">‘Stackoverflow’</span></a> the home for every programming question and one of it’s <a class="reference external" href="https://stats.stackexchange.com/questions/185507/what-happens-if-the-explanatory-and-response-variables-are-sorted-independently">most famous posts of all time</a> already holds the answer for you and may provide an hilarious insight on how truly dumb oblivious some researchers can be.)</p>
 <p>Please provide your solution here</p>
 </br>
 <p>You’ll hopefully see why we’ve been doing this and forgive me for being for being this thorough.</p>
@@ -1358,16 +1287,16 @@ For reasons of completeness, could you please add the number of responses and re
 <p>If you’ve arrived here you’re truly doing great and have already learned much of the knowledge necessary to do some simple analyzes in python, <strong>amazing work</strong>!</p>
 <img src="https://media3.giphy.com/media/SxhDfgXq4nAYoKkvbR/giphy.gif?cid=ecf05e47jyiqzd3yj5k58fodheq4vpqri84tfcepfxdhdvv2&rid=giphy.gif&ct=g" width=300 />
 <center><a href="https://media3.giphy.com/media/SxhDfgXq4nAYoKkvbR/giphy.gif?cid=ecf05e47jyiqzd3yj5k58fodheq4vpqri84tfcepfxdhdvv2&rid=giphy.gif&ct=g">via GIPHY</a></center>
-</div>
-<div class="section" id="outro-q-a">
-<h2><span class="xref myst">5. Outro/Q&amp;A</span><a class="headerlink" href="#outro-q-a" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="outro-q-a">
+<h2><a class="reference internal" href="#"><span class="xref myst">5. Outro/Q&amp;A</span></a><a class="headerlink" href="#outro-q-a" title="Link to this heading">#</a></h2>
 <p>Awesome, you did it, great job! Take a few seconds to appreaciate your effort and have a little party!</p>
 <img src="https://media1.giphy.com/media/DhstvI3zZ598Nb1rFf/giphy.gif?cid=ecf05e478h6h9u9rhaooj89a82vr51xya6jslv0xp8xp8hud&rid=giphy.gif&ct=g" width=300 />
 <center><a href="https://media1.giphy.com/media/DhstvI3zZ598Nb1rFf/giphy.gif?cid=ecf05e478h6h9u9rhaooj89a82vr51xya6jslv0xp8xp8hud&rid=giphy.gif&ct=g">via GIPHY</a></center>
 <p>Please remember to save the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> as described in the beginning and send it to me via e-mail. If you have questions, encountered problems and/or errors, please use the <code class="docutils literal notranslate"><span class="pre">cell</span></code> to outline things further. The same holds true for any type of <code class="docutils literal notranslate"><span class="pre">feedback</span></code>!</p>
 <p>Thanks for going through this <code class="docutils literal notranslate"><span class="pre">assignment</span></code>, we hope you found it useful and informative. <code class="docutils literal notranslate"><span class="pre">Feedback</span></code> on your work can also by provided and is just one e-mail or discord message away!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1381,7 +1310,7 @@ For reasons of completeness, could you please add the number of responses and re
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./homework"
         },
         predefinedOutput: true
@@ -1389,30 +1318,92 @@ For reasons of completeness, could you please add the number of responses and re
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-comparisons"><span class="xref myst">1. Operators &amp; comparisons</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-bonus"><strong>Optional Bonus</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings"><span class="xref myst">2. Strings</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists"><span class="xref myst">3. Lists</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries"><span class="xref myst">4. Dictionaries</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-bonus-round">Optional Bonus Round:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outro-q-a"><span class="xref myst">5. Outro/Q&amp;A</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
+          </div>
+          <footer class="bd-footer-content">
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

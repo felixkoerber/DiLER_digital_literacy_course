@@ -1,1460 +1,667 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Intro - The (unix) command line: BASH &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/intro_to_shell';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Communication and Collaboration in Modern Science" href="communcation_collaboration.html" />
     <link rel="prev" title="Introduction VII - Introduction to Python III" href="intro_python_nb_III.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="data_management.html">
-   Data Management
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="coding.html">Programming in Empirircal Research</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="science_communication.html">Science communication: Publication and Beyond</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/intro_to_shell.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/intro_to_shell.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/intro_to_shell.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/intro_to_shell.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/intro_to_shell.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/intro_to_shell.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/intro_to_shell.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/intro_to_shell.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/intro_to_shell.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/intro_to_shell.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro - The (unix) command line: BASH</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-are-we-now">
-   Where are we now?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-shell">
-   What is the “shell”?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#but-what-s-this-bash-shell">
-     But what’s this “bash shell”?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-so-many">
-     WHY so many?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#so-we-re-going-to-focus-on-the-bash-shell">
-     So we’re going to focus on the bash shell?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alright-but-why-use-the-shell-at-all">
-     Alright, but why use the shell at all?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-get-started">
-   Before we get started
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-bash-shell">
-   The (bash) shell
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#am-i-using-bash">
-     Am I using bash?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-s-with-the-shell">
-     What’s with the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       $SHELL
-      </span>
-     </code>
-     ?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-cons-of-the-cli">
-     The cons of the CLI
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-points">
-     Key Points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#navigating-files-and-directories">
-   Navigating Files and Directories
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#so-where-are-we-right-now">
-     So where are we right now?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#os-dependent-paths">
-     OS-dependent paths
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-file-system">
-     The file system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     The file system
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-character">
-       The
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         /
-        </span>
-       </code>
-       character
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inside-users">
-     Inside
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Users
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-syntax-of-a-shell-command">
-     General syntax of a shell command
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#options-a-k-a-flags-switches">
-       Options (a.k.a. flags, switches)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#options-cont-d">
-       Options (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#arguments-a-k-a-parameters">
-       Arguments (a.k.a parameters)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#getting-help">
-       Getting help
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-options">
-     Combining options
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-other-directories">
-     Exploring other directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Where are we now?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-i-get-out-of-here">
-     How do I get out of here?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#seeing-the-unseen">
-     Seeing the unseen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hidden-files">
-     Hidden files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pwd-cd-and-ls">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pwd
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cd
-      </span>
-     </code>
-     , and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       ls
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relative-versus-absolute-paths">
-     Relative versus absolute paths
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-helpful-shortcuts">
-     Some helpful shortcuts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ~
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         -
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#absolute-vs-relative-paths">
-     Absolute vs Relative Paths:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relative-path-resolution">
-     Relative Path Resolution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ls-reading-comprehension">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       ls
-      </span>
-     </code>
-     Reading Comprehension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Key points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-files-and-directories">
-   Working with Files and Directories
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-directory">
-   Creating a directory
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#good-naming-conventions">
-     Good naming conventions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-a-text-file">
-     Creating a text file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-files-and-directories">
-     Moving files and directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#more-on-mv">
-     More on
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       mv
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-moving-files-to-a-new-folder">
-     Exercise: Moving files to a new folder
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copying-files-and-directories">
-     Copying files and directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-renaming-files">
-     Exercise: Renaming files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-and-copying">
-     Moving and Copying
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#removing-files">
-     Removing files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deleting-is-forever">
-     Deleting is
-     <strong>
-      FOREVER
-     </strong>
-     💀💀
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#removing-directories">
-     Removing directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">
-     Operations with multiple files and directories
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exercise-copy-with-multiple-filenames">
-       Exercise: Copy with Multiple Filenames
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">
-       Using wildcards for accessing multiple files at once
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d">
-       Using wildcards for accessing multiple files at once (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
-       Using wildcards for accessing multiple files at once (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exercise-list-filenames-matching-a-pattern">
-       Exercise: List filenames matching a pattern
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Key points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#soapbox">
-   Soapbox
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-things">
-   Finding Things
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering-find">
-     Filtering
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       find
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executing-with-find">
-     Executing with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       find
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   Goals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Where are we now?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-materials">
-   Additional materials
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgments">
-   Acknowledgments
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-we-now">Where are we now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-shell">What is the “shell”?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-what-s-this-bash-shell">But what’s this “bash shell”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-so-many">WHY so many?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-we-re-going-to-focus-on-the-bash-shell">So we’re going to focus on the bash shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alright-but-why-use-the-shell-at-all">Alright, but why use the shell at all?</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-get-started">Before we get started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bash-shell">The (bash) shell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#am-i-using-bash">Am I using bash?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-with-the-shell">What’s with the <code class="docutils literal notranslate"><span class="pre">$SHELL</span></code>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cons-of-the-cli">The cons of the CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-files-and-directories">Navigating Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-where-are-we-right-now">So where are we right now?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-dependent-paths">OS-dependent paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-file-system">The file system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The file system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-character">The <code class="docutils literal notranslate"><span class="pre">/</span></code> character</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inside-users">Inside <code class="docutils literal notranslate"><span class="pre">Users</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax-of-a-shell-command">General syntax of a shell command</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#options-a-k-a-flags-switches">Options (a.k.a. flags, switches)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#options-cont-d">Options (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-a-k-a-parameters">Arguments (a.k.a parameters)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-options">Combining options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-other-directories">Exploring other directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Where are we now?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-out-of-here">How do I get out of here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-the-unseen">Seeing the unseen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-files">Hidden files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-cd-and-ls"><code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, and <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-versus-absolute-paths">Relative versus absolute paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-helpful-shortcuts">Some helpful shortcuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">~</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">-</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-path-resolution">Relative Path Resolution:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-reading-comprehension"><code class="docutils literal notranslate"><span class="pre">ls</span></code> Reading Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Key points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-directories">Working with Files and Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-directory">Creating a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-naming-conventions">Good naming conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-text-file">Creating a text file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-directories">Moving files and directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-mv">More on <code class="docutils literal notranslate"><span class="pre">mv</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-moving-files-to-a-new-folder">Exercise: Moving files to a new folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-and-directories">Copying files and directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-renaming-files">Exercise: Renaming files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-and-copying">Moving and Copying</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files">Removing files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-is-forever">Deleting is <strong>FOREVER</strong> 💀💀</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-directories">Removing directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">Operations with multiple files and directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-copy-with-multiple-filenames">Exercise: Copy with Multiple Filenames</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d">Using wildcards for accessing multiple files at once (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Using wildcards for accessing multiple files at once (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-list-filenames-matching-a-pattern">Exercise: List filenames matching a pattern</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Key points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soapbox">Soapbox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-things">Finding Things</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-find">Filtering <code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-with-find">Executing with <code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Goals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Where are we now?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials">Additional materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Intro - The (unix) command line: BASH</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-are-we-now">
-   Where are we now?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-shell">
-   What is the “shell”?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#but-what-s-this-bash-shell">
-     But what’s this “bash shell”?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-so-many">
-     WHY so many?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#so-we-re-going-to-focus-on-the-bash-shell">
-     So we’re going to focus on the bash shell?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alright-but-why-use-the-shell-at-all">
-     Alright, but why use the shell at all?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-get-started">
-   Before we get started
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-bash-shell">
-   The (bash) shell
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#am-i-using-bash">
-     Am I using bash?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-s-with-the-shell">
-     What’s with the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       $SHELL
-      </span>
-     </code>
-     ?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-cons-of-the-cli">
-     The cons of the CLI
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-points">
-     Key Points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#navigating-files-and-directories">
-   Navigating Files and Directories
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#so-where-are-we-right-now">
-     So where are we right now?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#os-dependent-paths">
-     OS-dependent paths
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-file-system">
-     The file system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     The file system
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-character">
-       The
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         /
-        </span>
-       </code>
-       character
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inside-users">
-     Inside
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Users
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-syntax-of-a-shell-command">
-     General syntax of a shell command
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#options-a-k-a-flags-switches">
-       Options (a.k.a. flags, switches)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#options-cont-d">
-       Options (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#arguments-a-k-a-parameters">
-       Arguments (a.k.a parameters)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#getting-help">
-       Getting help
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combining-options">
-     Combining options
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Exercise:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-other-directories">
-     Exploring other directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Where are we now?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-i-get-out-of-here">
-     How do I get out of here?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#seeing-the-unseen">
-     Seeing the unseen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hidden-files">
-     Hidden files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pwd-cd-and-ls">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pwd
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cd
-      </span>
-     </code>
-     , and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       ls
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relative-versus-absolute-paths">
-     Relative versus absolute paths
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-helpful-shortcuts">
-     Some helpful shortcuts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ~
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         -
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#absolute-vs-relative-paths">
-     Absolute vs Relative Paths:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relative-path-resolution">
-     Relative Path Resolution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ls-reading-comprehension">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       ls
-      </span>
-     </code>
-     Reading Comprehension
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Key points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-files-and-directories">
-   Working with Files and Directories
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-directory">
-   Creating a directory
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#good-naming-conventions">
-     Good naming conventions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-a-text-file">
-     Creating a text file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-files-and-directories">
-     Moving files and directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#more-on-mv">
-     More on
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       mv
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-moving-files-to-a-new-folder">
-     Exercise: Moving files to a new folder
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copying-files-and-directories">
-     Copying files and directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-renaming-files">
-     Exercise: Renaming files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-and-copying">
-     Moving and Copying
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#removing-files">
-     Removing files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deleting-is-forever">
-     Deleting is
-     <strong>
-      FOREVER
-     </strong>
-     💀💀
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#removing-directories">
-     Removing directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">
-     Operations with multiple files and directories
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exercise-copy-with-multiple-filenames">
-       Exercise: Copy with Multiple Filenames
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">
-       Using wildcards for accessing multiple files at once
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d">
-       Using wildcards for accessing multiple files at once (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
-       Using wildcards for accessing multiple files at once (cont’d)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exercise-list-filenames-matching-a-pattern">
-       Exercise: List filenames matching a pattern
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Key points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#soapbox">
-   Soapbox
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-things">
-   Finding Things
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering-find">
-     Filtering
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       find
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executing-with-find">
-     Executing with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       find
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   Goals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Where are we now?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-materials">
-   Additional materials
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgments">
-   Acknowledgments
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="intro-the-unix-command-line-bash">
-<h1>Intro - The (unix) command line: BASH<a class="headerlink" href="#intro-the-unix-command-line-bash" title="Permalink to this headline">¶</a></h1>
-<div class="margin sidebar">
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-the-unix-command-line-bash">
+<h1>Intro - The (unix) command line: BASH<a class="headerlink" href="#intro-the-unix-command-line-bash" title="Link to this heading">#</a></h1>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.</p>
 </div>
-</div>
-<div class="section" id="where-are-we-now">
-<h2>Where are we now?<a class="headerlink" href="#where-are-we-now" title="Permalink to this headline">¶</a></h2>
+</aside>
+<section id="where-are-we-now">
+<h2>Where are we now?<a class="headerlink" href="#where-are-we-now" title="Link to this heading">#</a></h2>
 <p>Before we start a lesson it is usually helpfull to reflect on why we want to learn about a certain topic.</p>
 <p>So please take a few minutes to reflect on the following questions.</p>
 <p><strong>1.1 What do you know about Command-Line-Interfaces?</strong></p>
@@ -1462,9 +669,9 @@ Please visit these pages again in the next few weeks for further information.</p
 <p><strong>1.4 What may a lesson on the subject of BASH possibly contain?</strong></p>
 <p><strong>1.5 Can you imagine any benefits resulting from learning about BASH?</strong></p>
 <p><em>Note: Feel free to do this in your head or in a separate document. Remember, to interactively engage with the material either open it in MyBinder (the small rocket button at the top of the website) or [download the course material](link to course zip), go through the [setup process](link to setup) and open this file (i.e digital_literacy.ipynb in the introduction folder) using Jupyter Notebooks or VScode.</em></p>
-</div>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>learn basic and efficient usage of the shell for various tasks</p>
 <ul>
@@ -1473,9 +680,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="what-is-the-shell">
-<h2>What is the “shell”?<a class="headerlink" href="#what-is-the-shell" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-is-the-shell">
+<h2>What is the “shell”?<a class="headerlink" href="#what-is-the-shell" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The shell is a <strong>command-line interface</strong> (CLI) to your computer</p>
 <ul>
@@ -1484,8 +691,8 @@ Please visit these pages again in the next few weeks for further information.</p
 </li>
 <li><p>The shell is <em>also</em> a scripting language that can be used to automate repetitive tasks</p></li>
 </ul>
-<div class="section" id="but-what-s-this-bash-shell">
-<h3>But what’s this “bash shell”?<a class="headerlink" href="#but-what-s-this-bash-shell" title="Permalink to this headline">¶</a></h3>
+<section id="but-what-s-this-bash-shell">
+<h3>But what’s this “bash shell”?<a class="headerlink" href="#but-what-s-this-bash-shell" title="Link to this heading">#</a></h3>
 <p>It’s one of many available shells!</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sh</span></code> - Bourne <strong>SH</strong>ell</p></li>
@@ -1496,9 +703,9 @@ Please visit these pages again in the next few weeks for further information.</p
 <li><p><code class="docutils literal notranslate"><span class="pre">zsh</span></code> - <strong>Z</strong> <strong>SH</strong>ell</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bash</span></code> - <strong>B</strong>ourne <strong>A</strong>gain <strong>SH</strong>ell  &lt;– We’ll focus on this one!</p></li>
 </ul>
-</div>
-<div class="section" id="why-so-many">
-<h3>WHY so many?<a class="headerlink" href="#why-so-many" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="why-so-many">
+<h3>WHY so many?<a class="headerlink" href="#why-so-many" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>They all have different strengths / weaknesses</p></li>
 <li><p>You will see many of them throughout much of neuroimaging software, too!</p>
@@ -1508,9 +715,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="so-we-re-going-to-focus-on-the-bash-shell">
-<h3>So we’re going to focus on the bash shell?<a class="headerlink" href="#so-we-re-going-to-focus-on-the-bash-shell" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="so-we-re-going-to-focus-on-the-bash-shell">
+<h3>So we’re going to focus on the bash shell?<a class="headerlink" href="#so-we-re-going-to-focus-on-the-bash-shell" title="Link to this heading">#</a></h3>
 <p>Yes! It’s perhaps <strong>the most common</strong> shell, available on almost every OS:</p>
 <ul class="simple">
 <li><p>It’s the default shell on most Linux systems</p></li>
@@ -1522,9 +729,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="alright-but-why-use-the-shell-at-all">
-<h3>Alright, but why use the shell at all?<a class="headerlink" href="#alright-but-why-use-the-shell-at-all" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="alright-but-why-use-the-shell-at-all">
+<h3>Alright, but why use the shell at all?<a class="headerlink" href="#alright-but-why-use-the-shell-at-all" title="Link to this heading">#</a></h3>
 <p>Isn’t the GUI good enough?</p>
 <ul class="simple">
 <li><p>Yes, but the shell is <strong>very powerful</strong></p></li>
@@ -1533,16 +740,16 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 <p><strong>NOTE:</strong> We will not be able to cover all (or even most) aspects of the shell today.</p>
 <p>But, we’ll get through some <em>basics</em> that you can build on going forward.</p>
-</div>
-</div>
-<div class="section" id="before-we-get-started">
-<h2>Before we get started<a class="headerlink" href="#before-we-get-started" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="before-we-get-started">
+<h2>Before we get started<a class="headerlink" href="#before-we-get-started" title="Link to this heading">#</a></h2>
 <p>For this part of the lecture you will have to follow along on your own machine.</p>
 <p>Windows users will have to download the <code class="docutils literal notranslate"><span class="pre">Windows-subystems-for-linux</span> <span class="pre">(wsl)</span></code> application, this will install a Unix subsystem which will allow you to work with the bash shell. Simply follow e.g. the <a class="reference external" href="https://itsfoss.com/install-bash-on-windows/">Foss Guide: Install bash on windows</a>. Bash already comes preinstalled on Unix systems such as Linux and Mac.</p>
 <p>Further we’re going to be working with a dataset from <a class="reference external" href="https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip">https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip</a>. Download that file and unzip it on your Desktop!</p>
-</div>
-<div class="section" id="the-bash-shell">
-<h2>The (bash) shell<a class="headerlink" href="#the-bash-shell" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-bash-shell">
+<h2>The (bash) shell<a class="headerlink" href="#the-bash-shell" title="Link to this heading">#</a></h2>
 <p>Now, let’s open up your terminal!</p>
 <ul class="simple">
 <li><p><strong>Windows</strong>: Open the Ubuntu application (installed via the guide above)</p></li>
@@ -1554,8 +761,8 @@ Please visit these pages again in the next few weeks for further information.</p
 </div>
 <p>The shell typically uses <code class="docutils literal notranslate"><span class="pre">$</span></code> as the prompt, but may use a different symbol.</p>
 <p><strong>IMPORTANT:</strong> When typing commands, either in this lesson or from other sources, <strong>do not type the prompt</strong>, only the commands that follow it!</p>
-<div class="section" id="am-i-using-bash">
-<h3>Am I using bash?<a class="headerlink" href="#am-i-using-bash" title="Permalink to this headline">¶</a></h3>
+<section id="am-i-using-bash">
+<h3>Am I using bash?<a class="headerlink" href="#am-i-using-bash" title="Link to this heading">#</a></h3>
 <p>Let’s check! You can use the following command to determine what shell you’re using:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1576,9 +783,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 <p><strong>Note</strong>: The <code class="docutils literal notranslate"><span class="pre">echo</span></code> command does exactly what its name implies: it simply echoes whatever we provide it to the screen!</p>
 <p>(It’s like <code class="docutils literal notranslate"><span class="pre">print</span></code> in Python / R or <code class="docutils literal notranslate"><span class="pre">disp</span></code> in MATLAB or <code class="docutils literal notranslate"><span class="pre">printf</span></code> in C or …)</p>
-</div>
-<div class="section" id="what-s-with-the-shell">
-<h3>What’s with the <code class="docutils literal notranslate"><span class="pre">$SHELL</span></code>?<a class="headerlink" href="#what-s-with-the-shell" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="what-s-with-the-shell">
+<h3>What’s with the <code class="docutils literal notranslate"><span class="pre">$SHELL</span></code>?<a class="headerlink" href="#what-s-with-the-shell" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Things prefixed with <code class="docutils literal notranslate"><span class="pre">$</span></code> in bash are (mostly) <strong>environmental variables</strong></p>
 <ul>
@@ -1626,9 +833,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </div>
 </div>
 <p>Nope! But you will get a (moderately) helpful error message 😁</p>
-</div>
-<div class="section" id="the-cons-of-the-cli">
-<h3>The cons of the CLI<a class="headerlink" href="#the-cons-of-the-cli" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-cons-of-the-cli">
+<h3>The cons of the CLI<a class="headerlink" href="#the-cons-of-the-cli" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>You need to know the names of the commands you want to run!</p></li>
 <li><p>Sometimes, commands are not immediately obvious</p>
@@ -1637,18 +844,18 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="key-points">
-<h3>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="key-points">
+<h3>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A shell is a program whose primary purpose is to accept commands and run programs</p></li>
 <li><p>The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access remote machines</p></li>
 <li><p>The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="navigating-files-and-directories">
-<h2>Navigating Files and Directories<a class="headerlink" href="#navigating-files-and-directories" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="navigating-files-and-directories">
+<h2>Navigating Files and Directories<a class="headerlink" href="#navigating-files-and-directories" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <strong>file system</strong> is the part of our operating system for managing files and directories</p></li>
 <li><p>There are a lot of commands to create/inspect/rename/delete files + directories</p>
@@ -1657,8 +864,8 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-<div class="section" id="so-where-are-we-right-now">
-<h3>So where are we right now?<a class="headerlink" href="#so-where-are-we-right-now" title="Permalink to this headline">¶</a></h3>
+<section id="so-where-are-we-right-now">
+<h3>So where are we right now?<a class="headerlink" href="#so-where-are-we-right-now" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>When we open our terminal we are placed <em>somewhere</em> in the file system!</p>
 <ul>
@@ -1687,9 +894,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="os-dependent-paths">
-<h3>OS-dependent paths<a class="headerlink" href="#os-dependent-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="os-dependent-paths">
+<h3>OS-dependent paths<a class="headerlink" href="#os-dependent-paths" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The printed directory may look different depending on your operating system</p>
 <ul>
@@ -1707,9 +914,9 @@ Please visit these pages again in the next few weeks for further information.</p
 <li><p>e.g.  <code class="docutils literal notranslate"><span class="pre">/Users/user_name</span></code> will look like <code class="docutils literal notranslate"><span class="pre">/mnt/c/Users/user_name</span></code></p></li>
 </ul>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command to find out where exactly the shell is opened on your system. Later on we’ll teach you how to navigate through your filesystem.</p>
-</div>
-<div class="section" id="the-file-system">
-<h3>The file system<a class="headerlink" href="#the-file-system" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-file-system">
+<h3>The file system<a class="headerlink" href="#the-file-system" title="Link to this heading">#</a></h3>
 <p>Let’s take a look at an example file-system:
 <img src="http://swcarpentry.github.io/shell-novice/fig/filesystem.svg" width="400px" style="margin-bottom: 10px;float: right"></p>
 <ul class="simple">
@@ -1724,21 +931,21 @@ Please visit these pages again in the next few weeks for further information.</p
 </li>
 <li><p>Our current directory is inside <code class="docutils literal notranslate"><span class="pre">Users</span></code>!</p></li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h3>The file system<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id1">
+<h3>The file system<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Let’s take a look at an example file-system:
 <img src="http://swcarpentry.github.io/shell-novice/fig/filesystem.svg" width="400px" style="margin-bottom: 10px;float: right"></p>
-<div class="section" id="the-character">
-<h4>The <code class="docutils literal notranslate"><span class="pre">/</span></code> character<a class="headerlink" href="#the-character" title="Permalink to this headline">¶</a></h4>
+<section id="the-character">
+<h4>The <code class="docutils literal notranslate"><span class="pre">/</span></code> character<a class="headerlink" href="#the-character" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Refers to the root directory when it appears at the start of a path</p></li>
 <li><p>Is used as a separator between directories when it appears inside a path</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="inside-users">
-<h3>Inside <code class="docutils literal notranslate"><span class="pre">Users</span></code><a class="headerlink" href="#inside-users" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="inside-users">
+<h3>Inside <code class="docutils literal notranslate"><span class="pre">Users</span></code><a class="headerlink" href="#inside-users" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Users</span></code> directory contains different folders for the different users on your computer</p></li>
 <li><p>If you are the only user on your computer then there is likely only one!</p>
@@ -1797,9 +1004,9 @@ Please visit these pages again in the next few weeks for further information.</p
 </ul>
 <p>(Your contents may also be color coded depending on your default options!)</p>
 <p>Note: our home directory contains only <strong>sub-directories</strong>.</p>
-</div>
-<div class="section" id="general-syntax-of-a-shell-command">
-<h3>General syntax of a shell command<a class="headerlink" href="#general-syntax-of-a-shell-command" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="general-syntax-of-a-shell-command">
+<h3>General syntax of a shell command<a class="headerlink" href="#general-syntax-of-a-shell-command" title="Link to this heading">#</a></h3>
 <p>Consider this command as a general example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1816,13 +1023,13 @@ Please visit these pages again in the next few weeks for further information.</p
 </div>
 </div>
 <p>We have:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A <strong>command</strong> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>),</p></li>
 <li><p>An <strong>option</strong> (<code class="docutils literal notranslate"><span class="pre">-F</span></code>), also called a <strong>flag</strong> or a <strong>switch</strong>, and</p></li>
 <li><p>An <strong>argument</strong> (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></li>
 </ol>
-<div class="section" id="options-a-k-a-flags-switches">
-<h4>Options (a.k.a. flags, switches)<a class="headerlink" href="#options-a-k-a-flags-switches" title="Permalink to this headline">¶</a></h4>
+<section id="options-a-k-a-flags-switches">
+<h4>Options (a.k.a. flags, switches)<a class="headerlink" href="#options-a-k-a-flags-switches" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Options change the behavior of a command</p></li>
 <li><p>They generally start with either a <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">--</span></code></p></li>
@@ -1862,9 +1069,9 @@ NENE01812A.txt  NENE02040A.txt  NENE02040Z.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="options-cont-d">
-<h4>Options (cont’d)<a class="headerlink" href="#options-cont-d" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="options-cont-d">
+<h4>Options (cont’d)<a class="headerlink" href="#options-cont-d" title="Link to this heading">#</a></h4>
 <p>What happens if I type an invalid option?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1880,9 +1087,9 @@ Try &#39;ls --help&#39; for more information.
 </div>
 </div>
 <p>Again, we get a (somewhat) helpful error message!</p>
-</div>
-<div class="section" id="arguments-a-k-a-parameters">
-<h4>Arguments (a.k.a parameters)<a class="headerlink" href="#arguments-a-k-a-parameters" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="arguments-a-k-a-parameters">
+<h4>Arguments (a.k.a parameters)<a class="headerlink" href="#arguments-a-k-a-parameters" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>These tell the command what to operate on!</p></li>
 <li><p>They are only <em>sometimes</em> optional (as with <code class="docutils literal notranslate"><span class="pre">ls</span></code>)</p>
@@ -1915,9 +1122,9 @@ Try &#39;ls --help&#39; for more information.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="getting-help">
-<h4>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="getting-help">
+<h4>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> has <strong>lots</strong> of options. How can we find out about them?</p>
 <p>Either <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code> or <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">--help</span></code>!<br />
 This will vary depending on: (1) the command and (2) your operating system!<br />
@@ -1936,10 +1143,10 @@ Generally try <code class="docutils literal notranslate"><span class="pre">man</
 <li><p>The scroll bar (if you’re lucky!)</p></li>
 </ul>
 <p>To quit and get your “old” terminal back, press <code class="docutils literal notranslate"><span class="pre">q</span></code>!</p>
-</div>
-</div>
-<div class="section" id="combining-options">
-<h3>Combining options<a class="headerlink" href="#combining-options" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="combining-options">
+<h3>Combining options<a class="headerlink" href="#combining-options" title="Link to this heading">#</a></h3>
 <p>You can use multiple options at the same time! If the options are single letters (like most of those with <code class="docutils literal notranslate"><span class="pre">ls</span></code>), you can combine them with the same <code class="docutils literal notranslate"><span class="pre">-</span></code> flag:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1954,10 +1161,10 @@ Generally try <code class="docutils literal notranslate"><span class="pre">man</
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercise">
-<h3>Exercise:<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+</section>
+<section id="exercise">
+<h3>Exercise:<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Using the <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>, find out how the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option should change the behavior of <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p></li>
 </ol>
 <div class="cell docutils container">
@@ -1991,10 +1198,10 @@ Generally try <code class="docutils literal notranslate"><span class="pre">man</
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>Exercise:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+</section>
+<section id="id2">
+<h3>Exercise:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="2">
 <li><p>Now, find out how the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option should change the behavior of <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p></li>
 </ol>
 <div class="cell docutils container">
@@ -2012,10 +1219,10 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id3">
-<h3>Exercise:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+</section>
+<section id="id3">
+<h3>Exercise:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="3">
 <li><p>What will happen when we use them <em>together</em>?</p></li>
 </ol>
 <div class="cell docutils container">
@@ -2049,9 +1256,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h3>Exercise:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h3>Exercise:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> lists contents in alphabetical order by default.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">-t</span></code> option lists items by the time they were last modified (instead of alphabetically)</p></li>
@@ -2071,9 +1278,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p><strong>Answer</strong>: The most recently changed file is listed last!</p>
-</div>
-<div class="section" id="exploring-other-directories">
-<h3>Exploring other directories<a class="headerlink" href="#exploring-other-directories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exploring-other-directories">
+<h3>Exploring other directories<a class="headerlink" href="#exploring-other-directories" title="Link to this heading">#</a></h3>
 <p>Providing an argument to <code class="docutils literal notranslate"><span class="pre">ls</span></code> lets us list the content of other directories (besides our current working directory):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2089,7 +1296,7 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 <p>(For those of you on Mac + Linux: this should match what you <em>see</em> on your desktop! For those of you using the WSL: this will be a bit different, unfortunately.)</p>
 <p>We can now do two things:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>List the contents of one of the directories on our Desktop:</p></li>
 </ol>
 <div class="cell docutils container">
@@ -2105,7 +1312,7 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p>We can now do two things:</p>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Actually <em>change</em> to a different directory, moving out of our home directory</p></li>
 </ol>
 <div class="cell docutils container">
@@ -2150,10 +1357,10 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id5">
-<h3>Where are we now?<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Where are we now?<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Let’s check our <strong>current working directory</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2183,9 +1390,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="how-do-i-get-out-of-here">
-<h3>How do I get out of here?<a class="headerlink" href="#how-do-i-get-out-of-here" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="how-do-i-get-out-of-here">
+<h3>How do I get out of here?<a class="headerlink" href="#how-do-i-get-out-of-here" title="Link to this heading">#</a></h3>
 <p>We can go “down” into directories, but what about reversing that? What if I want to go back to <code class="docutils literal notranslate"><span class="pre">data-shell</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2228,9 +1435,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="seeing-the-unseen">
-<h3>Seeing the unseen<a class="headerlink" href="#seeing-the-unseen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="seeing-the-unseen">
+<h3>Seeing the unseen<a class="headerlink" href="#seeing-the-unseen" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> is supposed to list the contents of our directory, but we didn’t see <code class="docutils literal notranslate"><span class="pre">..</span></code> anywhere in the listings from before, right?</p>
 <p><code class="docutils literal notranslate"><span class="pre">..</span></code> is a special directory that is normally hidden. We can provide an additional argument to <code class="docutils literal notranslate"><span class="pre">ls</span></code> to make it appear:</p>
 <div class="cell docutils container">
@@ -2251,9 +1458,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 <li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>, which refers to the parent directory</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>, which refers to the current working directory</p></li>
 </ul>
-</div>
-<div class="section" id="hidden-files">
-<h3>Hidden files<a class="headerlink" href="#hidden-files" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="hidden-files">
+<h3>Hidden files<a class="headerlink" href="#hidden-files" title="Link to this heading">#</a></h3>
 <p>The last command also revealed a <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2269,9 +1476,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">.</span></code> prefix is usually reserved for configuration files, and prevents them from cluttering the terminal when you use <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
-</div>
-<div class="section" id="pwd-cd-and-ls">
-<h3><code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, and <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#pwd-cd-and-ls" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pwd-cd-and-ls">
+<h3><code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, and <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#pwd-cd-and-ls" title="Link to this heading">#</a></h3>
 <p>These are some of <strong>the most</strong> common commands you’ll use in the shell! So let’s learn a little more about them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2325,9 +1532,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p>We can string together paths with the <code class="docutils literal notranslate"><span class="pre">/</span></code> separator instead of changing one directory at a time!</p>
-</div>
-<div class="section" id="relative-versus-absolute-paths">
-<h3>Relative versus absolute paths<a class="headerlink" href="#relative-versus-absolute-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="relative-versus-absolute-paths">
+<h3>Relative versus absolute paths<a class="headerlink" href="#relative-versus-absolute-paths" title="Link to this heading">#</a></h3>
 <p>We’ve been using <strong>relative</strong> paths to change directories and list their contents.</p>
 <p>Relative here indicates that the path is <strong>relative to your current working directory</strong>.</p>
 <p>The alternative is an <strong>absolute</strong> path, which includes the entire path starting at the root directory (<code class="docutils literal notranslate"><span class="pre">/</span></code>).</p>
@@ -2381,11 +1588,11 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="some-helpful-shortcuts">
-<h3>Some helpful shortcuts<a class="headerlink" href="#some-helpful-shortcuts" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id6">
-<h4><code class="docutils literal notranslate"><span class="pre">~</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="some-helpful-shortcuts">
+<h3>Some helpful shortcuts<a class="headerlink" href="#some-helpful-shortcuts" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h4><code class="docutils literal notranslate"><span class="pre">~</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>The shell will interpret the <code class="docutils literal notranslate"><span class="pre">~</span></code> tilde character as “your home directory”.</p>
 <p>That is, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/michael</span></code> will all get me to the same place!</p>
 <div class="cell docutils container">
@@ -2425,9 +1632,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id7">
-<h4><code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id7">
+<h4><code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>The shell will interpret the <code class="docutils literal notranslate"><span class="pre">-</span></code> character as “wherever you were last”.</p>
 <p>Unlike <code class="docutils literal notranslate"><span class="pre">..</span></code>, which moves us “up” one directory, <code class="docutils literal notranslate"><span class="pre">-</span></code> will bring you BACK.</p>
 <p>We were just in <code class="docutils literal notranslate"><span class="pre">/home/michael/Desktop/shell-lesson-data</span> </code> and then changed to <code class="docutils literal notranslate"><span class="pre">/home/michael</span></code> so <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> should bring us back:</p>
@@ -2443,12 +1650,12 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="absolute-vs-relative-paths">
-<h3>Absolute vs Relative Paths:<a class="headerlink" href="#absolute-vs-relative-paths" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="absolute-vs-relative-paths">
+<h3>Absolute vs Relative Paths:<a class="headerlink" href="#absolute-vs-relative-paths" title="Link to this heading">#</a></h3>
 <p>Starting from <code class="docutils literal notranslate"><span class="pre">/Users/amanda/data</span></code>, which of the following commands could Amanda use to navigate to her home directory, which is <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code>?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/amanda</span></code></p></li>
@@ -2459,7 +1666,7 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">.</span></code> refers to the <strong>current working directory</strong></p></li>
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">/</span></code> refers to the <strong>root directory</strong></p></li>
 <li><p>No: Amanda’s home directory is <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code></p></li>
@@ -2470,52 +1677,52 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 <li><p>Yes: this is a shortcut to go back to the user’s home directory!</p></li>
 <li><p>Yes: this goes up one directory, to <code class="docutils literal notranslate"><span class="pre">/Users/amanda</span></code></p></li>
 </ol>
-</div>
-<div class="section" id="relative-path-resolution">
-<h3>Relative Path Resolution:<a class="headerlink" href="#relative-path-resolution" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="relative-path-resolution">
+<h3>Relative Path Resolution:<a class="headerlink" href="#relative-path-resolution" title="Link to this heading">#</a></h3>
 <p>Based on the following diagram, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/thing</span></code>, what will <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">../backup</span></code> display?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">../backup:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01</span> <span class="pre">2013-01-08</span> <span class="pre">2013-01-27</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01/</span> <span class="pre">2013-01-08/</span> <span class="pre">2013-01-27/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">original/</span> <span class="pre">pnas_final/</span> <span class="pre">pnas_sub/</span></code></p></li>
 </ol>
-<img src="http://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" style="margin-bottom: 10px;float: right"><ol class="simple">
+<img src="http://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" style="margin-bottom: 10px;float: right"><ol class="arabic simple">
 <li><p>No: there <em>is</em> a directory <code class="docutils literal notranslate"><span class="pre">backup</span></code> in <code class="docutils literal notranslate"><span class="pre">Users</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>No: this is the content of <code class="docutils literal notranslate"><span class="pre">/Users/thing/backup</span></code>, but <code class="docutils literal notranslate"><span class="pre">..</span></code> means we are one level up from that</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>No: for the same reason as (2)</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Yes: <code class="docutils literal notranslate"><span class="pre">../backup</span></code> refers to <code class="docutils literal notranslate"><span class="pre">/Users/backup</span></code></p></li>
 </ol>
-</div>
-<div class="section" id="ls-reading-comprehension">
-<h3><code class="docutils literal notranslate"><span class="pre">ls</span></code> Reading Comprehension<a class="headerlink" href="#ls-reading-comprehension" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ls-reading-comprehension">
+<h3><code class="docutils literal notranslate"><span class="pre">ls</span></code> Reading Comprehension<a class="headerlink" href="#ls-reading-comprehension" title="Link to this heading">#</a></h3>
 <p>Using the filesystem diagram below, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/backup</span></code>, and <code class="docutils literal notranslate"><span class="pre">-r</span></code> tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> to display things in reverse (alphabetical) order, what command(s) will result in the following output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pnas_sub</span><span class="o">/</span> <span class="n">pnas_final</span><span class="o">/</span> <span class="n">original</span><span class="o">/</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">pwd</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-rF</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-rF</span> <span class="pre">/Users/backup</span></code></p></li>
 </ol>
-<img src="http://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" style="margin-bottom: 10px;float: right"><ol class="simple">
+<img src="http://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" style="margin-bottom: 10px;float: right"><ol class="arabic simple">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">pwd</span></code> is not the name of a directory, it is a command.</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Yes: <code class="docutils literal notranslate"><span class="pre">ls</span></code> without any arguments will list the contents of the current directory.</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>Yes: providing the absolute path of the directory will work.</p></li>
 </ol>
-</div>
-<div class="section" id="id8">
-<h3>Key points<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id8">
+<h3>Key points<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The file system is responsible for managing information on the disk</p></li>
 <li><p>Information is stored in files, which are stored in directories (folders)</p></li>
@@ -2529,10 +1736,10 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 <li><p>Directory names in a path are separated with <code class="docutils literal notranslate"><span class="pre">/</span></code> on Unix, but <code class="docutils literal notranslate"><span class="pre">\</span></code> on Windows</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> means “the directory above the current one”; <code class="docutils literal notranslate"><span class="pre">.</span></code> on its own means “the current directory”</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="working-with-files-and-directories">
-<h2>Working with Files and Directories<a class="headerlink" href="#working-with-files-and-directories" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="working-with-files-and-directories">
+<h2>Working with Files and Directories<a class="headerlink" href="#working-with-files-and-directories" title="Link to this heading">#</a></h2>
 <p>How do we actually <em>make</em> new files and directories from the command line?</p>
 <p>First, let’s remind ourselves of where we are:</p>
 <div class="cell docutils container">
@@ -2571,9 +1778,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="creating-a-directory">
-<h2>Creating a directory<a class="headerlink" href="#creating-a-directory" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-a-directory">
+<h2>Creating a directory<a class="headerlink" href="#creating-a-directory" title="Link to this heading">#</a></h2>
 <p>We can create new directories with the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (<strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory) command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2596,9 +1803,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p>(You could have also opened up the file explorer and made a new folder that way, too!)</p>
-<div class="section" id="good-naming-conventions">
-<h3>Good naming conventions<a class="headerlink" href="#good-naming-conventions" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<section id="good-naming-conventions">
+<h3>Good naming conventions<a class="headerlink" href="#good-naming-conventions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Don’t use spaces</p></li>
 <li><p>Don’t begin the name with <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
 <li><p>Stick with letters, numbers, <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, and <code class="docutils literal notranslate"><span class="pre">_</span></code></p>
@@ -2607,9 +1814,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </ul>
 </li>
 </ol>
-</div>
-<div class="section" id="creating-a-text-file">
-<h3>Creating a text file<a class="headerlink" href="#creating-a-text-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-a-text-file">
+<h3>Creating a text file<a class="headerlink" href="#creating-a-text-file" title="Link to this heading">#</a></h3>
 <p>Let’s navigate into our (empty) <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory and create a new file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2645,9 +1852,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="moving-files-and-directories">
-<h3>Moving files and directories<a class="headerlink" href="#moving-files-and-directories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="moving-files-and-directories">
+<h3>Moving files and directories<a class="headerlink" href="#moving-files-and-directories" title="Link to this heading">#</a></h3>
 <p>Let’s start by going back to the <code class="docutils literal notranslate"><span class="pre">data-shell</span></code> directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2685,9 +1892,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 <p>Note: we can provide more than two arguments to <code class="docutils literal notranslate"><span class="pre">mv</span></code>, as long as the final argument is a directory! That would mean “move all these things into this directory”.</p>
 <p>Also note: <code class="docutils literal notranslate"><span class="pre">mv</span></code> is <strong>quite dangerous</strong>, because it will silently overwrite files if the destination already exists! Refer to the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag for “interactive” moving (with warnings!).</p>
-</div>
-<div class="section" id="more-on-mv">
-<h3>More on <code class="docutils literal notranslate"><span class="pre">mv</span></code><a class="headerlink" href="#more-on-mv" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="more-on-mv">
+<h3>More on <code class="docutils literal notranslate"><span class="pre">mv</span></code><a class="headerlink" href="#more-on-mv" title="Link to this heading">#</a></h3>
 <p>Note that we use <code class="docutils literal notranslate"><span class="pre">mv</span></code> to change files to a different directory (rather than just re-naming):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2718,9 +1925,9 @@ NENE01729B.txt  NENE01812A.txt  NENE01978A.txt  NENE02040B.txt
 </div>
 </div>
 <p>(Note: providing a filename to <code class="docutils literal notranslate"><span class="pre">ls</span></code> instead of a directory will list only that filename <strong>if it exists</strong>. Otherwise, it will throw an error.)</p>
-</div>
-<div class="section" id="exercise-moving-files-to-a-new-folder">
-<h3>Exercise: Moving files to a new folder<a class="headerlink" href="#exercise-moving-files-to-a-new-folder" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exercise-moving-files-to-a-new-folder">
+<h3>Exercise: Moving files to a new folder<a class="headerlink" href="#exercise-moving-files-to-a-new-folder" title="Link to this heading">#</a></h3>
 <p>After running the following commands, Jamie realizes that she put the files <code class="docutils literal notranslate"><span class="pre">sucrose.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">maltose.dat</span></code> into the wrong folder. The files should have been placed in the <code class="docutils literal notranslate"><span class="pre">raw</span></code> folder.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-F
 <span class="w"> </span>analyzed/<span class="w"> </span>raw/
@@ -2737,9 +1944,9 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>analy
 </pre></div>
 </div>
 <p>Remember, the <code class="docutils literal notranslate"><span class="pre">..</span></code> refers to the parent directory (i.e., one above the current directory)</p>
-</div>
-<div class="section" id="copying-files-and-directories">
-<h3>Copying files and directories<a class="headerlink" href="#copying-files-and-directories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="copying-files-and-directories">
+<h3>Copying files and directories<a class="headerlink" href="#copying-files-and-directories" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cp</span></code> (<strong>c</strong>o<strong>p</strong>y) command is like <code class="docutils literal notranslate"><span class="pre">mv</span></code>, but copies instead of moving!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2784,32 +1991,32 @@ quotations.txt
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercise-renaming-files">
-<h3>Exercise: Renaming files<a class="headerlink" href="#exercise-renaming-files" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exercise-renaming-files">
+<h3>Exercise: Renaming files<a class="headerlink" href="#exercise-renaming-files" title="Link to this heading">#</a></h3>
 <p>Suppose that you created a plain-text file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code class="docutils literal notranslate"><span class="pre">statstics.txt</span></code></p>
 <p>After creating and saving this file you realize you misspelled the filename! You want to correct the mistake and remove the incorrectly named file. Which of the following commands could you use to do so?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>cp statstics.txt statistics.txt</p></li>
 <li><p>mv statstics.txt statistics.txt</p></li>
 <li><p>mv statstics.txt .</p></li>
 <li><p>cp statstics.txt .</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>No: this would create a file with the correct name but would <strong>not</strong> remove the incorrectly named file</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Yes: this would rename the file!</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>No, the <code class="docutils literal notranslate"><span class="pre">.</span></code> indicates where to move the file but does not provide a new name.</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>No, the <code class="docutils literal notranslate"><span class="pre">.</span></code> indicates where to copy the file but does not provide a new name.</p></li>
 </ol>
-</div>
-<div class="section" id="moving-and-copying">
-<h3>Moving and Copying<a class="headerlink" href="#moving-and-copying" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="moving-and-copying">
+<h3>Moving and Copying<a class="headerlink" href="#moving-and-copying" title="Link to this heading">#</a></h3>
 <p>What is the output of the closing <code class="docutils literal notranslate"><span class="pre">ls</span></code> command in the aequence shown below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 /Users/jamie/data
@@ -2821,27 +2028,27 @@ $<span class="w"> </span>cp<span class="w"> </span>recombine/proteins.dat<span c
 $<span class="w"> </span>ls
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span> <span class="pre">recombine</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">recombine</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">proteins.dat</span> <span class="pre">recombine</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Yes!</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>No: <code class="docutils literal notranslate"><span class="pre">proteins.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie/data/recombine</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>No, <code class="docutils literal notranslate"><span class="pre">proteins-saved.dat</span></code> is located at <code class="docutils literal notranslate"><span class="pre">/Users/jamie</span></code></p></li>
 </ol>
-</div>
-<div class="section" id="removing-files">
-<h3>Removing files<a class="headerlink" href="#removing-files" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="removing-files">
+<h3>Removing files<a class="headerlink" href="#removing-files" title="Link to this heading">#</a></h3>
 <p>Let’s go back to <code class="docutils literal notranslate"><span class="pre">data-shell</span></code> and <strong>r</strong>e<strong>m</strong>ove the <code class="docutils literal notranslate"><span class="pre">quotes.txt</span></code> file we created:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2875,9 +2082,9 @@ $<span class="w"> </span>ls
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="deleting-is-forever">
-<h3>Deleting is <strong>FOREVER</strong> 💀💀<a class="headerlink" href="#deleting-is-forever" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="deleting-is-forever">
+<h3>Deleting is <strong>FOREVER</strong> 💀💀<a class="headerlink" href="#deleting-is-forever" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The shell DOES NOT HAVE A TRASH BIN.</p></li>
 <li><p>You CANNOT recover files that have been deleted with <code class="docutils literal notranslate"><span class="pre">rm</span></code></p></li>
@@ -2887,9 +2094,9 @@ $<span class="w"> </span>ls
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="removing-directories">
-<h3>Removing directories<a class="headerlink" href="#removing-directories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="removing-directories">
+<h3>Removing directories<a class="headerlink" href="#removing-directories" title="Link to this heading">#</a></h3>
 <p>Let’s try and remove the <code class="docutils literal notranslate"><span class="pre">thesis</span></code> directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2912,12 +2119,12 @@ $<span class="w"> </span>ls
 </div>
 </div>
 <p>Because <strong>deleting is forever 💀💀</strong>, the <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code> command should be used with GREAT CAUTION.</p>
-</div>
-<div class="section" id="operations-with-multiple-files-and-directories">
-<h3>Operations with multiple files and directories<a class="headerlink" href="#operations-with-multiple-files-and-directories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="operations-with-multiple-files-and-directories">
+<h3>Operations with multiple files and directories<a class="headerlink" href="#operations-with-multiple-files-and-directories" title="Link to this heading">#</a></h3>
 <p>Oftentimes you need to copy or move several files at once. You can do this by specifiying a list of filenames</p>
-<div class="section" id="exercise-copy-with-multiple-filenames">
-<h4>Exercise: Copy with Multiple Filenames<a class="headerlink" href="#exercise-copy-with-multiple-filenames" title="Permalink to this headline">¶</a></h4>
+<section id="exercise-copy-with-multiple-filenames">
+<h4>Exercise: Copy with Multiple Filenames<a class="headerlink" href="#exercise-copy-with-multiple-filenames" title="Link to this heading">#</a></h4>
 <p>(Work through these in the <code class="docutils literal notranslate"><span class="pre">data-shell/data</span></code> directory.)</p>
 <p>In the example below, what does <code class="docutils literal notranslate"><span class="pre">cp</span></code> do when given several filenames and a directory name?</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>backup
@@ -2930,18 +2137,18 @@ amino-acids.txt<span class="w">  </span>animals.txt<span class="w">  </span>back
 $<span class="w"> </span>cp<span class="w"> </span>amino-acids.txt<span class="w"> </span>animals.txt<span class="w"> </span>morse.txt
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>When given multiple filenames followed by a directory all the files are copied into the directory.</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>When give multiple filenames with no directory, <code class="docutils literal notranslate"><span class="pre">cp</span></code> throws an error:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp:<span class="w"> </span>target<span class="w"> </span>morse.txt<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>directory
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-wildcards-for-accessing-multiple-files-at-once">
-<h4>Using wildcards for accessing multiple files at once<a class="headerlink" href="#using-wildcards-for-accessing-multiple-files-at-once" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="using-wildcards-for-accessing-multiple-files-at-once">
+<h4>Using wildcards for accessing multiple files at once<a class="headerlink" href="#using-wildcards-for-accessing-multiple-files-at-once" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> is a wildcard which matches zero or more characters.</p>
 <p>Consider the <code class="docutils literal notranslate"><span class="pre">data-shell/proteins</span></code> directory:</p>
 <div class="cell docutils container">
@@ -2985,13 +2192,13 @@ exercise-data/proteins/methane.pdb  exercise-data/proteins/propane.pdb
 </div>
 </div>
 <p>This matches all files in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory starting with <code class="docutils literal notranslate"><span class="pre">p</span></code> and ending with <code class="docutils literal notranslate"><span class="pre">.pdb</span></code></p>
-</div>
-<div class="section" id="using-wildcards-for-accessing-multiple-files-at-once-cont-d">
-<h4>Using wildcards for accessing multiple files at once (cont’d)<a class="headerlink" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="using-wildcards-for-accessing-multiple-files-at-once-cont-d">
+<h4>Using wildcards for accessing multiple files at once (cont’d)<a class="headerlink" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">?</span></code> is a wildcard matching exactly one character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ls exercise-data/proteins/?ethane.pdb
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">exercise</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">proteins</span><span class="o">/</span><span class="err">?</span><span class="n">ethane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 </div>
@@ -3015,13 +2222,13 @@ exercise-data/proteins/methane.pdb  exercise-data/proteins/propane.pdb
 </div>
 </div>
 <p>Which matches any file in <code class="docutils literal notranslate"><span class="pre">proteins</span></code> that ends in <code class="docutils literal notranslate"><span class="pre">ethane.pdb</span></code>.</p>
-</div>
-<div class="section" id="id9">
-<h4>Using wildcards for accessing multiple files at once (cont’d)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id9">
+<h4>Using wildcards for accessing multiple files at once (cont’d)<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>You can string wildcards together, too!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ls  exercise-data/proteins/???ane.pdb
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>  <span class="n">exercise</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">proteins</span><span class="o">/</span><span class="err">???</span><span class="n">ane</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 </div>
@@ -3046,33 +2253,33 @@ exercise-data/proteins/ethane.pdb
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercise-list-filenames-matching-a-pattern">
-<h4>Exercise: List filenames matching a pattern<a class="headerlink" href="#exercise-list-filenames-matching-a-pattern" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="exercise-list-filenames-matching-a-pattern">
+<h4>Exercise: List filenames matching a pattern<a class="headerlink" href="#exercise-list-filenames-matching-a-pattern" title="Link to this heading">#</a></h4>
 <p>When run in the <code class="docutils literal notranslate"><span class="pre">proteins</span></code> directory, which <code class="docutils literal notranslate"><span class="pre">ls</span></code> command(s) will produce this output?</p>
 <p><code class="docutils literal notranslate"><span class="pre">ethane.pdb</span> <span class="pre">methane.pdb</span></code></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t*ane.pdb</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t?ne.*</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*t??ne.pdb</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">ethane.*</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>No: This will give <code class="docutils literal notranslate"><span class="pre">ethane.pdb</span> <span class="pre">methane.pdb</span> <span class="pre">octane.pdb</span> <span class="pre">pentane.pdb</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>No: this will give <code class="docutils literal notranslate"><span class="pre">octane.pdb</span> <span class="pre">pentane.pdb</span></code></p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>Yes!</p></li>
 </ol>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>No: This only shows file starting with <code class="docutils literal notranslate"><span class="pre">ethane</span></code></p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="id10">
-<h3>Key points<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id10">
+<h3>Key points<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">old</span> <span class="pre">new</span></code> copies a file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">path</span></code> creates a new directory</p></li>
@@ -3082,19 +2289,19 @@ exercise-data/proteins/ethane.pdb
 <li><p><code class="docutils literal notranslate"><span class="pre">?</span></code> matches any single character in a filename, so <code class="docutils literal notranslate"><span class="pre">?.txt</span></code> matches <code class="docutils literal notranslate"><span class="pre">a.txt</span></code> but not <code class="docutils literal notranslate"><span class="pre">any.txt</span></code></p></li>
 <li><p>The shell does not have a trash bin: once something is deleted, it’s really gone</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The bash shell is very powerful!</p></li>
 <li><p>It offers a command-line interface to your computer and file system</p></li>
 <li><p>It makes it easy to operate on files quickly and efficiently (copying, renaming, etc.)</p></li>
 <li><p>Sequences of shell commands can be strung together to quickly and reproducibly make powerful pipelines</p></li>
 </ul>
-</div>
-<div class="section" id="soapbox">
-<h2>Soapbox<a class="headerlink" href="#soapbox" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="soapbox">
+<h2>Soapbox<a class="headerlink" href="#soapbox" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Bash is <em>fantastic</em> and you will (likely) find yourself using it a lot!</p></li>
 <li><p>However, for complex pipelines and programs we would <em>strongly</em> encourage you to use a “newer” programming lanuage</p>
@@ -3104,9 +2311,9 @@ exercise-data/proteins/ethane.pdb
 </li>
 <li><p>There are a number of reasons for this (e.g., better control flow, error handling, and debugging)</p></li>
 </ul>
-</div>
-<div class="section" id="finding-things">
-<h2>Finding Things<a class="headerlink" href="#finding-things" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="finding-things">
+<h2>Finding Things<a class="headerlink" href="#finding-things" title="Link to this heading">#</a></h2>
 <p>Oftentimes, our file system can be quite complex, with sub-directories inside sub-directories inside sub-directories.</p>
 <p>What happens in we want to find one (or several) files, without having to type <code class="docutils literal notranslate"><span class="pre">ls</span></code> hundreds or thousands of times?</p>
 <p>First, let’s navigate to the <code class="docutils literal notranslate"><span class="pre">data-shell/writing</span></code> directory:</p>
@@ -3192,8 +2399,8 @@ exercise-data/proteins/ethane.pdb
 </div>
 </div>
 <p>Remember, <code class="docutils literal notranslate"><span class="pre">.</span></code> means “the current working directory”. Here, <code class="docutils literal notranslate"><span class="pre">find</span></code> provides us a full list of the entire directory structure!</p>
-<div class="section" id="filtering-find">
-<h3>Filtering <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#filtering-find" title="Permalink to this headline">¶</a></h3>
+<section id="filtering-find">
+<h3>Filtering <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#filtering-find" title="Link to this heading">#</a></h3>
 <p>We can add some helpful options to <code class="docutils literal notranslate"><span class="pre">find</span></code> to filter things a bit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3296,9 +2503,9 @@ exercise-data/proteins/ethane.pdb
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="executing-with-find">
-<h3>Executing with <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#executing-with-find" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="executing-with-find">
+<h3>Executing with <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#executing-with-find" title="Link to this heading">#</a></h3>
 <p>What if we want to perform some operation on the output of our <code class="docutils literal notranslate"><span class="pre">find</span></code> command? Say, list the file sizes for each file (as in <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>)?</p>
 <p>We can do that with a bit of extra work:</p>
 <div class="cell docutils container">
@@ -3344,7 +2551,7 @@ exercise-data/proteins/ethane.pdb
 <p>We can also “pipe” the output of <code class="docutils literal notranslate"><span class="pre">find</span></code> to the <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> command as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ls -lh $( find . -name &quot;*.txt&quot; )
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span> <span class="err">$</span><span class="p">(</span> <span class="n">find</span> <span class="o">.</span> <span class="o">-</span><span class="n">name</span> <span class="s2">&quot;*.txt&quot;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3378,10 +2585,10 @@ exercise-data/proteins/ethane.pdb
 <p>Here, the <code class="docutils literal notranslate"><span class="pre">$(</span> <span class="pre">)</span></code> syntax means “run this command first and insert it’s output here”, so <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> is provided the output of the <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.</span> <span class="pre">-name</span> <span class="pre">&quot;*.txt&quot;</span></code> command as arguments.</p>
 <hr class="docutils" />
 <p>Which concludes our BASH lesson!</p>
-</div>
-</div>
-<div class="section" id="id11">
-<h2>Goals<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id11">
+<h2>Goals<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>Did we meet our goals?</p>
 <ul class="simple">
 <li><p>learn basic and efficient usage of the shell for various tasks</p>
@@ -3391,8 +2598,8 @@ exercise-data/proteins/ethane.pdb
 </ul>
 </li>
 </ul>
-<div class="section" id="id12">
-<h3>Where are we now?<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<section id="id12">
+<h3>Where are we now?<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>Please take a moment to reflect on if and how your understanding of the concept of digital literacy has possibly changed following this lecture.</p>
 <p><strong>2.1 How well informed we’re you about CLI/BASH</strong></p>
 <p><strong>2.2 How well informed do you feel now about CLI/BASH</strong></p>
@@ -3401,19 +2608,19 @@ exercise-data/proteins/ethane.pdb
 <p>**2.5 What more would you need to learn about BASH to make it work for your research endeavours and where would you find relevant information?</p>
 <p><strong>2.6 What was the most surprising part of the training/lecture for you? What information in particular stood out to you?</strong></p>
 <p><strong>2.7 Could you think of other impacts that a better understanding of BASH may have on your life? (E.g. a deeper understanding of how file systems work?)</strong></p>
-</div>
-</div>
-<div class="section" id="additional-materials">
-<h2>Additional materials<a class="headerlink" href="#additional-materials" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="additional-materials">
+<h2>Additional materials<a class="headerlink" href="#additional-materials" title="Link to this heading">#</a></h2>
 <p>There are lots of excellent resources online for learning more about bash:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.gnu.org/manual/manual.html">The GNU Manual</a> is <strong>the</strong> reference for all bash commands</p></li>
 <li><p><a class="reference external" href="http://shop.oreilly.com/product/9780596009656.do">“Learning the Bash Shell”</a> book</p></li>
 <li><p>An interactive on-line bash shell course: <a class="reference external" href="https://www.learnshell.org/">Learnshell</a></p></li>
 </ul>
-</div>
-<div class="section" id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <br>
 <ul class="simple">
 <li><p>most of what you’ll see within this lecture was prepared by Ross Markello and further adapted by Peer Herholz &amp; Michael Ernst</p></li>
@@ -3425,8 +2632,8 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
 Research affiliate - <a class="reference external" href="https://neurodatascience.github.io/">NeuroDataScience lab</a> at <a class="reference external" href="https://www.mcgill.ca/neuro/">MNI</a>/<a class="reference external" href="https://www.mit.edu/">MIT</a><br />
 Member - <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/">BIDS</a>, <a class="reference external" href="https://www.repronim.org/">ReproNim</a>, <a class="reference external" href="https://brainhack.org/">Brainhack</a>, <a class="reference external" href="https://www.cneuromod.ca/">Neuromod</a>, <a class="reference external" href="https://ohbm-environment.org/">OHBM SEA-SIG</a>, <a class="reference external" href="https://sites.google.com/view/unique-neuro-ai">UNIQUE</a></p>
 <p><img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/Twitter%20social%20icons%20-%20circle%20-%20blue.png" alt="logo" title="Twitter" width="32" height="20" /> <img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/GitHub-Mark-120px-plus.png" alt="logo" title="Github" width="30" height="20" />     &#64;peerherholz</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3440,7 +2647,7 @@ Member - <a class="reference external" href="https://bids-specification.readthed
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content"
         },
         predefinedOutput: true
@@ -3448,44 +2655,196 @@ Member - <a class="reference external" href="https://bids-specification.readthed
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro_python_nb_III.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction VII - Introduction to Python III</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro_python_nb_III.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction VII - Introduction to Python III</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="communcation_collaboration.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="communcation_collaboration.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Communication and Collaboration in Modern Science</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-we-now">Where are we now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-shell">What is the “shell”?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-what-s-this-bash-shell">But what’s this “bash shell”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-so-many">WHY so many?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-we-re-going-to-focus-on-the-bash-shell">So we’re going to focus on the bash shell?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alright-but-why-use-the-shell-at-all">Alright, but why use the shell at all?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-get-started">Before we get started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bash-shell">The (bash) shell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#am-i-using-bash">Am I using bash?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-with-the-shell">What’s with the <code class="docutils literal notranslate"><span class="pre">$SHELL</span></code>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cons-of-the-cli">The cons of the CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-files-and-directories">Navigating Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-where-are-we-right-now">So where are we right now?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-dependent-paths">OS-dependent paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-file-system">The file system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The file system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-character">The <code class="docutils literal notranslate"><span class="pre">/</span></code> character</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inside-users">Inside <code class="docutils literal notranslate"><span class="pre">Users</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax-of-a-shell-command">General syntax of a shell command</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#options-a-k-a-flags-switches">Options (a.k.a. flags, switches)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#options-cont-d">Options (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-a-k-a-parameters">Arguments (a.k.a parameters)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-options">Combining options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-other-directories">Exploring other directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Where are we now?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-get-out-of-here">How do I get out of here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seeing-the-unseen">Seeing the unseen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-files">Hidden files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd-cd-and-ls"><code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, and <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-versus-absolute-paths">Relative versus absolute paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-helpful-shortcuts">Some helpful shortcuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">~</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">-</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-path-resolution">Relative Path Resolution:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-reading-comprehension"><code class="docutils literal notranslate"><span class="pre">ls</span></code> Reading Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Key points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-directories">Working with Files and Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-directory">Creating a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-naming-conventions">Good naming conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-text-file">Creating a text file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-and-directories">Moving files and directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-mv">More on <code class="docutils literal notranslate"><span class="pre">mv</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-moving-files-to-a-new-folder">Exercise: Moving files to a new folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-and-directories">Copying files and directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-renaming-files">Exercise: Renaming files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-and-copying">Moving and Copying</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files">Removing files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-is-forever">Deleting is <strong>FOREVER</strong> 💀💀</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-directories">Removing directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-with-multiple-files-and-directories">Operations with multiple files and directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-copy-with-multiple-filenames">Exercise: Copy with Multiple Filenames</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-wildcards-for-accessing-multiple-files-at-once-cont-d">Using wildcards for accessing multiple files at once (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Using wildcards for accessing multiple files at once (cont’d)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-list-filenames-matching-a-pattern">Exercise: List filenames matching a pattern</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Key points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soapbox">Soapbox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-things">Finding Things</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-find">Filtering <code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-with-find">Executing with <code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Goals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Where are we now?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials">Additional materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

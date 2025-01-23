@@ -1,1352 +1,635 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/lit_review';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scientific Writing &amp; Digital Tools" href="writing.html" />
     <link rel="prev" title="Project Design in the Digital Age" href="project_design.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="data_management.html">
-   Data Management
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="science_communication.html">Science communication: Publication and Beyond</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/lit_review.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/lit_review.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/lit_review.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/lit_review.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/lit_review.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/lit_review.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/lit_review.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/lit_review.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/lit_review.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/lit_review.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Find and evaluate Data Sources, Published Research & Literature Review Strategies</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">
-   How to find data sources/literature; How to find published research based on a specific data source
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-to-find-scientific-literature">
-   Where to find scientific literature
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-scholar">
-     Google Scholar:
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#further-reading">
-       Further reading:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#web-of-knowledge-sciene">
-     Web of Knowledge/Sciene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pubmed">
-     PubMed
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-search-strategies">
-   Basic search strategies
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#forward-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Forward
-      </span>
-      <span class="pre">
-       search
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#backward-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Backward
-      </span>
-      <span class="pre">
-       search
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-tips-on-optimizing-your-search-behavior">
-     General tips on optimizing your search behavior
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-reviews">
-   Literature reviews
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">
-     Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elaboration-of-a-review-question">
-     1: Elaboration of a Review Question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elaboration-of-a-review-protocol">
-     2: Elaboration of a Review Protocol
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">
-     Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#searching-for-all-eligible-studies">
-     3: Searching for All Eligible Studies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unbiased-screening-of-eligible-studies">
-     4: Unbiased Screening of Eligible Studies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Further Reading
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#excercise">
-     Excercise:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-maps">
-   Literature maps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#digital-tools-for-literature-search-review">
-   Digital Tools for Literature Search/Review
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#researchrabbit">
-     Researchrabbit:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-the-literature-map">
-     Exploring the literature map
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#similar-works">
-     Similar works
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#related-authors">
-     Related authors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-citations">
-     Exploring citations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#down-the-rabbit-hole">
-     Down the Rabbit hole
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selection-of-digital-tools-for-literature-search">
-     Selection of digital tools for literature search
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-analysis-tools">
-   Meta-analysis tools
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#evaluate-read-a-scientific-paper">
-   Evaluate/Read a Scientific Paper
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ask-six-questions-carey-et-al-2020">
-     Ask six questions (Carey et al., 2020)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">
-     Ten simple rules for reading a scientific paper (Carey et al., 2020)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-1-pick-your-reading-goal">
-     Rule 1: Pick your reading goal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-2-understand-the-authors-goal">
-     Rule 2: Understand the author’s goal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-3-ask-six-questions">
-     Rule 3: Ask six questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-4-unpack-each-figure-and-table">
-     Rule 4: Unpack each figure and table
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-5-understand-the-formatting-intentions">
-     Rule 5: Understand the formatting intentions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-6-be-critical">
-     Rule 6: Be critical
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-7-be-kind">
-     Rule 7: Be kind
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-8-be-ready-to-go-the-extra-mile">
-     Rule 8: Be ready to go the extra mile
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-9-talk-about-it">
-     Rule 9: Talk about it
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-10-build-on-it">
-     Rule 10: Build on it
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-data">
-   Finding data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       1
-      </span>
-     </code>
-     : Think about the data you need and why you need them.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-2-select-the-most-appropriate-resource">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       2
-      </span>
-     </code>
-     : Select the most appropriate resource.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-3-construct-your-query-strategically">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       3
-      </span>
-     </code>
-     : Construct your query strategically.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-4-make-the-repository-work-for-you">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       4
-      </span>
-     </code>
-     : Make the repository work for you.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-5-refine-your-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       5
-      </span>
-     </code>
-     : Refine your search.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-6-assess-data-relevance-and-fitness-for-use">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       6
-      </span>
-     </code>
-     : Assess data relevance and fitness -for -use.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-7-save-your-search-and-data-source-details">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       7
-      </span>
-     </code>
-     : Save your search and data source details.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-8-look-for-data-services-not-just-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       8
-      </span>
-     </code>
-     : Look for data services, not just data.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-9-monitor-the-latest-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       9
-      </span>
-     </code>
-     : Monitor the latest data.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-10-treat-sensitive-data-responsibly">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       10
-      </span>
-     </code>
-     : Treat sensitive data responsibly.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-11-give-back-cite-and-share-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       11
-      </span>
-     </code>
-     : Give back (cite and share data).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-materials">
-     Additional materials
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#achknowledgments">
-   Achknowledgments
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">How to find data sources/literature; How to find published research based on a specific data source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-scientific-literature">Where to find scientific literature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-scholar">Google Scholar:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading:</a></li>
 </ul>
-
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-of-knowledge-sciene">Web of Knowledge/Sciene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pubmed">PubMed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-search-strategies">Basic search strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-search"><code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">search</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-search"><code class="docutils literal notranslate"><span class="pre">Backward</span> <span class="pre">search</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tips-on-optimizing-your-search-behavior">General tips on optimizing your search behavior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-reviews">Literature reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elaboration-of-a-review-question">1: Elaboration of a Review Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elaboration-of-a-review-protocol">2: Elaboration of a Review Protocol</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-all-eligible-studies">3: Searching for All Eligible Studies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unbiased-screening-of-eligible-studies">4: Unbiased Screening of Eligible Studies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise">Excercise:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-maps">Literature maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-tools-for-literature-search-review">Digital Tools for Literature Search/Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#researchrabbit">Researchrabbit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-literature-map">Exploring the literature map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similar-works">Similar works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#related-authors">Related authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-citations">Exploring citations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#down-the-rabbit-hole">Down the Rabbit hole</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-of-digital-tools-for-literature-search">Selection of digital tools for literature search</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-analysis-tools">Meta-analysis tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-read-a-scientific-paper">Evaluate/Read a Scientific Paper</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-six-questions-carey-et-al-2020">Ask six questions (Carey et al., 2020)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">Ten simple rules for reading a scientific paper (Carey et al., 2020)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-1-pick-your-reading-goal">Rule 1: Pick your reading goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-2-understand-the-authors-goal">Rule 2: Understand the author’s goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-3-ask-six-questions">Rule 3: Ask six questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-4-unpack-each-figure-and-table">Rule 4: Unpack each figure and table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-5-understand-the-formatting-intentions">Rule 5: Understand the formatting intentions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-6-be-critical">Rule 6: Be critical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-7-be-kind">Rule 7: Be kind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-8-be-ready-to-go-the-extra-mile">Rule 8: Be ready to go the extra mile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-9-talk-about-it">Rule 9: Talk about it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-10-build-on-it">Rule 10: Build on it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-data">Finding data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">1</span></code>: Think about the data you need and why you need them.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-2-select-the-most-appropriate-resource"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">2</span></code>: Select the most appropriate resource.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-3-construct-your-query-strategically"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">3</span></code>: Construct your query strategically.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-4-make-the-repository-work-for-you"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">4</span></code>: Make the repository work for you.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-5-refine-your-search"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">5</span></code>: Refine your search.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-6-assess-data-relevance-and-fitness-for-use"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">6</span></code>: Assess data relevance and fitness -for -use.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-7-save-your-search-and-data-source-details"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">7</span></code>: Save your search and data source details.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-8-look-for-data-services-not-just-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">8</span></code>: Look for data services, not just data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-9-monitor-the-latest-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">9</span></code>: Monitor the latest data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-10-treat-sensitive-data-responsibly"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">10</span></code>: Treat sensitive data responsibly.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-11-give-back-cite-and-share-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">11</span></code>: Give back (cite and share data).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials">Additional materials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achknowledgments">Achknowledgments</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Find and evaluate Data Sources, Published Research & Literature Review Strategies</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">
-   How to find data sources/literature; How to find published research based on a specific data source
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-to-find-scientific-literature">
-   Where to find scientific literature
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-scholar">
-     Google Scholar:
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#further-reading">
-       Further reading:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#web-of-knowledge-sciene">
-     Web of Knowledge/Sciene
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pubmed">
-     PubMed
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-search-strategies">
-   Basic search strategies
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#forward-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Forward
-      </span>
-      <span class="pre">
-       search
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#backward-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Backward
-      </span>
-      <span class="pre">
-       search
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-tips-on-optimizing-your-search-behavior">
-     General tips on optimizing your search behavior
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-reviews">
-   Literature reviews
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">
-     Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elaboration-of-a-review-question">
-     1: Elaboration of a Review Question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elaboration-of-a-review-protocol">
-     2: Elaboration of a Review Protocol
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">
-     Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#searching-for-all-eligible-studies">
-     3: Searching for All Eligible Studies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unbiased-screening-of-eligible-studies">
-     4: Unbiased Screening of Eligible Studies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Further Reading
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#excercise">
-     Excercise:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature-maps">
-   Literature maps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#digital-tools-for-literature-search-review">
-   Digital Tools for Literature Search/Review
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#researchrabbit">
-     Researchrabbit:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-the-literature-map">
-     Exploring the literature map
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#similar-works">
-     Similar works
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#related-authors">
-     Related authors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploring-citations">
-     Exploring citations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#down-the-rabbit-hole">
-     Down the Rabbit hole
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selection-of-digital-tools-for-literature-search">
-     Selection of digital tools for literature search
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-analysis-tools">
-   Meta-analysis tools
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#evaluate-read-a-scientific-paper">
-   Evaluate/Read a Scientific Paper
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ask-six-questions-carey-et-al-2020">
-     Ask six questions (Carey et al., 2020)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">
-     Ten simple rules for reading a scientific paper (Carey et al., 2020)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-1-pick-your-reading-goal">
-     Rule 1: Pick your reading goal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-2-understand-the-authors-goal">
-     Rule 2: Understand the author’s goal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-3-ask-six-questions">
-     Rule 3: Ask six questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-4-unpack-each-figure-and-table">
-     Rule 4: Unpack each figure and table
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-5-understand-the-formatting-intentions">
-     Rule 5: Understand the formatting intentions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-6-be-critical">
-     Rule 6: Be critical
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-7-be-kind">
-     Rule 7: Be kind
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-8-be-ready-to-go-the-extra-mile">
-     Rule 8: Be ready to go the extra mile
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-9-talk-about-it">
-     Rule 9: Talk about it
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rule-10-build-on-it">
-     Rule 10: Build on it
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-data">
-   Finding data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       1
-      </span>
-     </code>
-     : Think about the data you need and why you need them.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-2-select-the-most-appropriate-resource">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       2
-      </span>
-     </code>
-     : Select the most appropriate resource.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-3-construct-your-query-strategically">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       3
-      </span>
-     </code>
-     : Construct your query strategically.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-4-make-the-repository-work-for-you">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       4
-      </span>
-     </code>
-     : Make the repository work for you.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-5-refine-your-search">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       5
-      </span>
-     </code>
-     : Refine your search.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-6-assess-data-relevance-and-fitness-for-use">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       6
-      </span>
-     </code>
-     : Assess data relevance and fitness -for -use.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-7-save-your-search-and-data-source-details">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       7
-      </span>
-     </code>
-     : Save your search and data source details.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-8-look-for-data-services-not-just-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       8
-      </span>
-     </code>
-     : Look for data services, not just data.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-9-monitor-the-latest-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       9
-      </span>
-     </code>
-     : Monitor the latest data.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-10-treat-sensitive-data-responsibly">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       10
-      </span>
-     </code>
-     : Treat sensitive data responsibly.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tip-11-give-back-cite-and-share-data">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Tip
-      </span>
-      <span class="pre">
-       11
-      </span>
-     </code>
-     : Give back (cite and share data).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-materials">
-     Additional materials
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#achknowledgments">
-   Achknowledgments
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="find-and-evaluate-data-sources-published-research-literature-review-strategies">
-<h1>Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies<a class="headerlink" href="#find-and-evaluate-data-sources-published-research-literature-review-strategies" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="find-and-evaluate-data-sources-published-research-literature-review-strategies">
+<h1>Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies<a class="headerlink" href="#find-and-evaluate-data-sources-published-research-literature-review-strategies" title="Link to this heading">#</a></h1>
 <p>Nowadays, there are various ways to find and organize literature and data online. While a simple Google Scholar search may seem sufficient to quickly get an idea about a specific topic, this strategy becomes increasingly less feasible when trying to collect and evaluate evidence in an unbiased manner.</p>
 <p>In this lecture, we will discuss:</p>
 <ul class="simple">
@@ -1361,7 +644,7 @@
 </ul>
 </li>
 <li><p>Literature reviews</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Elaboration of a Review Question</p></li>
 <li><p>Elaboration of a Review Protocol</p></li>
 <li><p>Searching for All Eligible Studies</p></li>
@@ -1382,16 +665,16 @@
 <li><p>Evaluate, aka. read a scientific paper</p></li>
 <li><p>Finding data</p></li>
 </ul>
-<div class="section" id="how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">
-<h2>How to find data sources/literature; How to find published research based on a specific data source<a class="headerlink" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source" title="Permalink to this headline">¶</a></h2>
-</div>
+<section id="how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">
+<h2>How to find data sources/literature; How to find published research based on a specific data source<a class="headerlink" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source" title="Link to this heading">#</a></h2>
+</section>
 <hr class="docutils" />
-<div class="section" id="where-to-find-scientific-literature">
-<h2>Where to find scientific literature<a class="headerlink" href="#where-to-find-scientific-literature" title="Permalink to this headline">¶</a></h2>
+<section id="where-to-find-scientific-literature">
+<h2>Where to find scientific literature<a class="headerlink" href="#where-to-find-scientific-literature" title="Link to this heading">#</a></h2>
 <p>We’ll start off by briefly discussing the three most popular literature search engines; follow the links to get a more in-depth understanding of each engine.</p>
 <hr class="docutils" />
-<div class="section" id="google-scholar">
-<h3><a class="reference external" href="https://scholar.google.ca/">Google Scholar</a>:<a class="headerlink" href="#google-scholar" title="Permalink to this headline">¶</a></h3>
+<section id="google-scholar">
+<h3><a class="reference external" href="https://scholar.google.ca/">Google Scholar</a>:<a class="headerlink" href="#google-scholar" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://scholar.google.ca/">Google Scholar</a> has easily become the go-to search engine for scientific literature and is a good place to start to find a specific paper easily. Unfortunately, it offers less advanced search options than the two options below.</p>
 <p>It is a free search engine providing access to scholarly literature, including articles, books, conference proceedings, and theses. It is a popular tool for researchers, students, and academics, as it offers a simple and user-friendly interface for discovering and accessing a comprehensive library of scholarly literature across most, if not all, disciplines. It also offers features such as citation tracking and alerting, which allows users to monitor and track the impact of their own research, as well as the work of others in their field. While the impact is not something we should focus on too much, it helps to identify the seminal papers on a given topic.</p>
 <p>To work with Google Scholar, simply access the platform through the Google Scholar website or through their Google account. They can use the search bar to enter keywords and other search terms and then refine their results using the various filters available. Users can also set up alerts to be notified when new articles or publications related to their areas of interest become available.</p>
@@ -1409,31 +692,31 @@
 <p>To remove an alert, simply move to the alters menu as above and click the <code class="docutils literal notranslate"><span class="pre">Cancel</span></code> link behind the alert.</p>
 <p>created_alert.png</p>
 <p>Additionally, if you start publishing, it’s a good idea to set up a profile to track your own publications and citations, making it a useful tool for managing your scholarly online presence and output.</p>
-<div class="section" id="further-reading">
-<h4>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h4>
+<section id="further-reading">
+<h4>Further reading:<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://paperpile.com/g/google-scholar-guide/">Google Scholar: the ultimate guide (Paperpile)</a></p>
 </br>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="web-of-knowledge-sciene">
-<h3><a class="reference external" href="https://access.clarivate.com/login?app=wos&amp;alternative=true&amp;shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&amp;shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F&amp;roaming=true">Web of Knowledge/Sciene</a><a class="headerlink" href="#web-of-knowledge-sciene" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://access.clarivate.com/login?app=wos&amp;alternative=true&amp;shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&amp;shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F&amp;roaming=true">Web of Knowledge/Sciene</a> is a powerful online research database that provides access to a wide range of scholarly literature, including articles, conference proceedings, and patents. Developed by Clarivate Analytics, it offers a suite of tools for researchers, academics, and professionals to discover, analyze, and manage research data.</p>
+<section id="web-of-knowledge-sciene">
+<h3><a class="reference external" href="https://access.clarivate.com/login?app=wos&amp;amp;alternative=true&amp;amp;shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&amp;amp;shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F&amp;amp;roaming=true">Web of Knowledge/Sciene</a><a class="headerlink" href="#web-of-knowledge-sciene" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://access.clarivate.com/login?app=wos&amp;amp;alternative=true&amp;amp;shibShireURL=https:%2F%2Fwww.webofknowledge.com%2F%3Fauth%3DShibboleth&amp;amp;shibReturnURL=https:%2F%2Fwww.webofknowledge.com%2F&amp;amp;roaming=true">Web of Knowledge/Sciene</a> is a powerful online research database that provides access to a wide range of scholarly literature, including articles, conference proceedings, and patents. Developed by Clarivate Analytics, it offers a suite of tools for researchers, academics, and professionals to discover, analyze, and manage research data.</p>
 <p>One of the key benefits of Web of Knowledge is its comprehensive coverage of a vast array of disciplines, including science, technology, social sciences, and humanities. It also provides users with advanced search options, including citation searching and author searching, allowing them to identify influential works and authors in their fields of interest.</p>
 <p>One of the problems of the platform is the need for a personal account and access through your institutional library. But if you’re willing to deal with this, you are rewarded with very rich (but somewhat confusing) advanced search options. The platform also offers training and support resources to help users deal with this and get the most out of their research.</p>
 <p><a class="reference external" href="https://www.youtube.com/&#64;WoSTraining/videos">Youtube: Web of Science training</a></p>
 <p><a class="reference external" href="https://webofsciencelearning.clarivate.com/learn/course/external/view/elearning/72/web-of-science-essentials">Intoduction course Web of Science</a></p>
 <p><a class="reference external" href="https://clarivate.com/webofsciencegroup/support/wos/">Web of Science Platform Training &amp; Support</a></p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="pubmed">
-<h3><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a><a class="headerlink" href="#pubmed" title="Permalink to this headline">¶</a></h3>
+<section id="pubmed">
+<h3><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a><a class="headerlink" href="#pubmed" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a> is a free online database of <code class="docutils literal notranslate"><span class="pre">biomedical</span> <span class="pre">literature</span></code> maintained by the United States National Library of Medicine. It offers access to millions of articles from thousands of journals, as well as books, conference proceedings, and other scientific resources in the fields of medicine, healthcare, and life sciences.</p>
 <p>One of the key benefits of PubMed is its vast coverage of biomedical literature, making it a valuable resource for researchers, healthcare professionals, and students. It offers a range of search options, including keyword searches, author searches, and advanced search options that allow users to narrow down their results by date, article type, and other criteria.</p>
 <p>PubMed also provides links to full-text articles, when available, as well as other related resources, such as clinical trials and systematic reviews. It also offers tools for citation analysis and tracking the impact of research articles.</p>
 <p>To work with PubMed, you can access the platform through the National Library of Medicine website. Simply use the search bar to enter keywords and other search terms, and then refine your results using the various filters available. PubMed also offers a variety of tutorials, videos, and other resources to help users get the most out of their research.</p>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/about/userguide/">Pubmed User Guide</a></p>
-<p><a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiJ7_qw9uL9AhVeh_0HHcuqAOoQFnoECAwQAQ&amp;url=https%3A%2F%2Fclarivate.com%2Fblog%2Fliterature-review-definitive-guide%2F&amp;usg=AOvVaw1rYEpNabRpH6L4FKCxNUXy">Andvanced search tutorial</a></p>
+<p><a class="reference external" href="https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiJ7_qw9uL9AhVeh_0HHcuqAOoQFnoECAwQAQ&amp;amp;url=https%3A%2F%2Fclarivate.com%2Fblog%2Fliterature-review-definitive-guide%2F&amp;amp;usg=AOvVaw1rYEpNabRpH6L4FKCxNUXy">Andvanced search tutorial</a></p>
 <hr class="docutils" />
 <p><strong>Local Libraries (shocked Pikachu face)</strong></p>
 <p>Most libraries offer access to their databases, as well as e-books and journals that the university subscribes to. Simply google your university library, e.g., the <a class="reference external" href="https://www.ub.uni-frankfurt.de/online/home_en.html">online presence of the library of the Goethe-University Frankfurt</a>.</p>
@@ -1442,15 +725,15 @@
 <p>You can also write or visit your local library/librarian. You’d be surprised how well-versed librarians are in finding and managing information! (Well, it’s literally their job, but you know what I mean).</p>
 <hr class="docutils" />
 </br>
-</div>
-</div>
-<div class="section" id="basic-search-strategies">
-<h2>Basic search strategies<a class="headerlink" href="#basic-search-strategies" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="basic-search-strategies">
+<h2>Basic search strategies<a class="headerlink" href="#basic-search-strategies" title="Link to this heading">#</a></h2>
 <p>There are two basic strategies one can follow when searching for relevant literature: the <code class="docutils literal notranslate"><span class="pre">forward</span> <span class="pre">search</span> <span class="pre">using</span> <span class="pre">keywords/phrases</span> <span class="pre">'</span> <span class="pre">or</span> <span class="pre">the</span> </code>backward search following the references from a specific paper.<code class="docutils literal notranslate"><span class="pre">Backward</span> <span class="pre">search</span> <span class="pre">can</span> <span class="pre">also</span> <span class="pre">involve</span></code> reverse footnote mining/citation search,` i.e., searching for other sources that have cited a particular article.</p>
 </br>
 <hr class="docutils" />
-<div class="section" id="forward-search">
-<h3><code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">search</span></code><a class="headerlink" href="#forward-search" title="Permalink to this headline">¶</a></h3>
+<section id="forward-search">
+<h3><code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">search</span></code><a class="headerlink" href="#forward-search" title="Link to this heading">#</a></h3>
 </br>
 <p><code class="docutils literal notranslate"><span class="pre">Keyword</span> <span class="pre">search</span></code>:</p>
 <p>Simply input a keyword of interest into the search bar of your engine of choice. The search engine will look for exact matches of this word in the title or body of a text. Using Google Scholar, if you just want to look for keywords in the title, use <code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">title:</span> <span class="pre">Keyword,</span></code> and if you are looking for keywords in the text body, use <code class="docutils literal notranslate"><span class="pre">intext:</span> <span class="pre">Keyword.</span></code></p>
@@ -1478,10 +761,10 @@
 <p>Ideally, we combine all the above-mentioned strategies into our search queries. This is done via <code class="docutils literal notranslate"><span class="pre">nesting</span></code>.</p>
 <p>If I, for example, would be looking for psychological intervention for specific mood disorders separately but want to exclude bipolar disorder, I could use the following combination:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;psychological</span> <span class="pre">intervention&quot;</span> <span class="pre">AND</span> <span class="pre">(Dysthymia</span> <span class="pre">OR</span> <span class="pre">dysthymic</span> <span class="pre">disorder</span> <span class="pre">OR</span> <span class="pre">Depression</span> <span class="pre">OR</span> <span class="pre">depressive</span> <span class="pre">disorder)</span> <span class="pre">NOT</span> <span class="pre">(bipolar)</span></code></p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="backward-search">
-<h3><code class="docutils literal notranslate"><span class="pre">Backward</span> <span class="pre">search</span></code><a class="headerlink" href="#backward-search" title="Permalink to this headline">¶</a></h3>
+<section id="backward-search">
+<h3><code class="docutils literal notranslate"><span class="pre">Backward</span> <span class="pre">search</span></code><a class="headerlink" href="#backward-search" title="Link to this heading">#</a></h3>
 </br>
 <p>In general, a backward search can be performed in the same way as the forward searches above, but instead of looking for general keywords, we include excerpts from the cited literature of a specific paper.</p>
 <p>You’ll be generally successful using either the <code class="docutils literal notranslate"><span class="pre">title</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">cited</span> <span class="pre">paper</span></code> in question or its <code class="docutils literal notranslate"><span class="pre">Digital</span> <span class="pre">Object</span> <span class="pre">Identifier</span> <span class="pre">(DOI).</span></code> You could also search for more literature from the author of the paper in question by using the <code class="docutils literal notranslate"><span class="pre">author:</span> <span class="pre">authorname</span></code> operator in Google Scholar or by clicking on an author name in the search results on Google Scholar.</p>
@@ -1516,47 +799,47 @@
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/webscience_citation_report.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="400px">
 <hr class="docutils" />
 </br>
-</div>
-<div class="section" id="general-tips-on-optimizing-your-search-behavior">
-<h3>General tips on optimizing your search behavior<a class="headerlink" href="#general-tips-on-optimizing-your-search-behavior" title="Permalink to this headline">¶</a></h3>
-<p>It’s recommended to explore multiple combinations of search terms and operators during the literature search and <code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">every</span> <span class="pre">search</span> <span class="pre">query</span></code> so that you or others can <code class="docutils literal notranslate"><span class="pre">reproduce</span> <span class="pre">your</span> <span class="pre">literature</span> <span class="pre">search</span></code> later on. If you’re not taking notes for a literature review, this can still be relevant info that you should include in your <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">lab</span> <span class="pre">notebook</span></code></span>.</p>
+</section>
+<section id="general-tips-on-optimizing-your-search-behavior">
+<h3>General tips on optimizing your search behavior<a class="headerlink" href="#general-tips-on-optimizing-your-search-behavior" title="Link to this heading">#</a></h3>
+<p>It’s recommended to explore multiple combinations of search terms and operators during the literature search and <code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">every</span> <span class="pre">search</span> <span class="pre">query</span></code> so that you or others can <code class="docutils literal notranslate"><span class="pre">reproduce</span> <span class="pre">your</span> <span class="pre">literature</span> <span class="pre">search</span></code> later on. If you’re not taking notes for a literature review, this can still be relevant info that you should include in your <a class="reference internal" href="#link_to_documentation"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">lab</span> <span class="pre">notebook</span></code></span></a>.</p>
 <p>Further, you should use multiple search engines/databases for your literature search and tailor your search queries and vocabulary for each individual database.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="literature-reviews">
-<h2>Literature reviews<a class="headerlink" href="#literature-reviews" title="Permalink to this headline">¶</a></h2>
+<section id="literature-reviews">
+<h2>Literature reviews<a class="headerlink" href="#literature-reviews" title="Link to this heading">#</a></h2>
 <p>Systematic reviews &amp; meta-analyses are used to evaluate the published literature on a given topic to gain a solid understanding of scientific consensus and degrees of evidence for certain positions. While this is not necessary for every paper you’ll be writing, it is a good idea to get comfortable with the basic ideas behind systematic reviews and how they correct search behavior for potential biases. This will also help you organize your literature search and make sure that you do not miss any important papers or waste time on papers that are irrelevant to your specific question/topic.</p>
 <p>We’ll focus on the paper of <a class="reference external" href="https://journals.sagepub.com/doi/10.3102/0034654319877153">Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.</a> and for a more clinical/neuroscience related perspective the work of <a class="reference external" href="https://jrn.epistemehealth.com/article/2/1669/">Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience</a>.</p>
 <p>And explore the following steps:</p>
 <hr class="docutils" />
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Elaboration of a Review Question</p></li>
 </ol>
 <hr class="docutils" />
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>Elaboration of a Review Protocol</p></li>
 </ol>
 <hr class="docutils" />
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>Searching for All Eligible Studies</p></li>
 </ol>
 <hr class="docutils" />
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Unbiased Screening of Eligible Studies</p></li>
 </ol>
 <hr class="docutils" />
 <hr class="docutils" />
 </br>
-<div class="section" id="bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">
-<h3><a class="reference external" href="https://jrn.epistemehealth.com/article/2/1669/">Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience</a>.<a class="headerlink" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience" title="Permalink to this headline">¶</a></h3>
+<section id="bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">
+<h3><a class="reference external" href="https://jrn.epistemehealth.com/article/2/1669/">Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience</a>.<a class="headerlink" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience" title="Link to this heading">#</a></h3>
 </br>
 <p><strong>The first step when searching for literature should be defining your research question, i.e., defining what exact topic or method we’re trying to explore.</strong></p>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="elaboration-of-a-review-question">
-<h3>1: Elaboration of a Review Question<a class="headerlink" href="#elaboration-of-a-review-question" title="Permalink to this headline">¶</a></h3>
+<section id="elaboration-of-a-review-question">
+<h3>1: Elaboration of a Review Question<a class="headerlink" href="#elaboration-of-a-review-question" title="Link to this heading">#</a></h3>
 <p>We’re mostly interested in research questions, but these need to be necessarily defined into review questions once we start systematically searching for literature on a specific topic.</p>
 <p>This can be done with the help of the mnemonic tools to turn a complex question into simple, comprehensive, and direct terms. In clinical and neuroscience, the following mnemonic tools could be used to formulate a specific review question.</p>
 <p><code class="docutils literal notranslate"><span class="pre">PICO</span></code> (“Has the intervention, I, changed the outcome, O, in the population, P, compared to control treatment, C?”)</p>
@@ -1564,28 +847,28 @@
 <p><code class="docutils literal notranslate"><span class="pre">SPIDER</span></code> (S – Sample or population of interest; PI – Phenomenon of Interest; D – Design; E – Evaluation; R – Research type)</p>
   </br>
 <p>Following this example, you could also devise your own mnemonic tool suited to the specific needs of your research question.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="elaboration-of-a-review-protocol">
-<h3>2: Elaboration of a Review Protocol<a class="headerlink" href="#elaboration-of-a-review-protocol" title="Permalink to this headline">¶</a></h3>
+<section id="elaboration-of-a-review-protocol">
+<h3>2: Elaboration of a Review Protocol<a class="headerlink" href="#elaboration-of-a-review-protocol" title="Link to this heading">#</a></h3>
 <p>After defining our review question, we’ll construct a review protocol.</p>
 <p>A review protocol serves as a comprehensive and structured plan that outlines the methodology and procedures that will be followed during a systematic review. The purpose of a review protocol is to provide a transparent and rigorous framework that ensures the systematic review is conducted in a consistent, reliable, and reproducible manner.</p>
 <p>The protocol typically includes a clear research question, explicit inclusion and exclusion criteria for the selection of studies, the search strategy and databases that will be used, data extraction methods, quality assessment criteria, data synthesis and analysis methods, and a plan for reporting/documenting the results of your literature review.</p>
 <p>At the heart of the review protocol are the search criteria, as well as the screening procedures. These will be explained in detail in the next section.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">
-<h3><a class="reference external" href="https://journals.sagepub.com/doi/10.3102/0034654319877153">Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.</a><a class="headerlink" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review" title="Permalink to this headline">¶</a></h3>
+<section id="pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">
+<h3><a class="reference external" href="https://journals.sagepub.com/doi/10.3102/0034654319877153">Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.</a><a class="headerlink" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review" title="Link to this heading">#</a></h3>
 <p>**Systematic reviews follow three basic steps: **</p>
 <p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">searching</span> <span class="pre">the</span> <span class="pre">literature</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">2.</span> <span class="pre">screening</span> <span class="pre">abstracts</span> <span class="pre">and</span> <span class="pre">full-text</span> <span class="pre">documents</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">Coding</span> <span class="pre">included</span> <span class="pre">studies</span></code></p>
 <p>Each of these three basic steps should be documented as much as possible and has to demonstrate that the researcher has included all eligible studies on a specific topic/question. We’ll focus mostly on the first two points in the following chapter.</p>
 <p>We’ll explore the basic strategies of systemic review to help ensure that we are <code class="docutils literal notranslate"><span class="pre">thorough</span></code> and <code class="docutils literal notranslate"><span class="pre">unbiased</span></code> in the review and selection of potential papers of interest.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="searching-for-all-eligible-studies">
-<h3>3: Searching for All Eligible Studies<a class="headerlink" href="#searching-for-all-eligible-studies" title="Permalink to this headline">¶</a></h3>
+<section id="searching-for-all-eligible-studies">
+<h3>3: Searching for All Eligible Studies<a class="headerlink" href="#searching-for-all-eligible-studies" title="Link to this heading">#</a></h3>
 <p>A search must necessarily be <code class="docutils literal notranslate"><span class="pre">systematic,</span></code> <code class="docutils literal notranslate"><span class="pre">comprehensive,</span></code> and <code class="docutils literal notranslate"><span class="pre">well</span> <span class="pre">documented</span></code> to allow for the reproducibility of the search process and to make sure that no relevant results were excluded.</p>
 </br>
 <hr class="docutils" />
@@ -1605,7 +888,7 @@
 In a literature search, it’s recommended to tailor your search terms/syntax to maximize sensitivity (the proportion of studies identified divided by the total number of relevant studies in existence)  while being prepared to accept low precision (the proportion of relevant studies to the total number of studies identified) (Higgins et al., 2022). This is necessary as an increase in sensitivity will naturally lead to a reduction in precision,</p>
 <p>The search strategy should be informed by the review question and can be based on the mnemonic tool used.</p>
 <p>E.g., for the PICO tool, the search terms can be documented based on the number of retrievals (n) for all relevant terms (Bolzan &amp; Oliveira, 2021):</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span></code>: Terms related to (population P or synonyms) = <code class="docutils literal notranslate"><span class="pre">(n(p))</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">I</span></code>: Terms related to (intervention I or synonyms) = <code class="docutils literal notranslate"><span class="pre">(n(i))</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: Terms related to (control C or synonyms) = <code class="docutils literal notranslate"><span class="pre">(n(c))</span></code></p></li>
@@ -1627,17 +910,17 @@ a further attempt to identify unpublished literature, such as dissertations and 
 <hr class="docutils" />
 <p><code class="docutils literal notranslate"><span class="pre">well</span> <span class="pre">documented</span></code> :</p>
 <p>The documentation of your review process should Include all</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The review question</p></li>
 <li><p>Brief introduction to the research subject</p></li>
 <li><p>Description of the strategies employed to obtain publications and filter relevant studies</p></li>
 <li><p>All search queries, including which site was used and the date of the search</p></li>
 </ol>
-<p>You can document your search process using different methods; the easiest is to include your search in a <a class="reference external" href="#Documentation">Lab-Notebbook</a>.</p>
-</div>
+<p>You can document your search process using different methods; the easiest is to include your search in a <a class="reference internal" href="#Documentation"><span class="xref myst">Lab-Notebbook</span></a>.</p>
+</section>
 <hr class="docutils" />
-<div class="section" id="unbiased-screening-of-eligible-studies">
-<h3>4: Unbiased Screening of Eligible Studies<a class="headerlink" href="#unbiased-screening-of-eligible-studies" title="Permalink to this headline">¶</a></h3>
+<section id="unbiased-screening-of-eligible-studies">
+<h3>4: Unbiased Screening of Eligible Studies<a class="headerlink" href="#unbiased-screening-of-eligible-studies" title="Link to this heading">#</a></h3>
 <p>After identifying all relevant studies on a given topic, it’s necessary to screen the abstracts, full text, and citations of the studies in question.</p>
 <p>The screening process involves the creation of screening tools and applying them to different aspects of the selected literature.</p>
 <p>First is the creation of a screening tool/strategy to filter study abstracts and titles for ineligible articles such as essays or non-empirical studies. This helps you organize and sort the abstracts based on how likely it is that they should be included in your review.</p>
@@ -1660,19 +943,19 @@ Following Polaning et al. (2019), The questions/ items should be</p>
 * Screening each article
 * Making a decision about whether it should be included</p>
 <p>The questions in your screening tool should be informed by your research question and can include topics such as the methods used or the sampled population. Unfortunately, there is no validated, dependable text-mining tool to assist with the full-text screening process at the moment.</p>
-<p>The resulting collection of studies should then be a solid base for future research. An easy way to keep track of the literature in question is to add them to a citation manager such as <a class="reference external" href="https://www.zotero.org/">Zotero</a>. A so-created Zotero library can be used to create a list of references on the fly, shared online, or integrated with a number of other digital tools. Find out more about how to work with Zotero in the chapter <span class="xref myst">Project design</span>.</p>
-</div>
+<p>The resulting collection of studies should then be a solid base for future research. An easy way to keep track of the literature in question is to add them to a citation manager such as <a class="reference external" href="https://www.zotero.org/">Zotero</a>. A so-created Zotero library can be used to create a list of references on the fly, shared online, or integrated with a number of other digital tools. Find out more about how to work with Zotero in the chapter <a class="reference internal" href="#"><span class="xref myst">Project design</span></a>.</p>
+</section>
 <hr class="docutils" />
-<div class="section" id="id1">
-<h3>Further Reading<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h3>Further Reading<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The following studies provide example protocols of screening strategies in neuroscience:</p>
 <p>Ramos-Hryb AB, Bahor Z, McCann S, et al. Protocol for a systematic review and meta-analysis of data from preclinical studies employing forced swimming test: an update. BMJ Open Science. 2019;3:e000035
 <a class="reference external" href="https://openscience.bmj.com/content/3/1/e000043.abstract">https://openscience.bmj.com/content/3/1/e000043.abstract</a></p>
 <p>Bolzan JA, Lino de Oliveira C. Protocol for systematic review and meta-analysis of the evidence linking hippocampal neurogenesis to the effects of antidepressants on mood and behaviour. BMJ Open Science. 2021;5:e100077 <a class="reference external" href="https://doi.org/10.1136/bmjos-2020-100077">https://doi.org/10.1136/bmjos-2020-100077</a></p>
 <p>Hohls JK, Konig H, Quirke E, Hajek A. Association between anxiety, depression and quality of life - a systematic review of evidence from longitudinal studies. PROSPERO 2018 CRD42018108008 Available from: <a class="reference external" href="https://www.crd.york.ac.uk/prospero/display_record.php">https://www.crd.york.ac.uk/prospero/display_record.php</a> ?ID=CRD42018108008</p>
-</div>
-<div class="section" id="excercise">
-<h3>Excercise:<a class="headerlink" href="#excercise" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="excercise">
+<h3>Excercise:<a class="headerlink" href="#excercise" title="Link to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Create a Review question
 Create a Review Protocol
 Write a table for the documentation of your search process containing:
@@ -1685,12 +968,12 @@ Write a table for the documentation of your search process containing:
 <hr class="docutils" />
 <hr class="docutils" />
 </br>
-</div>
-</div>
-<div class="section" id="literature-maps">
-<h2>Literature maps<a class="headerlink" href="#literature-maps" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="literature-maps">
+<h2>Literature maps<a class="headerlink" href="#literature-maps" title="Link to this heading">#</a></h2>
 <p>A newer, graph-based approach to literature search is the creation and use of literature maps. If there is one takeaway from this lesson, it should be the use of literature maps for your future research!</p>
-<p><a class="reference external" href="https://media1.giphy.com/media/icgArcntfH5C0/giphy.gif?cid=ecf05e477osuhygwt3o5mqowvvtu798736t9f5gh0g6nlddq&amp;rid=giphy.gif&amp;ct=g">https://media1.giphy.com/media/icgArcntfH5C0/giphy.gif?cid=ecf05e477osuhygwt3o5mqowvvtu798736t9f5gh0g6nlddq&amp;rid=giphy.gif&amp;ct=g</a></p>
+<p><a class="reference external" href="https://media1.giphy.com/media/icgArcntfH5C0/giphy.gif?cid=ecf05e477osuhygwt3o5mqowvvtu798736t9f5gh0g6nlddq&amp;amp;rid=giphy.gif&amp;amp;ct=g">https://media1.giphy.com/media/icgArcntfH5C0/giphy.gif?cid=ecf05e477osuhygwt3o5mqowvvtu798736t9f5gh0g6nlddq&amp;rid=giphy.gif&amp;ct=g</a></p>
 <p>A literature map is a visual representation of the relationships between different topics, themes, and concepts in a specific field of study. It can be used to explore the connections and gaps between different areas of research, identify key authors and publications, and gain a broader understanding of the research landscape.</p>
 <p>You could do this by hand, but this would be rather time-consuming, so we’ll introduce some tools for the creation of literature maps in the next section.</p>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/literature_map.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="400px">
@@ -1707,15 +990,15 @@ Write a table for the documentation of your search process containing:
 <p><code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">clear</span> <span class="pre">research</span> <span class="pre">question</span></code>: A literature map is only useful if it is focused on a specific research question or topic. Start by defining your research question or area of interest, and then use the literature map to explore the relationships between different concepts and subfields.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Be</span> <span class="pre">critical</span></code>: While literature maps can be a useful tool for exploring the research landscape, it is important to be critical of the data sources and assumptions that underlie the map. Always evaluate the quality and relevance of the sources you are using, and be aware of any biases or limitations in the data.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Collaborate</span></code>: Literature maps can be a valuable tool for collaboration, allowing researchers and students to share their knowledge and insights and work together to explore new connections and relationships between different topics and fields.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="digital-tools-for-literature-search-review">
-<h2>Digital Tools for Literature Search/Review<a class="headerlink" href="#digital-tools-for-literature-search-review" title="Permalink to this headline">¶</a></h2>
+<section id="digital-tools-for-literature-search-review">
+<h2>Digital Tools for Literature Search/Review<a class="headerlink" href="#digital-tools-for-literature-search-review" title="Link to this heading">#</a></h2>
 <p>While it’s always sensible to think about how to develop a review question and follow a pre-defined search strategy “by hand,” Nowadays, there are quite a few tools out there to help you make your search more efficient/organized.</p>
 <p>Most of the following tools automatically include literature maps and the ability to search different databases. While they have slightly different functionalities and foci, they are rather similar, so it’s best to just test what works best for you.</p>
 <hr class="docutils" />
-<div class="section" id="researchrabbit">
-<h3><a class="reference external" href="https://www.researchrabbit.ai/">Researchrabbit</a>:<a class="headerlink" href="#researchrabbit" title="Permalink to this headline">¶</a></h3>
+<section id="researchrabbit">
+<h3><a class="reference external" href="https://www.researchrabbit.ai/">Researchrabbit</a>:<a class="headerlink" href="#researchrabbit" title="Link to this heading">#</a></h3>
 <p>To get started, we’ll explore one of these tools more closely.</p>
 <p>The free, self-proclaimed “most powerful discovery app ever built for researchers!” and “new Spotify for academic papers” is an AI-based app that allows you to search for literature in multiple databases. It mainly works on the idea of structuring your literature into collections for every separate project.</p>
 <p>ResearchRabbit builds visual representations of your collections, showing the relative importance of paper, as well as the connections between different papers based on, e.g., citations (where arrows always point towards the paper cited).</p>
@@ -1723,10 +1006,10 @@ Write a table for the documentation of your search process containing:
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/research_rabbit.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="1000px">
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="exploring-the-literature-map">
-<h3>Exploring the literature map<a class="headerlink" href="#exploring-the-literature-map" title="Permalink to this headline">¶</a></h3>
+<section id="exploring-the-literature-map">
+<h3>Exploring the literature map<a class="headerlink" href="#exploring-the-literature-map" title="Link to this heading">#</a></h3>
 <p>It improves the process of manually adding papers to your collection by automatically suggesting related works and authors.
 That is, as soon as a paper is added to your collection, Research Rabbit initiates the process of generating suggested additions. With each additional paper added, the accuracy of these recommendations gradually improves.</p>
 <p>The recommendation system works somewhat like Spotify; by providing more information, i.e., by adding more papers, the app will get a better idea of what exactly the keyworded terms you’re interested in are and further help you discover research you may not have been aware was related to your work. This works especially well when you’re fairly unfamiliar with a specific topic by following the “bread-crumbs” based on a few papers that you’re interested in.</p>
@@ -1735,45 +1018,45 @@ That is, as soon as a paper is added to your collection, Research Rabbit initiat
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/rr_explore.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="200px">
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="similar-works">
-<h3>Similar works<a class="headerlink" href="#similar-works" title="Permalink to this headline">¶</a></h3>
+<section id="similar-works">
+<h3>Similar works<a class="headerlink" href="#similar-works" title="Link to this heading">#</a></h3>
 <p>If you’re looking for papers that are related to your collection, you simply click the <code class="docutils literal notranslate"><span class="pre">similar</span> <span class="pre">work</span></code> button and a new literature map will fit into the original from your collection. Works from your collection will be displayed in green, while works outside your collection will be displayed in blue. By hovering over the elements, you can see their respective connections, the author’s (first or last author) names, and the year of publication.</p>
 </br>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/rr_similar_work.png?raw=true" alt=" png depicting the file structure of the course template repository" class="bg-primary" width="1000px">
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="related-authors">
-<h3>Related authors<a class="headerlink" href="#related-authors" title="Permalink to this headline">¶</a></h3>
+<section id="related-authors">
+<h3>Related authors<a class="headerlink" href="#related-authors" title="Link to this heading">#</a></h3>
 <p>The same can be done for e.g., <code class="docutils literal notranslate"><span class="pre">related</span> <span class="pre">authors</span></code>:</p>
 </br>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/rr_sugested_authors.png?raw=true" alt=" png depicting the file structure of the course template repository" class="bg-primary" width="1000px">
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="exploring-citations">
-<h3>Exploring citations<a class="headerlink" href="#exploring-citations" title="Permalink to this headline">¶</a></h3>
+<section id="exploring-citations">
+<h3>Exploring citations<a class="headerlink" href="#exploring-citations" title="Link to this heading">#</a></h3>
 <p>Further clicking on one of the similar works will open a second sidebar containing more specific information on the paper in question, e.g., the title, all author’s names, and the abstract. But we’re not stopping there, as we can now also explore works related to the paper in question, e.g., by looking at all papers that have cited this specific paper using the <code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">citations</span></code> buttons. This, for example, reveals that the paper in the screenshot is apparently drawing information from different fields of research as the literature map is distributed into multiple clusters of separate maps.</p>
 </br>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/rr_references.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="1000px">
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="down-the-rabbit-hole">
-<h3>Down the Rabbit hole<a class="headerlink" href="#down-the-rabbit-hole" title="Permalink to this headline">¶</a></h3>
+<section id="down-the-rabbit-hole">
+<h3>Down the Rabbit hole<a class="headerlink" href="#down-the-rabbit-hole" title="Link to this heading">#</a></h3>
 <p>As the name suggests, you can suggest this process immediately (probably not a good idea) and find different rabbit holes in the literature.</p>
-<p>By selecting the <code class="docutils literal notranslate"><span class="pre">help</span></code> button on the right-hand side, you’ll open the help window. Here you’ll find frequently asked questions (<a class="reference external" href="https://researchrabbit.notion.site/Welcome-to-the-FAQ-c33b4a61e453431482015e27e8af40d5">ResearchRabbit FAQ</a>), e.g., where does the data come from or how do I read the maps, as well as <a class="reference external" href="https://www.youtube.com/watch?v=wHBql2JncyU&amp;list=PLLrc8QKmOs9btNMYi8zsNRKlGuIZgPTZK">a youtube playlist of community created in-depth content</a> and the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Overview</span> <span class="pre">tour,</span></code> which will help you get started with ResearchRabbit.</p>
+<p>By selecting the <code class="docutils literal notranslate"><span class="pre">help</span></code> button on the right-hand side, you’ll open the help window. Here you’ll find frequently asked questions (<a class="reference external" href="https://researchrabbit.notion.site/Welcome-to-the-FAQ-c33b4a61e453431482015e27e8af40d5">ResearchRabbit FAQ</a>), e.g., where does the data come from or how do I read the maps, as well as <a class="reference external" href="https://www.youtube.com/watch?v=wHBql2JncyU&amp;amp;list=PLLrc8QKmOs9btNMYi8zsNRKlGuIZgPTZK">a youtube playlist of community created in-depth content</a> and the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Overview</span> <span class="pre">tour,</span></code> which will help you get started with ResearchRabbit.</p>
 </br>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="selection-of-digital-tools-for-literature-search">
-<h3>Selection of digital tools for literature search<a class="headerlink" href="#selection-of-digital-tools-for-literature-search" title="Permalink to this headline">¶</a></h3>
+<section id="selection-of-digital-tools-for-literature-search">
+<h3>Selection of digital tools for literature search<a class="headerlink" href="#selection-of-digital-tools-for-literature-search" title="Link to this heading">#</a></h3>
 <p>In the following section, we’ll list the main features of some common tools. Feel free to check them out and find the one that works best for you.</p>
 <p><a class="reference external" href="https://www.researchrabbit.ai/">Researchrabbit</a>:</p>
 <ul class="simple">
@@ -1820,11 +1103,11 @@ That is, as soon as a paper is added to your collection, Research Rabbit initiat
 <li><p>info re DOIs, etc.</p></li>
 <li><p>Share &amp; export</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="meta-analysis-tools">
-<h2>Meta-analysis tools<a class="headerlink" href="#meta-analysis-tools" title="Permalink to this headline">¶</a></h2>
+<section id="meta-analysis-tools">
+<h2>Meta-analysis tools<a class="headerlink" href="#meta-analysis-tools" title="Link to this heading">#</a></h2>
 <p>For the neuroscientifically inclined, there is another way to find relevant literature by using
 web-based platforms that provide tools for automated meta-analysis of neuroimaging studies.</p>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/neuroquery.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="900px">
@@ -1836,13 +1119,13 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <p><a class="reference external" href="https://neuroquery.org/query?text=music+listening">Neuroquery</a></p>
 <p><a class="reference external" href="https://neurosynth.org/">Neurosyth</a></p>
 </br>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="evaluate-read-a-scientific-paper">
-<h2>Evaluate/Read a Scientific Paper<a class="headerlink" href="#evaluate-read-a-scientific-paper" title="Permalink to this headline">¶</a></h2>
+<section id="evaluate-read-a-scientific-paper">
+<h2>Evaluate/Read a Scientific Paper<a class="headerlink" href="#evaluate-read-a-scientific-paper" title="Link to this heading">#</a></h2>
 <p>Of course, an essential part of evaluating literature is evaluating the quality of a paper itself.</p>
 <p><strong>Some overall tips would be:</strong></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>First, skim the article and identify its structure</p></li>
 <li><p>Distinguish main points/graphs</p></li>
 <li><p>Take notes/annotate along the way</p></li>
@@ -1850,10 +1133,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 </ol>
 <p>The following is an in-depth guide on how to seriously engage with a scientific paper to gain the maximum information and benefit from it. This may seem discouraging due to the sheer scope of the task, but it’s a great idea to train and ultimately automatize this process.</p>
 <p>The main takeaway from the following section is the six questions you should ask yourself about every paper to engage more deeply with the content and help kickstart your memory.</p>
-<div class="section" id="ask-six-questions-carey-et-al-2020">
-<h3>Ask six questions (Carey et al., 2020)<a class="headerlink" href="#ask-six-questions-carey-et-al-2020" title="Permalink to this headline">¶</a></h3>
+<section id="ask-six-questions-carey-et-al-2020">
+<h3>Ask six questions (Carey et al., 2020)<a class="headerlink" href="#ask-six-questions-carey-et-al-2020" title="Link to this heading">#</a></h3>
 <p>Regarding the entire work, including all sections, ask yourself the following questions:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>What do the author(s) want to know (motivation)?</p></li>
 <li><p>What did they do (approach/methods)?</p></li>
 <li><p>Why was it done that way (context within the field)?</p></li>
@@ -1862,10 +1145,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>What should be done next?</p></li>
 </ol>
 <p>Of course, it’s not necessary to engage this deeply with every paper you come across. Don’t waste your time on papers that don’t relate to what you want to find out. In this case, concentrate on the first three steps presented below to evaluate the worth of a given paper for your work.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">
-<h3><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008032">Ten simple rules for reading a scientific paper (Carey et al., 2020)</a><a class="headerlink" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020" title="Permalink to this headline">¶</a></h3>
+<section id="ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">
+<h3><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008032">Ten simple rules for reading a scientific paper (Carey et al., 2020)</a><a class="headerlink" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020" title="Link to this heading">#</a></h3>
 <p>Rule 1: Pick your reading goal</p>
 <p>Rule 2: Understand the author’s goal</p>
 <p>Rule 3: Ask six questions</p>
@@ -1876,16 +1159,16 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <p>Rule 8: Be ready to go the extra mile</p>
 <p>Rule 9: Talk about it</p>
 <p>Rule 10: Build on it</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-1-pick-your-reading-goal">
-<h3>Rule 1: Pick your reading goal<a class="headerlink" href="#rule-1-pick-your-reading-goal" title="Permalink to this headline">¶</a></h3>
+<section id="rule-1-pick-your-reading-goal">
+<h3>Rule 1: Pick your reading goal<a class="headerlink" href="#rule-1-pick-your-reading-goal" title="Link to this heading">#</a></h3>
 <p>The motivation to read a paper and the desired outcome (can) influence how one reads a paper and different priorities for different desired outcomes. Do you want a complete overview of the paper, or are you only interested in, e.g., the methods used?</p>
 <p>Evaluate your goal and adapt your reading accordingly (e.g., skim instead of read in detail, etc.)</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-2-understand-the-authors-goal">
-<h3>Rule 2: Understand the author’s goal<a class="headerlink" href="#rule-2-understand-the-authors-goal" title="Permalink to this headline">¶</a></h3>
+<section id="rule-2-understand-the-authors-goal">
+<h3>Rule 2: Understand the author’s goal<a class="headerlink" href="#rule-2-understand-the-authors-goal" title="Link to this heading">#</a></h3>
 <p>Ask yourself:</p>
 <p>Why did the authors want to share a given study?</p>
 <ul class="simple">
@@ -1898,12 +1181,12 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>formatting &amp; content</p></li>
 <li><p>intended purpose further shapes understanding of the author’s goal</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-3-ask-six-questions">
-<h3>Rule 3: Ask six questions<a class="headerlink" href="#rule-3-ask-six-questions" title="Permalink to this headline">¶</a></h3>
+<section id="rule-3-ask-six-questions">
+<h3>Rule 3: Ask six questions<a class="headerlink" href="#rule-3-ask-six-questions" title="Link to this heading">#</a></h3>
 <p>Regarding the entire work, including all sections, ask yourself the following questions:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>What do the author(s) want to know (motivation)?</p></li>
 <li><p>What did they do (approach/methods)?</p></li>
 <li><p>Why was it done that way (context within the field)?</p></li>
@@ -1911,10 +1194,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>How did the author(s) interpret the results (interpretation/discussion)?</p></li>
 <li><p>What should be done next?</p></li>
 </ol>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-4-unpack-each-figure-and-table">
-<h3>Rule 4: Unpack each figure and table<a class="headerlink" href="#rule-4-unpack-each-figure-and-table" title="Permalink to this headline">¶</a></h3>
+<section id="rule-4-unpack-each-figure-and-table">
+<h3>Rule 4: Unpack each figure and table<a class="headerlink" href="#rule-4-unpack-each-figure-and-table" title="Link to this heading">#</a></h3>
 <p>Skim/evaluate figures and tables before actually reading the paper. Evaluate:</p>
 <ul class="simple">
 <li><p>intelligibility, complexity</p></li>
@@ -1927,10 +1210,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>presented statistics</p></li>
 </ul>
 <p>Think about six questions of rule 3 and formulate the critical outcome/take-home message!</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-5-understand-the-formatting-intentions">
-<h3>Rule 5: Understand the formatting intentions<a class="headerlink" href="#rule-5-understand-the-formatting-intentions" title="Permalink to this headline">¶</a></h3>
+<section id="rule-5-understand-the-formatting-intentions">
+<h3>Rule 5: Understand the formatting intentions<a class="headerlink" href="#rule-5-understand-the-formatting-intentions" title="Link to this heading">#</a></h3>
 <p>There are distinct motivations and content for the distinct sections of a paper as discussed above. These may be further influenced by article type, journal policies, etc. but usually remain the same for every scientific paper.</p>
 <p>Depending on what are you looking for, check different sections:</p>
 <ul class="simple">
@@ -1940,10 +1223,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>Interpretation → Discussion</p></li>
 <li><p>Overview of the literature? → Introduction</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-6-be-critical">
-<h3>Rule 6: Be critical<a class="headerlink" href="#rule-6-be-critical" title="Permalink to this headline">¶</a></h3>
+<section id="rule-6-be-critical">
+<h3>Rule 6: Be critical<a class="headerlink" href="#rule-6-be-critical" title="Link to this heading">#</a></h3>
 <p>Test the strength of conclusion by critically evaluating everything: hypotheses, methods, results, interpretation</p>
 <ul class="simple">
 <li><p>self-fulfilling prophecies &amp; expectations?</p>
@@ -1959,20 +1242,20 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>use the <a class="reference external" href="https://replicationindex.com/">Replicability Index</a>, which provides a number of tools and information on how to spot problematic trends in published research.</p></li>
 <li><p>critically evaluate the reliability of results</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-7-be-kind">
-<h3>Rule 7: Be kind<a class="headerlink" href="#rule-7-be-kind" title="Permalink to this headline">¶</a></h3>
+<section id="rule-7-be-kind">
+<h3>Rule 7: Be kind<a class="headerlink" href="#rule-7-be-kind" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>If possible: Give the benefit of the doubt, most folks try to give their best</p></li>
 <li><p>Minor things (typos, reference errors, certain visualizations, etc.) shouldn’t guide/influence evaluation of data, results, interpretation</p></li>
 <li><p>make your critique about facts/data and not beliefs</p></li>
 <li><p>be constructive and objective</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-8-be-ready-to-go-the-extra-mile">
-<h3>Rule 8: Be ready to go the extra mile<a class="headerlink" href="#rule-8-be-ready-to-go-the-extra-mile" title="Permalink to this headline">¶</a></h3>
+<section id="rule-8-be-ready-to-go-the-extra-mile">
+<h3>Rule 8: Be ready to go the extra mile<a class="headerlink" href="#rule-8-be-ready-to-go-the-extra-mile" title="Link to this heading">#</a></h3>
 <p>Don’t expect everything necessary to fully understand a given paper to be present in it (unfortunately, most papers are not written for people new to the field):</p>
 <ul class="simple">
 <li><p>lookup terms, definitions, models, etc.</p></li>
@@ -1985,10 +1268,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>mark questions, unclear paragraphs, connections between figures, etc.</p></li>
 <li><p>Share/create annotations with others (e.g., via google docs, etc.)</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-9-talk-about-it">
-<h3>Rule 9: Talk about it<a class="headerlink" href="#rule-9-talk-about-it" title="Permalink to this headline">¶</a></h3>
+<section id="rule-9-talk-about-it">
+<h3>Rule 9: Talk about it<a class="headerlink" href="#rule-9-talk-about-it" title="Link to this heading">#</a></h3>
 <p>Prepare and engage with articles:</p>
 <ul class="simple">
 <li><p>attend journal clubs</p></li>
@@ -2001,10 +1284,10 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>different foci</p></li>
 </ul>
 <p>Check open discussions, e.g., on Twitter/X.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="rule-10-build-on-it">
-<h3>Rule 10: Build on it<a class="headerlink" href="#rule-10-build-on-it" title="Permalink to this headline">¶</a></h3>
+<section id="rule-10-build-on-it">
+<h3>Rule 10: Build on it<a class="headerlink" href="#rule-10-build-on-it" title="Link to this heading">#</a></h3>
 <p>Think about the bigger picture:</p>
 <ul class="simple">
 <li><p>how does the paper fit within current research and prior research work</p></li>
@@ -2015,13 +1298,13 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <p>Think about how aspects of the paper (methods, sample, etc.) can be integrated into your research.</p>
 <hr class="docutils" />
 </br>
-</div>
-</div>
-<div class="section" id="finding-data">
-<h2>Finding data<a class="headerlink" href="#finding-data" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="finding-data">
+<h2>Finding data<a class="headerlink" href="#finding-data" title="Link to this heading">#</a></h2>
 <p>Gregory et al. (2018) provide <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006038">Eleven Quick Tips for Finding Research Data”</a>. Well, go through the most important tips in the following section and list some considerations of our own, but for more in-depth info, check out the paper itself.</p>
-<div class="section" id="tip-1-think-about-the-data-you-need-and-why-you-need-them">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">1</span></code>: Think about the data you need and why you need them.<a class="headerlink" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them" title="Permalink to this headline">¶</a></h3>
+<section id="tip-1-think-about-the-data-you-need-and-why-you-need-them">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">1</span></code>: Think about the data you need and why you need them.<a class="headerlink" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them" title="Link to this heading">#</a></h3>
 <p>Evaluate whether you seek data as the basis for a new study, for comparison or validation with existing results/data, or to simply explore or simulate the behavior or characteristics of certain types of data.</p>
 <p>Next, make a list of the characteristics your data should fulfill for the above-identified purpose.</p>
 <p>Requirements could include:</p>
@@ -2031,9 +1314,9 @@ web-based platforms that provide tools for automated meta-analysis of neuroimagi
 <li><p>spatial or temporal coverage (location/region and year or age range, etc.)</p></li>
 <li><p>availability (free, “upon request”)</p></li>
 </ul>
-</div>
-<div class="section" id="tip-2-select-the-most-appropriate-resource">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">2</span></code>: Select the most appropriate resource.<a class="headerlink" href="#tip-2-select-the-most-appropriate-resource" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-2-select-the-most-appropriate-resource">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">2</span></code>: Select the most appropriate resource.<a class="headerlink" href="#tip-2-select-the-most-appropriate-resource" title="Link to this heading">#</a></h3>
 <p>While you can find data available online, e.g., in:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Science</span> <span class="pre">Repositories</span></code>: Repositories such as OSF, OpenNeuro, the OpenfMRI database, and the IEEE DataPort provide open access to MRI and EEG datasets, as well as other neuroimaging data.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Research</span> <span class="pre">Data</span> <span class="pre">Repositories</span></code>: <a class="reference external" href="https://zenodo.org">Zenodo</a>, Figshare, and other research data repositories allow scientists to store, share, and publish their data in an open and transparent manner. These repositories are often committed to open access principles and provide a centralized location for data and metadata, as well as version control and preservation features.</p>
@@ -2054,73 +1337,73 @@ For neuroscience, the most prominent would be:</p>
 <li><p><a class="reference external" href="http://datadryad.org">Dryad</a></p></li>
 </ul>
 <p>A good starting point to find databases and search engines for your field of study is the constantly updated Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_academic_databases_and_search_engines">List of academic databases and search engines</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_online_databases">List of online databases</a>.</p>
-</div>
-<div class="section" id="tip-3-construct-your-query-strategically">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">3</span></code>: Construct your query strategically.<a class="headerlink" href="#tip-3-construct-your-query-strategically" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-3-construct-your-query-strategically">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">3</span></code>: Construct your query strategically.<a class="headerlink" href="#tip-3-construct-your-query-strategically" title="Link to this heading">#</a></h3>
 <p>The same strategies as for literature search apply; make sure to explore multiple combinations of search terms and operators during your search and <code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">every</span> <span class="pre">search</span> <span class="pre">query.</span></code> Additionally, use multiple search engines/databases and tailor your search queries and vocabulary for each individual database.</p>
-</div>
-<div class="section" id="tip-4-make-the-repository-work-for-you">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">4</span></code>: Make the repository work for you.<a class="headerlink" href="#tip-4-make-the-repository-work-for-you" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-4-make-the-repository-work-for-you">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">4</span></code>: Make the repository work for you.<a class="headerlink" href="#tip-4-make-the-repository-work-for-you" title="Link to this heading">#</a></h3>
 <p>Make yourself familiar with the platform and investigate further resources on how to best work with the search engine/database. For example, follow the <a class="reference external" href="https://docs.openneuro.org/user_guide.html">Openneuro User Guide</a> to make the most out of the platform.</p>
-</div>
-<div class="section" id="tip-5-refine-your-search">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">5</span></code>: Refine your search.<a class="headerlink" href="#tip-5-refine-your-search" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-5-refine-your-search">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">5</span></code>: Refine your search.<a class="headerlink" href="#tip-5-refine-your-search" title="Link to this heading">#</a></h3>
 <p>Rerun your search and investigate different approaches if you don’t find any relevant datasets.
 Look for datasets that may be close to what you are looking for and look through their additional information, e.g., the authors, working group location, or relevant keywords, and refine your search based on this information.</p>
-</div>
-<div class="section" id="tip-6-assess-data-relevance-and-fitness-for-use">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">6</span></code>: Assess data relevance and fitness -for -use.<a class="headerlink" href="#tip-6-assess-data-relevance-and-fitness-for-use" title="Permalink to this headline">¶</a></h3>
-<p>Cross-reference with the requirements provided in Tip 1. Also, evaluate the data format (e.g., the <span class="xref myst">BIDS</span> standard] and check the quality parameters that most platforms include. If a dataset looks fit for your purposes, investigate further by downloading samples and implementing your own systematic quality assessment or analyzing the descriptive statistics provided with the dataset. This is not a trivial task, so make sure to search for relevant tools and papers on the subject and consult with your colleagues or advisors.</p>
-</div>
-<div class="section" id="tip-7-save-your-search-and-data-source-details">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">7</span></code>: Save your search and data source details.<a class="headerlink" href="#tip-7-save-your-search-and-data-source-details" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-6-assess-data-relevance-and-fitness-for-use">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">6</span></code>: Assess data relevance and fitness -for -use.<a class="headerlink" href="#tip-6-assess-data-relevance-and-fitness-for-use" title="Link to this heading">#</a></h3>
+<p>Cross-reference with the requirements provided in Tip 1. Also, evaluate the data format (e.g., the <a class="reference internal" href="#"><span class="xref myst">BIDS</span></a> standard] and check the quality parameters that most platforms include. If a dataset looks fit for your purposes, investigate further by downloading samples and implementing your own systematic quality assessment or analyzing the descriptive statistics provided with the dataset. This is not a trivial task, so make sure to search for relevant tools and papers on the subject and consult with your colleagues or advisors.</p>
+</section>
+<section id="tip-7-save-your-search-and-data-source-details">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">7</span></code>: Save your search and data source details.<a class="headerlink" href="#tip-7-save-your-search-and-data-source-details" title="Link to this heading">#</a></h3>
 <p>Documentation!! Record your search queries, ideally on which date you searched, as well as the name of the dataset in question and its persistent identifier (digital object identifier (DOI); Global et al. (GUID).</p>
-</div>
-<div class="section" id="tip-8-look-for-data-services-not-just-data">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">8</span></code>: Look for data services, not just data.<a class="headerlink" href="#tip-8-look-for-data-services-not-just-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-8-look-for-data-services-not-just-data">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">8</span></code>: Look for data services, not just data.<a class="headerlink" href="#tip-8-look-for-data-services-not-just-data" title="Link to this heading">#</a></h3>
 <p>Data may not necessarily be available without using a specific service and can only be accessed via an application programming interface (API).</p>
 <p>Examples of such services include for example:</p>
 <p><a class="reference external" href="http://climatechange.environment.nsw.gov.au/Climate-projections-for-NSW/Download-datasets">NSW Climate Data Portal</a></p>
 <p><a class="reference external" href="https://earthengine.google.com">Google Earth Engine</a></p>
 <p><a class="reference external" href="https://aws.amazon.com/public-datasets/">Amazon Web Services (AWS) public datasets</a></p>
-</div>
-<div class="section" id="tip-9-monitor-the-latest-data">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">9</span></code>: Monitor the latest data.<a class="headerlink" href="#tip-9-monitor-the-latest-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-9-monitor-the-latest-data">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">9</span></code>: Monitor the latest data.<a class="headerlink" href="#tip-9-monitor-the-latest-data" title="Link to this heading">#</a></h3>
 <p>New publications have, at times, the requirement to host their data on public platforms; some platforms provide the ability to set keyword-based e-mail alarms to keep you up to date. Otherwise, monitor recent publications (e.g., as shown above for Google Scholar) and check back with the databases.</p>
-</div>
-<div class="section" id="tip-10-treat-sensitive-data-responsibly">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">10</span></code>: Treat sensitive data responsibly.<a class="headerlink" href="#tip-10-treat-sensitive-data-responsibly" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-10-treat-sensitive-data-responsibly">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">10</span></code>: Treat sensitive data responsibly.<a class="headerlink" href="#tip-10-treat-sensitive-data-responsibly" title="Link to this heading">#</a></h3>
 <p>This speaks for itself; most data that you’ll find online is anonymized and cleared for the public, but if you ever work with data from colleagues or collect your own data, you are required to apply to local data protection laws, especially when dealing with identifiable data of human subjects, for more info see our <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/data_management.html">Lecture on data management</a> .</p>
-</div>
-<div class="section" id="tip-11-give-back-cite-and-share-data">
-<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">11</span></code>: Give back (cite and share data).<a class="headerlink" href="#tip-11-give-back-cite-and-share-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tip-11-give-back-cite-and-share-data">
+<h3><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">11</span></code>: Give back (cite and share data).<a class="headerlink" href="#tip-11-give-back-cite-and-share-data" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Attribute</span></code>: Identify how the authors of a dataset would like to be cited and apply this standard wherever possible</p>
 <p><code class="docutils literal notranslate"><span class="pre">Give</span> <span class="pre">Feedback</span></code>: Offer input to the creators of the data or the data repository regarding any problems related to the accessibility of the data, the quality of the data, or the completeness and interpretability of metadata (i.e., data describing the dataset, such as descriptive population statistics).</p>
 <p><code class="docutils literal notranslate"><span class="pre">Make</span> <span class="pre">your</span> <span class="pre">own</span> <span class="pre">data</span> <span class="pre">open</span> <span class="pre">&amp;</span> <span class="pre">accessible</span></code>: For a guide on how to best do that, see our <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/data_management.html">Lecture on data management</a> .</p>
-</div>
-<div class="section" id="additional-materials">
-<h3>Additional materials<a class="headerlink" href="#additional-materials" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="additional-materials">
+<h3>Additional materials<a class="headerlink" href="#additional-materials" title="Link to this heading">#</a></h3>
 <p>Courses:</p>
-<p><a class="reference external" href="https://gouldguides.carleton.edu/c.php?g=146834&amp;p=964943">“Evaluating Statistics &amp; Data - Data, Datasets, and Statistical Resources - Research Guides at Carleton College”</a></p>
-</div>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://gouldguides.carleton.edu/c.php?g=146834&amp;amp;p=964943">“Evaluating Statistics &amp; Data - Data, Datasets, and Statistical Resources - Research Guides at Carleton College”</a></p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>Bolzan, J. A., &amp; de Oliveira, C. L. A compact guide to the systematic review and meta-analysis of the literature in neuroscience. Journal for Reproducibility in Neuroscience, 2, <a class="reference external" href="https://doi.org/10.31885/jrn.2.2021.1669">https://doi.org/10.31885/jrn.2.2021.1669</a> (2021)</p>
 <p>Carey, M. A., Steiner, K. L., &amp; Petri Jr, W. A. (2020). Ten simple rules for reading a scientific paper. PLoS computational biology, 16(7), e1008032.</p>
 <p>Gregory, K., Khalsa, S. J., Michener, W. K., Psomopoulos, F. E., De Waard, A., &amp; Wu, M. (2018). Eleven quick tips for finding research data. PLoS Computational Biology, 14(4), e1006038.</p>
 <p>Polanin, J. R., Pigott, T. D., Espelage, D. L., &amp; Grotpeter, J. K. (2019). Best practice guidelines for abstract screening large‐evidence systematic reviews and meta‐analyses. Research Synthesis Methods, 10(3), 330-342.</p>
-<p>Pigott, T. D. &amp; Polanin, J. R. Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review. Review of Educational Research 90, 24–46 <a class="reference external" href="https://doi.org/10.3102%2F0034654319877153">https://doi.org/10.3102/0034654319877153</a> (2020).</p>
+<p>Pigott, T. D. &amp; Polanin, J. R. Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review. Review of Educational Research 90, 24–46 <a class="reference external" href="https://doi.org/10.3102%2F0034654319877153">https://doi.org/10.3102%2F0034654319877153</a> (2020).</p>
 <p>Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors). Cochrane Handbook for Systematic Reviews of Interventions version 6.3 (updated February 2022). Cochrane, 2022. Available from <a class="reference external" href="http://www.training.cochrane.org/handbook">www.training.cochrane.org/handbook</a>.</p>
 <p>Wallace, B. C., Small, K., Brodley, C. E., Lau, J., &amp; Trikalinos, T. A. (2012, January). Deploying an interactive machine learning system in an evidence-based practice center: abstrackr. In Proceedings of the 2nd ACM SIGHIT international health informatics symposium (pp. 819-824).</p>
-</div>
-<div class="section" id="achknowledgments">
-<h2>Achknowledgments<a class="headerlink" href="#achknowledgments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="achknowledgments">
+<h2>Achknowledgments<a class="headerlink" href="#achknowledgments" title="Link to this heading">#</a></h2>
 <br>
 <p><a class="reference external" href="https://github.com/M-earnest">Michael Ernst</a><br />
 Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fiebach Lab</a>, <a class="reference external" href="https://www.psychologie.uni-frankfurt.de/49868684/Abteilungen">Neurocognitive Psychology</a> at <a class="reference external" href="https://www.goethe-university-frankfurt.de/en?locale=en">Goethe-University Frankfurt</a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2134,7 +1417,7 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content"
         },
         predefinedOutput: true
@@ -2142,44 +1425,174 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="project_design.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Project Design in the Digital Age</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="project_design.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Project Design in the Digital Age</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="writing.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="writing.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Scientific Writing &amp; Digital Tools</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-find-data-sources-literature-how-to-find-published-research-based-on-a-specific-data-source">How to find data sources/literature; How to find published research based on a specific data source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-scientific-literature">Where to find scientific literature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-scholar">Google Scholar:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-of-knowledge-sciene">Web of Knowledge/Sciene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pubmed">PubMed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-search-strategies">Basic search strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-search"><code class="docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">search</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-search"><code class="docutils literal notranslate"><span class="pre">Backward</span> <span class="pre">search</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tips-on-optimizing-your-search-behavior">General tips on optimizing your search behavior</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-reviews">Literature reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bolzan-oliveira-2021-a-compact-guide-to-the-systematic-review-and-meta-analysis-of-the-literature-in-neuroscience">Bolzan &amp; Oliveira (2021): A compact guide to the systematic review and meta-analysis of the literature in neuroscience.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elaboration-of-a-review-question">1: Elaboration of a Review Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elaboration-of-a-review-protocol">2: Elaboration of a Review Protocol</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pigot-polanin-2020-methodological-guidance-paper-high-quality-meta-analysis-in-a-systematic-review">Pigot &amp; Polanin (2020): Methodological Guidance Paper: High-Quality Meta-Analysis in a Systematic Review.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-all-eligible-studies">3: Searching for All Eligible Studies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unbiased-screening-of-eligible-studies">4: Unbiased Screening of Eligible Studies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excercise">Excercise:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-maps">Literature maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-tools-for-literature-search-review">Digital Tools for Literature Search/Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#researchrabbit">Researchrabbit:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-literature-map">Exploring the literature map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similar-works">Similar works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#related-authors">Related authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-citations">Exploring citations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#down-the-rabbit-hole">Down the Rabbit hole</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-of-digital-tools-for-literature-search">Selection of digital tools for literature search</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-analysis-tools">Meta-analysis tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-read-a-scientific-paper">Evaluate/Read a Scientific Paper</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-six-questions-carey-et-al-2020">Ask six questions (Carey et al., 2020)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ten-simple-rules-for-reading-a-scientific-paper-carey-et-al-2020">Ten simple rules for reading a scientific paper (Carey et al., 2020)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-1-pick-your-reading-goal">Rule 1: Pick your reading goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-2-understand-the-authors-goal">Rule 2: Understand the author’s goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-3-ask-six-questions">Rule 3: Ask six questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-4-unpack-each-figure-and-table">Rule 4: Unpack each figure and table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-5-understand-the-formatting-intentions">Rule 5: Understand the formatting intentions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-6-be-critical">Rule 6: Be critical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-7-be-kind">Rule 7: Be kind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-8-be-ready-to-go-the-extra-mile">Rule 8: Be ready to go the extra mile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-9-talk-about-it">Rule 9: Talk about it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-10-build-on-it">Rule 10: Build on it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-data">Finding data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-1-think-about-the-data-you-need-and-why-you-need-them"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">1</span></code>: Think about the data you need and why you need them.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-2-select-the-most-appropriate-resource"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">2</span></code>: Select the most appropriate resource.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-3-construct-your-query-strategically"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">3</span></code>: Construct your query strategically.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-4-make-the-repository-work-for-you"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">4</span></code>: Make the repository work for you.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-5-refine-your-search"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">5</span></code>: Refine your search.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-6-assess-data-relevance-and-fitness-for-use"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">6</span></code>: Assess data relevance and fitness -for -use.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-7-save-your-search-and-data-source-details"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">7</span></code>: Save your search and data source details.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-8-look-for-data-services-not-just-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">8</span></code>: Look for data services, not just data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-9-monitor-the-latest-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">9</span></code>: Monitor the latest data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-10-treat-sensitive-data-responsibly"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">10</span></code>: Treat sensitive data responsibly.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-11-give-back-cite-and-share-data"><code class="docutils literal notranslate"><span class="pre">Tip</span> <span class="pre">11</span></code>: Give back (cite and share data).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials">Additional materials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achknowledgments">Achknowledgments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

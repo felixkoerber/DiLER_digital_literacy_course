@@ -1,688 +1,581 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>EEG preprocessing with MNE &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/mne_preprocessing';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="MNE Workflow tutorial" href="mne_workflow_tutorial.html" />
     <link rel="prev" title="MNE python for EEG analysis" href="mne_introduction.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/project_design.html">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/data_management.html">
-   Data Management
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../content/media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/project_design.html">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content/data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/science_communication.html">Science communication: Publication and Beyond</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../content/digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../content/ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content/artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="eeg_introduction.html">Electroencephalography</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/advanced/mne_preprocessing.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fadvanced/mne_preprocessing.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/advanced/mne_preprocessing.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/advanced/mne_preprocessing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/advanced/mne_preprocessing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/advanced/mne_preprocessing.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/advanced/mne_preprocessing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/advanced/mne_preprocessing.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fadvanced/mne_preprocessing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/advanced/mne_preprocessing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EEG preprocessing with MNE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referencing">
-   1.Referencing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#artifact-detection">
-   2. Artifact detection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#artifact-removal-repair">
-   3. Artifact removal/repair
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering">
-     3.1 Filtering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpolating-bad-channels">
-     3.2 Interpolating bad channels
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpolation">
-     Interpolation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#independent-component-analysis-ica">
-     3.3 Independent component analysis (ICA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#epoching">
-   4. Epoching
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#epochs">
-     Epochs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#events">
-     Events
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finding-renaming-events">
-     4.1 finding/renaming events
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rejecting-bad-epochs">
-     4.2 rejecting bad epochs
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing">1.Referencing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-detection">2. Artifact detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-removal-repair">3. Artifact removal/repair</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">3.1 Filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolating-bad-channels">3.2 Interpolating bad channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-component-analysis-ica">3.3 Independent component analysis (ICA)</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epoching">4. Epoching</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epochs">Epochs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events">Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-renaming-events">4.1 finding/renaming events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rejecting-bad-epochs">4.2 rejecting bad epochs</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>EEG preprocessing with MNE</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referencing">
-   1.Referencing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#artifact-detection">
-   2. Artifact detection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#artifact-removal-repair">
-   3. Artifact removal/repair
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering">
-     3.1 Filtering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpolating-bad-channels">
-     3.2 Interpolating bad channels
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpolation">
-     Interpolation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#independent-component-analysis-ica">
-     3.3 Independent component analysis (ICA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#epoching">
-   4. Epoching
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#epochs">
-     Epochs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#events">
-     Events
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finding-renaming-events">
-     4.1 finding/renaming events
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rejecting-bad-epochs">
-     4.2 rejecting bad epochs
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="eeg-preprocessing-with-mne">
-<h1>EEG preprocessing with MNE<a class="headerlink" href="#eeg-preprocessing-with-mne" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="eeg-preprocessing-with-mne">
+<h1>EEG preprocessing with MNE<a class="headerlink" href="#eeg-preprocessing-with-mne" title="Link to this heading">#</a></h1>
 <br/>
 <p>Preprocessing describes the process of preparing neurophysiological data, such as the EEG data we’ll be dealing with in this chapter, for further analysis. This mainly involves removing artifacts (interference or noise due to physiological or environmental) from the recorded data, cutting out breaks in experiments, removing faulty (bad) channels and dividing the continous data into chunks centered around certain events (e.g. the presentation of a stimulus, participant’s reactions etc.). For the analysis of EEG data a few extra-steps are necessary to produce a dataset that can provide precise information about changes in neural activity or localization of involved areas, such as setting up a reference channel and applying a montage.</p>
 <p><strong>For examples of possible preprocessing steps see:</strong></p>
@@ -697,17 +590,17 @@
 <a href="https://mne.tools/mne-bids-pipeline/getting_started/basic_usage.html">
 MNE-BIDS-Pipeline  </a>
 <br/>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>As in the previous chapter we’ll first import our necessary libraries and the <a href="https://mne.tools/stable/overview/datasets_index.html" title="https://mne.tools/stable/overview/datasets_index.html">sample dataset</a> provided by MNE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries/functions</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 
 <span class="c1"># this allows for interactive pop-up plots</span>
 <span class="c1">#%matplotlib qt</span>
@@ -716,8 +609,8 @@ MNE-BIDS-Pipeline  </a>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># import mne library</span>
-<span class="kn">import</span> <span class="nn">mne</span>
-<span class="kn">from</span> <span class="nn">mne_bids</span> <span class="kn">import</span> <span class="n">BIDSPath</span><span class="p">,</span> <span class="n">write_raw_bids</span><span class="p">,</span> <span class="n">print_dir_tree</span><span class="p">,</span> <span class="n">make_report</span><span class="p">,</span> <span class="n">read_raw_bids</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne_bids</span><span class="w"> </span><span class="kn">import</span> <span class="n">BIDSPath</span><span class="p">,</span> <span class="n">write_raw_bids</span><span class="p">,</span> <span class="n">print_dir_tree</span><span class="p">,</span> <span class="n">make_report</span><span class="p">,</span> <span class="n">read_raw_bids</span>
 </pre></div>
 </div>
 </div>
@@ -755,26 +648,26 @@ Reading 0 ... 166799  =      0.000 ...   277.714 secs...
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -791,36 +684,36 @@ Reading 0 ... 166799  =      0.000 ...   277.714 secs...
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>172.18 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Projections</th>
         <td>PCA-v1 : off<br/>PCA-v2 : off<br/>PCA-v3 : off</td>
     </tr>
-
+    
 </table></div></div>
 </div>
 <br/>
-</div>
-<div class="section" id="referencing">
-<h2>1.Referencing<a class="headerlink" href="#referencing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="referencing">
+<h2>1.Referencing<a class="headerlink" href="#referencing" title="Link to this heading">#</a></h2>
 <p>As the EEG is a measurement of voltage fluctuations (differences in electric potential), we will have to naturally compare the signal measured at a specific electrode to that measured at another location.</p>
 <p>Therefore we’ll first define a reference channel, i.e. an electrode with which the signal of electrodes of interest can be compared. This is effecitively done by substracting the signal of the reference from our measurement electrodes. When recording EEG a specific electrode or a set of electrodes should be employed that are placed in such a way that they collect ideally all the “noise” that is also influencing our measurement electrodes at the scalp, but as little as possible of the actual neural activity of interest. Common choices for the placement of reference electrodes are the earlobes or the mastoids (the bone ridges behind the ears), although sometimes central electrodes such as Cz or FCz are chosen. If we’d be interested in the signal measuered at these sites, we would have to re-reference our data.</p>
 <p>There is a few ways to go about referencing, chek-out the <a href="https://mne.tools/stable/auto_tutorials/preprocessing/55_setting_eeg_reference.html" title="https://mne.tools/stable/auto_tutorials/preprocessing/55_setting_eeg_reference.html">MNE tutorial: Setting the EEG reference</a> for more info.</p>
@@ -848,7 +741,7 @@ Removing projector &lt;Projection | PCA-v3, active : False, n_channels : 102&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_preprocessing_12_0.png" src="../_images/mne_preprocessing_12_0.png" />
+<img alt="../_images/84bd3ff4c0f4cd0d8ac4e46a978849ae3383abb4a4fb7fb57eefce292f83bd7f.png" src="../_images/84bd3ff4c0f4cd0d8ac4e46a978849ae3383abb4a4fb7fb57eefce292f83bd7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -862,7 +755,7 @@ Removing projector &lt;Projection | PCA-v3, active : False, n_channels : 102&gt;
 Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_13_1.png" src="../_images/mne_preprocessing_13_1.png" />
+<img alt="../_images/dfb410a8cb54f39ea30dfedd555361577405ae4a5ad9c5d13c59cf144e14dce3.png" src="../_images/dfb410a8cb54f39ea30dfedd555361577405ae4a5ad9c5d13c59cf144e14dce3.png" />
 </div>
 </div>
 <br/>
@@ -898,7 +791,7 @@ EEG 025-EEG 024
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_17_1.png" src="../_images/mne_preprocessing_17_1.png" />
+<img alt="../_images/4d712c82b47f959d87334ec2bd68d7b5cd8db37d1d599959e858881e4c506801.png" src="../_images/4d712c82b47f959d87334ec2bd68d7b5cd8db37d1d599959e858881e4c506801.png" />
 </div>
 </div>
 <br/>
@@ -918,7 +811,7 @@ Applying a custom (&#39;EEG&#39;,) reference.
 Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_19_1.png" src="../_images/mne_preprocessing_19_1.png" />
+<img alt="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" src="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" />
 </div>
 </div>
 <br/>
@@ -931,9 +824,9 @@ Opening raw-browser...
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="artifact-detection">
-<h2>2. Artifact detection<a class="headerlink" href="#artifact-detection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="artifact-detection">
+<h2>2. Artifact detection<a class="headerlink" href="#artifact-detection" title="Link to this heading">#</a></h2>
 <p><strong>The 3 main sources of artifacts are environmental (due to power lines or electroncis), instrumentation (faulty electrodes), and biological (eye-movement, muscular activity).</strong></p>
 <p>For an extensive list see the <a href="https://mne.tools/stable/auto_tutorials/preprocessing/10_preprocessing_overview.html#sphx-glr-auto-tutorials-preprocessing-10-preprocessing-overview-py" title="https://mne.tools/stable/auto_tutorials/preprocessing/10_preprocessing_overview.html#sphx-glr-auto-tutorials-preprocessing-10-preprocessing-overview-py">MNE tutorial on artifact detection</a></p>
 <p>The easiest way to spot these artifacts is to simply plot the raw data if you know what you’re looking for.
@@ -949,7 +842,7 @@ For example, artifacts due to eye movement will appear as a sudden step in ampli
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_24_1.png" src="../_images/mne_preprocessing_24_1.png" />
+<img alt="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" src="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" />
 </div>
 </div>
 <br/>
@@ -965,7 +858,7 @@ For example, artifacts due to eye movement will appear as a sudden step in ampli
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effective window size : 3.410 (s)
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_26_1.png" src="../_images/mne_preprocessing_26_1.png" />
+<img alt="../_images/9bdfa5b8cafa4d88123b4f95e32c48df10f5e21baebf6319c097a170cc6d50e9.png" src="../_images/9bdfa5b8cafa4d88123b4f95e32c48df10f5e21baebf6319c097a170cc6d50e9.png" />
 </div>
 </div>
 <br/>
@@ -1006,7 +899,7 @@ Using data from preloaded Raw for 46 events and 601 original time points ...
 No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_28_1.png" src="../_images/mne_preprocessing_28_1.png" />
+<img alt="../_images/423df8d731a324ac942056a90871163d544d4e3f7bd6f88954f8b423a5f60d0d.png" src="../_images/423df8d731a324ac942056a90871163d544d4e3f7bd6f88954f8b423a5f60d0d.png" />
 </div>
 </div>
 <br/>
@@ -1022,7 +915,7 @@ Does the signal captured by an electrode look significantly different in relatio
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_30_1.png" src="../_images/mne_preprocessing_30_1.png" />
+<img alt="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" src="../_images/0e8669f4f4cedfac4abfa3a023652a762e59fd8c32669e957a65c14d7dc1e3e8.png" />
 </div>
 </div>
 <br/>
@@ -1064,14 +957,14 @@ Does the signal captured by an electrode look significantly different in relatio
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="artifact-removal-repair">
-<h2>3. Artifact removal/repair<a class="headerlink" href="#artifact-removal-repair" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="artifact-removal-repair">
+<h2>3. Artifact removal/repair<a class="headerlink" href="#artifact-removal-repair" title="Link to this heading">#</a></h2>
 <p>Next we’ll try to eliminate and or repair the previously identified artifacts with using different methods (frequency-filtering, rejecting bad channels and Independent component analysis). It is important to note that not all artifacts are problematic or should necessarily lead to complete data rejection, so we’ll try to retain as much signal as possible by removing the contaminated signal component and estimating the true signal we’d record if the specific artifacts where not present.</p>
 <p>For a primer on how to decide which artifacts should be removed/not removed see <a href="https://www.youtube.com/watch?v=VDqwfP0mlfU" title="https://www.youtube.com/watch?v=VDqwfP0mlfU">Youtube: Signal artifacts (not) to worry about</a>.</p>
 <br/>
-<div class="section" id="filtering">
-<h3>3.1 Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h3>
+<section id="filtering">
+<h3>3.1 Filtering<a class="headerlink" href="#filtering" title="Link to this heading">#</a></h3>
 <p>Line noise and slow drifts are most easily dealt with by <strong>applying a filter to our data that artifically removes any activity above (highpass) or below (lowpass) a certain frequency</strong>. As the range of frequency that is actually relevant for our data or plausibly produced by neural activity is rather limited, we can for example get rid of the above identified line noise artifacts quite easily by setting a cut-off frequency (lowpass-filter) for our data somewhere below 60Hz.</p>
 <p>There is extensive literature on and a plethora off methods to consider when it comes to eeg-filters, but for this tutorial we’ll be using the mne standard parameters. For more info on eeg-filters see the <a href="https://mne.tools/stable/auto_tutorials/preprocessing/25_background_filtering.html" title="MNE: background on filtering">MNE: background on filtering</a> or for a visual approach <a href="https://www.youtube.com/watch?v=2tmilbi4L0o" title="Youtube: FIR Filter Design using the Window Method">Youtube: FIR Filter Design using the Window Method</a>.</p>
 <p><strong>We’ll be setting a highpass filter at 0.1hz (to get rid of slow drifts in electrode conductance over time) and a low-pass filter of 40hz (to get rid of electrical line noise).</strong></p>
@@ -1120,7 +1013,7 @@ Designing a one-pass, zero-phase, non-causal bandpass filter:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_39_1.png" src="../_images/mne_preprocessing_39_1.png" />
+<img alt="../_images/6925813475e6b04415444791e81b7e7f2e3eb33fc7c23fd36f95ca52a55f85e3.png" src="../_images/6925813475e6b04415444791e81b7e7f2e3eb33fc7c23fd36f95ca52a55f85e3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1133,7 +1026,7 @@ Designing a one-pass, zero-phase, non-causal bandpass filter:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_40_1.png" src="../_images/mne_preprocessing_40_1.png" />
+<img alt="../_images/191c59df0021d9d87409fdcf1086f485ee377a9ae72f4a2ad6ca49abc08e1883.png" src="../_images/191c59df0021d9d87409fdcf1086f485ee377a9ae72f4a2ad6ca49abc08e1883.png" />
 </div>
 </div>
 <br/>
@@ -1149,7 +1042,7 @@ Designing a one-pass, zero-phase, non-causal bandpass filter:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effective window size : 3.410 (s)
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_42_1.png" src="../_images/mne_preprocessing_42_1.png" />
+<img alt="../_images/9bdfa5b8cafa4d88123b4f95e32c48df10f5e21baebf6319c097a170cc6d50e9.png" src="../_images/9bdfa5b8cafa4d88123b4f95e32c48df10f5e21baebf6319c097a170cc6d50e9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1163,13 +1056,13 @@ Designing a one-pass, zero-phase, non-causal bandpass filter:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effective window size : 3.410 (s)
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_43_1.png" src="../_images/mne_preprocessing_43_1.png" />
+<img alt="../_images/eef725b51719e24dc6988edf82e24cff149535c1d74f7662e0d85e8426a07598.png" src="../_images/eef725b51719e24dc6988edf82e24cff149535c1d74f7662e0d85e8426a07598.png" />
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="interpolating-bad-channels">
-<h3>3.2 Interpolating bad channels<a class="headerlink" href="#interpolating-bad-channels" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="interpolating-bad-channels">
+<h3>3.2 Interpolating bad channels<a class="headerlink" href="#interpolating-bad-channels" title="Link to this heading">#</a></h3>
 <p>Let’s first take a look at the previoulsly marked bad channels for our unfiltered data again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1326,26 +1219,26 @@ taking a look at the "Bad channels" row of the .info reveals that the marked cha
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -1362,31 +1255,31 @@ taking a look at the "Bad channels" row of the .info reveals that the marked cha
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
+    
+    
 </table></div></div>
 </div>
 <br/>
-</div>
-<div class="section" id="interpolation">
-<h3>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="interpolation">
+<h3>Interpolation<a class="headerlink" href="#interpolation" title="Link to this heading">#</a></h3>
 <p>Now that we know which channels are problematic, we can <strong>estimate their actual signal given the signal of the surrounding electrodes</strong> via the <a href="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.interpolate_bads" title="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.interpolate_bads">.interpolate_bads()</a> fucntion, as with the relatively poor spatial resolution it is highly unklikey that one electrode would have picked up a signal that is not also to a to lesser degree present in the surrounding electrodes. This concept is illustrated well in the visualizatio of the topopgraphic spread of evoked potentials <a href="https://mne.tools/stable/auto_examples/visualization/topo_compare_conditions.html" title="https://mne.tools/stable/auto_examples/visualization/topo_compare_conditions.html">here</a>. See the <a href="https://mne.tools/stable/auto_examples/preprocessing/interpolate_bad_channels.html#footcite-perrinetal1989" title="MNE tutorial: interpolate bad channels"> MNE tutorial: interpolate bad channels </a> for more on the implementation and the therein cited papers for the technical information.</p>
 <p>When to interpolate or drop bad channels should be decided on an individual basis. In general, <strong>if the signal picked up is consistently bad/noisy and might influence the overall quality of the data the channel can be interpolated</strong>. If there are only single “ariftact events in” the channel it’s best to keep the channel and later on exclude the epoch containing the artifact. For automatization purposes you’ll of course have to make an a priori decison on what levels of noise e.g. you’re willing to accept.</p>
 <div class="cell docutils container">
@@ -1418,7 +1311,7 @@ Interpolating 2 sensors
 Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_67_1.png" src="../_images/mne_preprocessing_67_1.png" />
+<img alt="../_images/f20dd3790c035b6eaa45812d753547e667b8670bb8c4bbf9a1199d4032033456.png" src="../_images/f20dd3790c035b6eaa45812d753547e667b8670bb8c4bbf9a1199d4032033456.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1431,7 +1324,7 @@ Opening raw-browser...
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_68_1.png" src="../_images/mne_preprocessing_68_1.png" />
+<img alt="../_images/17a521416511719f7db16b72444dbd5f782437643788d18917e5fa96bc092f31.png" src="../_images/17a521416511719f7db16b72444dbd5f782437643788d18917e5fa96bc092f31.png" />
 </div>
 </div>
 <br/>
@@ -1452,26 +1345,26 @@ Interpolating 2 sensors
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -1488,31 +1381,31 @@ Interpolating 2 sensors
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
-
+    
+    
+    
     <tr>
         <th>Filenames</th>
         <td>sample_audvis_raw.fif</td>
     </tr>
-
+    
     <tr>
         <th>Duration</th>
         <td>00:04:37 (HH:MM:SS)</td>
@@ -1527,14 +1420,14 @@ Interpolating 2 sensors
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="independent-component-analysis-ica">
-<h3>3.3 Independent component analysis (ICA)<a class="headerlink" href="#independent-component-analysis-ica" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="independent-component-analysis-ica">
+<h3>3.3 Independent component analysis (ICA)<a class="headerlink" href="#independent-component-analysis-ica" title="Link to this heading">#</a></h3>
 <p><strong>One of the most common and effetive tools for artifact detection and removal is the Independent component analysis, which we’ll use to exclude our occular artifacts from the data in the next step</strong></p>
 <p>In brief:
 ICA is a technique for signal processing that separates a signal into a specified number of linearly mixed sources. For the preprocessing of EEG data this is  used to find statistically independet sources of signal variability present in our n_channel dimensional data. EEG artifacts are usually strong sources of variability as they show higher amplitude than would be expected for sources of neural activity and generally appear more consistent than fluctuating neural activity, best illustrated by occular artifacts, and can therefore be easily identified via ICA.</p>
 <p><strong>An ICA is performed in multiply steps:</strong></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Specify the ICA algorithm/paramertes:</p>
 <ul class="simple">
 <li><p>n_components = the number of components we want to decompose our signal in. The more components one includes the more accurate the ICA solution becomes, i.e. the finer grained your sources of variability will be identified in the specific components.</p></li>
@@ -1596,7 +1489,7 @@ Fitting ICA took 16.7s.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_preprocessing_80_0.png" src="../_images/mne_preprocessing_80_0.png" />
+<img alt="../_images/c118e8735a09b44e7a77628c868a6790afb735d92dba0b21254060d9d72d0dd1.png" src="../_images/c118e8735a09b44e7a77628c868a6790afb735d92dba0b21254060d9d72d0dd1.png" />
 </div>
 </div>
 <br/>
@@ -1615,7 +1508,7 @@ Ready.
 Opening ica-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_82_1.png" src="../_images/mne_preprocessing_82_1.png" />
+<img alt="../_images/514be5e268070f939104b30d839e771eb6e4e3ebb7774a509138c374ed23f7d6.png" src="../_images/514be5e268070f939104b30d839e771eb6e4e3ebb7774a509138c374ed23f7d6.png" />
 </div>
 </div>
 <br/>
@@ -1635,7 +1528,7 @@ You can scroll through the plot_sources() output (if opened via binder or jupyte
     Projecting back using 59 PCA components
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_85_1.png" src="../_images/mne_preprocessing_85_1.png" />
+<img alt="../_images/ee7da06149dfe0631a11c35ff89fd3f9362b2ec22e4ee60c43b00a3e510955c9.png" src="../_images/ee7da06149dfe0631a11c35ff89fd3f9362b2ec22e4ee60c43b00a3e510955c9.png" />
 </div>
 </div>
 <br/>
@@ -1671,26 +1564,26 @@ You can scroll through the plot_sources() output (if opened via binder or jupyte
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -1707,31 +1600,31 @@ You can scroll through the plot_sources() output (if opened via binder or jupyte
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
-
+    
+    
+    
     <tr>
         <th>Filenames</th>
         <td>sample_audvis_raw.fif</td>
     </tr>
-
+    
     <tr>
         <th>Duration</th>
         <td>00:04:37 (HH:MM:SS)</td>
@@ -1750,7 +1643,7 @@ You can scroll through the plot_sources() output (if opened via binder or jupyte
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_93_1.png" src="../_images/mne_preprocessing_93_1.png" />
+<img alt="../_images/07cb2fcb5938bc988579dc781ec72816e3353612c1eadfc229b0db54e61939f1.png" src="../_images/07cb2fcb5938bc988579dc781ec72816e3353612c1eadfc229b0db54e61939f1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1763,7 +1656,7 @@ You can scroll through the plot_sources() output (if opened via binder or jupyte
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_94_1.png" src="../_images/mne_preprocessing_94_1.png" />
+<img alt="../_images/a94a0f4ba8cb216a3920ebc2a1f242fe8c5bd89e5128d0b4b6aff54d82f79ca8.png" src="../_images/a94a0f4ba8cb216a3920ebc2a1f242fe8c5bd89e5128d0b4b6aff54d82f79ca8.png" />
 </div>
 </div>
 <br/>
@@ -1826,21 +1719,21 @@ Closing /home/michael/msc_05_example_bids_dataset/sub-test/ses-001/meg/sub-test_
 <p><a href="https://www.youtube.com/watch?v=6njzcZWuh9Q&list=PLn0OLiymPak2gDD-VDA90w9_iGDgOOb2o" title="https://www.youtube.com/watch?v=6njzcZWuh9Q&list=PLn0OLiymPak2gDD-VDA90w9_iGDgOOb2o">MNE tutorial: Surface Laplacian for cleaning, topoplogical localization, and connectivity</a></p>
 <br/>
 <br/>
-</div>
-</div>
-<div class="section" id="epoching">
-<h2>4. Epoching<a class="headerlink" href="#epoching" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="epochs">
-<h3>Epochs<a class="headerlink" href="#epochs" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="epoching">
+<h2>4. Epoching<a class="headerlink" href="#epoching" title="Link to this heading">#</a></h2>
+<section id="epochs">
+<h3>Epochs<a class="headerlink" href="#epochs" title="Link to this heading">#</a></h3>
 <p>Epochs represent <strong>chunks of continous eeg data time-locked to certain events or periods of activity</strong> (e.g. experimental blocks). They are usually equal length and should contain enough time before an  event to allow for baseline correction and enough time after the stimulus to catch all possible activity (evoked/event-related potentials or changes in frequency band) of interest for later analysis.</p>
 <p>The mne.Epochs objects can be treated the same as the previous raw objects in a number of ways, including the .info() manipulations we</p>
 <p><strong>To create our epochs we  need two things:</strong>
 - raw or preprocessed data
 - events</p>
 <p>For more info on the Epochs data structure see the <a href="https://mne.tools/stable/auto_tutorials/epochs/10_epochs_overview.html#sphx-glr-auto-tutorials-epochs-10-epochs-overview-py" title="MNE tutorial: The Epochs data structure: discontinuous data)">MNE tutorial: The Epochs data structure: discontinuous data</a></p>
-</div>
-<div class="section" id="events">
-<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="events">
+<h3>Events<a class="headerlink" href="#events" title="Link to this heading">#</a></h3>
 <p>Events in the context of this tutorial are <strong>flags indicating that at a certain time the presentation of a stimulus or a participant’s reaction has occured</strong>. Event IDs indicate what kind of condition was recorded, usually they are stored as simple integers.</p>
 <p>Information on what kind of stimulus/reaction was recorded is in general stored in the “Stim” channels or the metadata of the raw object (check <a class="reference external" href="http://raw.info">raw.info</a>[‘events’]). Otherwise, if the Data is organized in the BIDS format, you can check the “_events.tsv” file in the subject folder and for the possible descriptions of the contained event-identifiers the “dataset_description.json” or the “README.txt”. Some systems save events in a separate annotation file (e.g. eeglab set files), for which mne provides a dedicated function to convert these files to an event array. See <a href="https://mne.tools/stable/auto_tutorials/intro/20_events_from_raw.html" title="https://mne.tools/stable/auto_tutorials/intro/20_events_from_raw.html">MNE tutorial: Parsing events from raw data</a> for more info.</p>
 <div class="cell docutils container">
@@ -1857,11 +1750,16 @@ Closing /home/michael/msc_05_example_bids_dataset/sub-test/ses-001/meg/sub-test_
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;ch_names&#39;</span><span class="p">]</span>  <span class="c1"># see if stim_channel are found in the raw object</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;STI 001&#39;,
  &#39;STI 002&#39;,
@@ -1935,11 +1833,12 @@ Closing /home/michael/msc_05_example_bids_dataset/sub-test/ses-001/meg/sub-test_
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <br/>
-</div>
-<div class="section" id="finding-renaming-events">
-<h3>4.1 finding/renaming events<a class="headerlink" href="#finding-renaming-events" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="finding-renaming-events">
+<h3>4.1 finding/renaming events<a class="headerlink" href="#finding-renaming-events" title="Link to this heading">#</a></h3>
 <p>To find the events in the raw file we can usually use <a href="https://mne.tools/stable/generated/mne.find_events.html">find_events()</a> function on our raw object. This function automatically checks if there are Stim channel present in the data. Stimulus channel do not collect EEG data, but the triggers associated with events that an experiment may contain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1966,7 +1865,7 @@ Event IDs: [ 1  2  3  4  5 32]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_112_1.png" src="../_images/mne_preprocessing_112_1.png" />
+<img alt="../_images/78f0af3338b86cf577791a6e0c736a70a8ffa5f84d5b9ea7e37d4fb4b1b94ebe.png" src="../_images/78f0af3338b86cf577791a6e0c736a70a8ffa5f84d5b9ea7e37d4fb4b1b94ebe.png" />
 </div>
 </div>
 <br/>
@@ -2030,7 +1929,7 @@ function</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_preprocessing_120_0.png" src="../_images/mne_preprocessing_120_0.png" />
+<img alt="../_images/8f21967b2e14fe5592b916d8b8e85ca7050e4ef85182afe4cc37efda920f7cb9.png" src="../_images/8f21967b2e14fe5592b916d8b8e85ca7050e4ef85182afe4cc37efda920f7cb9.png" />
 </div>
 </div>
 <br/>
@@ -2071,26 +1970,26 @@ Using data from preloaded Raw for 320 events and 601 original time points ...
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -2107,25 +2006,25 @@ Using data from preloaded Raw for 320 events and 601 original time points ...
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
+    
+    
 </table></div></div>
 </div>
 <div class="cell docutils container">
@@ -2183,7 +2082,7 @@ Let's recreate our dictionary containing the explicit event names and add our ev
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening epochs-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_128_1.png" src="../_images/mne_preprocessing_128_1.png" />
+<img alt="../_images/6de4ecb8675a5131f74c94839ec4300c0fe1a6faade4d4ab40ae967541cfb60b.png" src="../_images/6de4ecb8675a5131f74c94839ec4300c0fe1a6faade4d4ab40ae967541cfb60b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2197,7 +2096,7 @@ Let's recreate our dictionary containing the explicit event names and add our ev
 Opening epochs-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_129_1.png" src="../_images/mne_preprocessing_129_1.png" />
+<img alt="../_images/3d1a5b00ab06e3a65b0e7baea920d3f380a0badb56030ee537dc9f4503af0784.png" src="../_images/3d1a5b00ab06e3a65b0e7baea920d3f380a0badb56030ee537dc9f4503af0784.png" />
 </div>
 </div>
 <br/>
@@ -2234,9 +2133,9 @@ Select by a specific group of events (MNE treats the "/" character as a string s
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/left: 72<br/>auditory/right: 73</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2262,9 +2161,9 @@ Select by a specific group of events (MNE treats the "/" character as a string s
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>visual/left: 73<br/>visual/right: 71</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2290,9 +2189,9 @@ Select by a specific group of events (MNE treats the "/" character as a string s
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/right: 73<br/>visual/right: 71</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2319,9 +2218,9 @@ select by multiple tags (i.e select all epochs containing either "right" or "aud
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/left: 72<br/>auditory/right: 73<br/>visual/right: 71</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2349,9 +2248,9 @@ or by using the explicit label of the specific event<div class="cell docutils co
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/right: 73</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2378,9 +2277,9 @@ or by using the explicit label of the specific event<div class="cell docutils co
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/left: 72</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -2421,18 +2320,23 @@ or by using the explicit label of the specific event<div class="cell docutils co
 Opening epochs-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_142_1.png" src="../_images/mne_preprocessing_142_1.png" />
+<img alt="../_images/51e2037e933adb6aea23cc3a051efe7777a4b12f56b6f08b8dad3f10b8ae145d.png" src="../_images/51e2037e933adb6aea23cc3a051efe7777a4b12f56b6f08b8dad3f10b8ae145d.png" />
 </div>
 </div>
 <br/>
 <p>and access the contained data again via the get_data() function, which returns a np.array of the shape (number of epochs, number of channels, number of time-points)</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">get_data</span><span class="p">())</span>  <span class="c1"># array (n_epochs, n_channels, n_times)</span>
 <span class="n">epochs</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-1.53682615e-07  1.76059818e-07  4.55425791e-08 ...  4.66550977e-06
     6.94681262e-06  8.74132001e-06]
@@ -2525,6 +2429,7 @@ Opening epochs-browser...
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <br/>
 <p>return data for all channels and all time-points for the first 2 epochs</p>
@@ -2553,12 +2458,17 @@ Opening epochs-browser...
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get data only from last channel of first epoch</span>
 <span class="n">epochs</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">58</span><span class="p">]</span> <span class="c1"># array of shape (n_epochs, n_channels, n_times)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7.25402012e-07,  1.04189705e-06,  1.34003488e-06,  1.59969878e-06,
         1.79864303e-06,  1.91752791e-06,  1.94524463e-06,  1.88383816e-06,
@@ -2714,6 +2624,7 @@ Opening epochs-browser...
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <br/>
 <p>So to get get the signal amplitude for the last time_point only from the last channel of the first epoch, we would do the following</p>
@@ -4056,9 +3967,9 @@ Name: EEG 001, Length: 601, dtype: float64
 </div>
 </div>
 <br/>
-</div>
-<div class="section" id="rejecting-bad-epochs">
-<h3>4.2 rejecting bad epochs<a class="headerlink" href="#rejecting-bad-epochs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rejecting-bad-epochs">
+<h3>4.2 rejecting bad epochs<a class="headerlink" href="#rejecting-bad-epochs" title="Link to this heading">#</a></h3>
 <p>As discussed earlier we’ll get rid of epochs containing artifacts.</p>
 <p>This way we’ll only reject a small subset of relevant data, while the rejection of ICA components or whole channels might have lead to a greater loss of relevant data in the signal. This is one of the reasons why we collect so many trials in EEG experiments.</p>
 <p>As a point of caution, epoch rejection is best done after repairing our signal for eye-blinks, as otherwise we might lose a significant number of epochs.</p>
@@ -4099,9 +4010,9 @@ Name: EEG 001, Length: 601, dtype: float64
     </tr>
     <tr>
         <th>Events</th>
-
+        
         <td>auditory/left: 70<br/>auditory/right: 72<br/>buttonpress: 16<br/>face: 14<br/>visual/left: 71<br/>visual/right: 70</td>
-
+        
     </tr>
     <tr>
         <th>Time range</th>
@@ -4122,7 +4033,7 @@ Name: EEG 001, Length: 601, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_preprocessing_166_0.png" src="../_images/mne_preprocessing_166_0.png" />
+<img alt="../_images/d000b8b601425cb60ba387a238beb73d50fdc247949710fd56b36c4d2cf43694.png" src="../_images/d000b8b601425cb60ba387a238beb73d50fdc247949710fd56b36c4d2cf43694.png" />
 </div>
 </div>
 <br/>
@@ -4193,26 +4104,26 @@ This can be achieved by adding information about the timeframe of an artifact, b
 <div class="output text_html"><table class="table table-hover table-striped table-sm table-responsive small">
     <tr>
         <th>Measurement date</th>
-
+        
         <td>December 03, 2002  19:01:10 GMT</td>
-
+        
     </tr>
     <tr>
         <th>Experimenter</th>
-
+        
         <td>MEG</td>
-
+        
     </tr>
         <th>Participant</th>
-
+        
         <td>Unknown</td>
-
+        
     </tr>
     <tr>
         <th>Digitized points</th>
-
+        
         <td>0 points</td>
-
+        
     </tr>
     <tr>
         <th>Good channels</th>
@@ -4229,31 +4140,31 @@ This can be achieved by adding information about the timeframe of an artifact, b
     <tr>
         <th>ECG channels</th>
         <td>Not available</td>
-
+    
     <tr>
         <th>Sampling frequency</th>
         <td>600.61 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Highpass</th>
         <td>0.10 Hz</td>
     </tr>
-
-
+    
+    
     <tr>
         <th>Lowpass</th>
         <td>40.00 Hz</td>
     </tr>
-
-
-
+    
+    
+    
     <tr>
         <th>Filenames</th>
         <td>sample_audvis_raw.fif</td>
     </tr>
-
+    
     <tr>
         <th>Duration</th>
         <td>00:04:37 (HH:MM:SS)</td>
@@ -4271,7 +4182,7 @@ Let's check how this look in our interactive plots<div class="cell docutils cont
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening raw-browser...
 </pre></div>
 </div>
-<img alt="../_images/mne_preprocessing_177_1.png" src="../_images/mne_preprocessing_177_1.png" />
+<img alt="../_images/77d6335fe56fac5decb669071fdbeb77a8cc75949a704bd04184284ad5cb60d4.png" src="../_images/77d6335fe56fac5decb669071fdbeb77a8cc75949a704bd04184284ad5cb60d4.png" />
 </div>
 </div>
 <br/>
@@ -4338,7 +4249,7 @@ Using data from preloaded Raw for 320 events and 601 original time points ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mne_preprocessing_182_0.png" src="../_images/mne_preprocessing_182_0.png" />
+<img alt="../_images/3687f949a56e90172800fbd4017088d8b15a980890bc9e8f485e673b395b71fb.png" src="../_images/3687f949a56e90172800fbd4017088d8b15a980890bc9e8f485e673b395b71fb.png" />
 </div>
 </div>
 <br/>
@@ -4735,9 +4646,9 @@ Using data from preloaded Raw for 320 events and 601 original time points ...
 <hr class="docutils" />
 <p><a class="reference external" href="https://github.com/M-earnest">Michael Ernst</a><br />
 Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fiebach Lab</a>, <a class="reference external" href="https://www.psychologie.uni-frankfurt.de/49868684/Abteilungen">Neurocognitive Psychology</a> at <a class="reference external" href="https://www.goethe-university-frankfurt.de/en?locale=en">Goethe-University Frankfurt</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4751,7 +4662,7 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
             mode: "neuro_ai"
         },
         kernelOptions: {
-            kernelName: "neuro_ai",
+            name: "neuro_ai",
             path: "./advanced"
         },
         predefinedOutput: true
@@ -4759,44 +4670,120 @@ Phd student - <a class="reference external" href="http://www.fiebachlab.org/">Fi
     </script>
     <script>kernelName = 'neuro_ai'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="mne_introduction.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">MNE python for EEG analysis</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mne_introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MNE python for EEG analysis</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="mne_workflow_tutorial.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="mne_workflow_tutorial.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">MNE Workflow tutorial</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencing">1.Referencing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-detection">2. Artifact detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-removal-repair">3. Artifact removal/repair</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">3.1 Filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolating-bad-channels">3.2 Interpolating bad channels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-component-analysis-ica">3.3 Independent component analysis (ICA)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epoching">4. Epoching</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epochs">Epochs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events">Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-renaming-events">4.1 finding/renaming events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rejecting-bad-epochs">4.2 rejecting bad epochs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

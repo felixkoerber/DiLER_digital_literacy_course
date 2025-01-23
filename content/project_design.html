@@ -1,1048 +1,663 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Project Design in the Digital Age &#8212; Digital Literacy in Higher Education</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/project_design';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies" href="lit_review.html" />
     <link rel="prev" title="Information &amp; Media Literacy: Introduction" href="media_information_literacy.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Digital Literacy in Higher Education</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome!
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Digital Literacy in Higher Education - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Digital Literacy in Higher Education - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Course Overview &amp; Procedure
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction/digital_literacy.html">
-   Introduction - Digital literacy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">
-     Excercise: Practical Implications of Digital Literacy
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course Overview &amp; Procedure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/digital_literacy.html">Introduction - Digital literacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/digital_literacy_practical_excercise.html">Excercise: Practical Implications of Digital Literacy</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Information &amp; Media Literacy
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information &amp; Media Literacy</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="media_information_literacy.html">
-   Information &amp; Media Literacy: Introduction
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Project Design in the Digital Age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lit_review.html">
-   Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="writing.html">
-   Scientific Writing &amp; Digital Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="documentation.html">
-   Documentation and other Academic Content
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="excercise_intro_git.html">
-   Introduction to Version Control using Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="github.html">
-   Online version control: GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="data_management.html">
-   Data Management
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="media_information_literacy.html">Information &amp; Media Literacy: Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Project Design in the Digital Age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lit_review.html">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing.html">Scientific Writing &amp; Digital Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation and other Academic Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excercise_intro_git.html">Introduction to Version Control using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Online version control: GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_management.html">Data Management</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Literacy: Coding
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Literacy: Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="coding.html">
-   Programming in Empirircal Research
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="learn_to_code.html">
-     Learn to code - the basics
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="intro_python_I.html">
-     Intro to Python
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_I.html">
-       Introduction V - Introduction to Python - I
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_II.html">
-       Introduction VI - Introduction to Python II
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="intro_python_nb_III.html">
-       Introduction VII - Introduction to Python III
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="intro_to_shell.html">
-     Intro - The (unix) command line: BASH
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="coding.html">Programming in Empirircal Research</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="learn_to_code.html">Learn to code - the basics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="intro_python_I.html">Intro to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_I.html">Introduction V - Introduction to Python - I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_II.html">Introduction VI - Introduction to Python II</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_nb_III.html">Introduction VII - Introduction to Python III</a></li>
+
+
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Communication/Collaboration
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="communcation_collaboration.html">
-   Communication and Collaboration in Modern Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_storytelling.html">
-     Digital Storytelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="digital_collaboration.html">
-     Digital Collaboration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="network_outreach.html">
-     Network &amp; Outreach
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="science_communication.html">
-     Science communication: Publication and Beyond
-    </a>
-   </li>
-  </ul>
- </li>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_to_shell.html">Intro - The (unix) command line: BASH</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Digital Scholarship
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="digital_scholarship.html">
-   Digital Scholarship/Academic Practice
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_big_data.html">
-     Big Data Analytics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_cloud_computing.html">
-     Cloud Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_digital_research.html">
-     Digital Scholarship: Applied Fields
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ds_ml_ai.html">
-     Machine Learning/AI:
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="artificial_intelligence/terms_definitions.html">
-     Models, AI and all other buzz words
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_intro.html">
-       Supervised or unsupervised &amp; model types
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">
-       Model evaluation &amp; cross-validation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">
-       Deep learning basics
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+</details></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Advanced Information
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Communication/Collaboration</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_numpy.html">
-   Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scipy.html">
-   Introduction to SciPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../advanced/python_scikit.html">
-   Introduction to scikit-learn &amp; scikit-image
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../advanced/eeg_introduction.html">
-   Electroencephalography
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_introduction.html">
-     MNE python for EEG analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_preprocessing.html">
-     EEG preprocessing with MNE
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../advanced/mne_workflow_tutorial.html">
-     MNE Workflow tutorial
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="communcation_collaboration.html">Communication and Collaboration in Modern Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="digital_storytelling.html">Digital Storytelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digital_collaboration.html">Digital Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_outreach.html">Network &amp; Outreach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="science_communication.html">Science communication: Publication and Beyond</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Miscellaneous
- </span>
-</p>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Digital Scholarship</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../dei.html">
-   Diversity, Equity, and Inclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../CoC.html">
-   Code of Conduct
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="digital_scholarship.html">Digital Scholarship/Academic Practice</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ds_big_data.html">Big Data Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_cloud_computing.html">Cloud Computing</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="ds_digital_research.html">Digital Scholarship: Applied Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_ml_ai.html">Machine Learning/AI:</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="artificial_intelligence/terms_definitions.html">Models, AI and all other buzz words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_intro.html">Supervised or unsupervised &amp; model types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/ML_eval_cv.html">Model evaluation &amp; cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="artificial_intelligence/DL_basics_architectures.html">Deep learning basics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../advanced/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/eeg_introduction.html">Electroencephalography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_introduction.html">MNE python for EEG analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_preprocessing.html">EEG preprocessing with MNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/mne_workflow_tutorial.html">MNE Workflow tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/project_design.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/project_design.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/project_design.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/project_design.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/project_design.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/DiLER-Digitell/DiLER_digital_literacy_course/master?urlpath=lab/tree/lecture/content/project_design.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/DiLER-Digitell/DiLER_digital_literacy_course/blob/master/lecture/content/project_design.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/edit/master/lecture/content/project_design.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/DiLER_digital_literacy_course/issues/new?title=Issue%20on%20page%20%2Fcontent/project_design.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/project_design.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Project Design in the Digital Age</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-start">
-   Before we start..
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roadmap">
-   Roadmap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-considerations-how-to-get-started">
-   General considerations: How to get started
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#find-a-research-question">
-     Find a research question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-research-questions">
-     Types of research questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#find-out-what-you-need-to-answer-your-research-question">
-     Find out what you need to answer your research question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-i-find-the-information-on-research-questions-and-methods">
-     How do I find the information on research questions and methods?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-design">
-   Project design
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#project-design-checklist">
-     Project design checklist
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-local-folder-structure-bids">
-     1. Setup local folder structure (BIDS)
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#adapting-to-specific-datatypes-neuroimaging">
-       Adapting to specific datatypes: Neuroimaging
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#file-naming-conventions">
-     File naming conventions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-learn-more">
-     To learn more
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#github-repo">
-     2. Github repo
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#osf-presence">
-     3. OSF presence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zotero-library">
-     4. Zotero Library
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-a-zotero-library">
-     Setup a Zotero library
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-zotero-online">
-     Use Zotero online
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zotero-connector">
-     Zotero Connector
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-a-programming-environment-i-e-virtualization">
-     5. Setting up a programming environment (i.e., “virtualization)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conda">
-     Conda
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#working-with-conda">
-       Working with Conda
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#anaconda">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Anaconda
-        </span>
-       </code>
-       :
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additional-material-anaconda">
-       Additional material: Anaconda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#miniconda">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Miniconda
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-an-environment-file-using-conda">
-     Generate an environment file using conda
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additional-material-miniconda">
-       Additional material: Miniconda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-management-plan">
-     6. Data Management Plan
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#turing-way-dmp-checklist">
-     Turing way DMP checklist
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-material">
-     Additional material
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pre-registration">
-     7. Pre-registration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-preregister-a-study">
-     How to preregister a study
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-materials-on-pre-registration">
-     Additional materials on pre-registration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tl-dr">
-   TL;DR
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Project design checklist
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-are-we-now">
-   Where are we now?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgments">
-   Acknowledgments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-start">Before we start..</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap">Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-considerations-how-to-get-started">General considerations: How to get started</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-research-question">Find a research question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research-questions">Types of research questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-out-what-you-need-to-answer-your-research-question">Find out what you need to answer your research question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-find-the-information-on-research-questions-and-methods">How do I find the information on research questions and methods?</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-design">Project design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-design-checklist">Project design checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-local-folder-structure-bids">1. Setup local folder structure (BIDS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-to-specific-datatypes-neuroimaging">Adapting to specific datatypes: Neuroimaging</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-naming-conventions">File naming conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-learn-more">To learn more</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repo">2. Github repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osf-presence">3. OSF presence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zotero-library">4. Zotero Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-zotero-library">Setup a Zotero library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-zotero-online">Use Zotero online</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zotero-connector">Zotero Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-programming-environment-i-e-virtualization">5. Setting up a programming environment (i.e., “virtualization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-conda">Working with Conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda"><code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material-anaconda">Additional material: Anaconda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda"><code class="docutils literal notranslate"><span class="pre">Miniconda</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-environment-file-using-conda">Generate an environment file using conda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material-miniconda">Additional material: Miniconda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management-plan">6. Data Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-way-dmp-checklist">Turing way DMP checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material">Additional material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-registration">7. Pre-registration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-preregister-a-study">How to preregister a study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials-on-pre-registration">Additional materials on pre-registration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Project design checklist</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-we-now">Where are we now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Project Design in the Digital Age</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-start">
-   Before we start..
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roadmap">
-   Roadmap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-considerations-how-to-get-started">
-   General considerations: How to get started
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#find-a-research-question">
-     Find a research question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-research-questions">
-     Types of research questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#find-out-what-you-need-to-answer-your-research-question">
-     Find out what you need to answer your research question
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-i-find-the-information-on-research-questions-and-methods">
-     How do I find the information on research questions and methods?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-design">
-   Project design
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#project-design-checklist">
-     Project design checklist
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-local-folder-structure-bids">
-     1. Setup local folder structure (BIDS)
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#adapting-to-specific-datatypes-neuroimaging">
-       Adapting to specific datatypes: Neuroimaging
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#file-naming-conventions">
-     File naming conventions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-learn-more">
-     To learn more
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#github-repo">
-     2. Github repo
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#osf-presence">
-     3. OSF presence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zotero-library">
-     4. Zotero Library
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-a-zotero-library">
-     Setup a Zotero library
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-zotero-online">
-     Use Zotero online
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zotero-connector">
-     Zotero Connector
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-a-programming-environment-i-e-virtualization">
-     5. Setting up a programming environment (i.e., “virtualization)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conda">
-     Conda
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#working-with-conda">
-       Working with Conda
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#anaconda">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Anaconda
-        </span>
-       </code>
-       :
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additional-material-anaconda">
-       Additional material: Anaconda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#miniconda">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Miniconda
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-an-environment-file-using-conda">
-     Generate an environment file using conda
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additional-material-miniconda">
-       Additional material: Miniconda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-management-plan">
-     6. Data Management Plan
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#turing-way-dmp-checklist">
-     Turing way DMP checklist
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-material">
-     Additional material
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pre-registration">
-     7. Pre-registration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-preregister-a-study">
-     How to preregister a study
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#additional-materials-on-pre-registration">
-     Additional materials on pre-registration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tl-dr">
-   TL;DR
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Project design checklist
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-are-we-now">
-   Where are we now?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgments">
-   Acknowledgments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="section" id="project-design-in-the-digital-age">
-<h1>Project Design in the Digital Age<a class="headerlink" href="#project-design-in-the-digital-age" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="project-design-in-the-digital-age">
+<h1>Project Design in the Digital Age<a class="headerlink" href="#project-design-in-the-digital-age" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>While the scientific methods remained largely the same over the years the tools we employ have changed drastically in recent times. It is of course still possible to simply maintain a word document with all your ideas, notes, citations or i.e code snippets &amp; statistics or to simply store your data and writing in whatever way feels comfortable for you, there have been a number of new tools and standards that will make your life much easier and allow you to be a more organized, more efficient scientist.</p>
 <p>These new tools can be implemented in every phase of a scientific process, but are especially valuable in the initial stages of a project: Project Design.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="before-we-start">
-<h2>Before we start..<a class="headerlink" href="#before-we-start" title="Permalink to this headline">¶</a></h2>
+<section id="before-we-start">
+<h2>Before we start..<a class="headerlink" href="#before-we-start" title="Link to this heading">#</a></h2>
 <p><strong>This is chapter is an intorudction to the topic of project design and largely connects most of the course content, we’ll therefore be concentrating on the larger picture and only provide short introductions to most topics, while linking to in-depth sections. Following the steps in this chapter allows you to setup a professional indsutry standard research project.</strong></p>
 <p>The main content of this lesson consists of a <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">design</span> <span class="pre">checklist</span></code>, which you can follow step-by-step to setup your project. We further introduce digital tools that should make this process easier/more efficient.</p>
 <p>It’s a good idea to generally skim the lesson, noting the structure and the separate steps of project design, before diving in. The lesson is quite long so remember to take breaks (e.g. after every or every second step of the checklist), don’t try to finish it in one session.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="roadmap">
-<h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h2>
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Goals</strong></p></li>
 <li><p>General considerations</p></li>
 <li><p>Introduction to project design/setup</p></li>
 <li><p>Project design checklist</p>
 <ul>
-<li><ol class="simple">
+<li><ol class="arabic simple">
 <li><p>Setup local folder structure (BIDS),</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="2">
 <li><p>create an online folder structure (Github repo)</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="3">
 <li><p>setup a project presence (OSF)</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="4">
 <li><p>create a reference library (Zotero)</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="5">
 <li><p>setting up a programming environment</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="6">
 <li><p>Data management plan</p></li>
 </ol>
 </li>
-<li><ol class="simple">
+<li><ol class="arabic simple" start="7">
 <li><p>Pre-registration</p></li>
 </ol>
 </li>
@@ -1050,10 +665,10 @@
 </li>
 <li><p>Additional materials</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">#</a></h2>
 <p>Specific goals of this first session will be to</p>
 <ul class="simple">
 <li><p>gain a general understanding of the importance of project design</p></li>
@@ -1061,12 +676,12 @@
 <li><p>provide a checklist to follow</p></li>
 <li><p>get familiar with important tools and concepts for project design</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="general-considerations-how-to-get-started">
-<h2>General considerations: How to get started<a class="headerlink" href="#general-considerations-how-to-get-started" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="find-a-research-question">
-<h3>Find a research question<a class="headerlink" href="#find-a-research-question" title="Permalink to this headline">¶</a></h3>
+<section id="general-considerations-how-to-get-started">
+<h2>General considerations: How to get started<a class="headerlink" href="#general-considerations-how-to-get-started" title="Link to this heading">#</a></h2>
+<section id="find-a-research-question">
+<h3>Find a research question<a class="headerlink" href="#find-a-research-question" title="Link to this heading">#</a></h3>
 <p>At the start of each project, there should be an initial question. These may appear due to observations of our surroundings or, e.g., by expanding on already existing literature. The first step of every project should, therefore, involve turning our observations/thoughts into a well-defined research question. Start off by <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/lit_review.html">scouring literature</a> and find out more about the specific topic you’re interested in.</p>
 <p><strong>Following <code class="docutils literal notranslate"><span class="pre">define</span> <span class="pre">your</span> <span class="pre">research</span> <span class="pre">question</span></code> based on:</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- what (topic, data modality)? 
@@ -1074,10 +689,10 @@
 - why (motivation)?
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="types-of-research-questions">
-<h3>Types of research questions<a class="headerlink" href="#types-of-research-questions" title="Permalink to this headline">¶</a></h3>
+<section id="types-of-research-questions">
+<h3>Types of research questions<a class="headerlink" href="#types-of-research-questions" title="Link to this heading">#</a></h3>
 <p>It’s further necessary to evaluate if your questions relate to something quantifiable or if you are more interested in <code class="docutils literal notranslate"><span class="pre">discovering</span></code> or <code class="docutils literal notranslate"><span class="pre">exploring</span></code> the <code class="docutils literal notranslate"><span class="pre">quality</span></code> of a certain phenomenon.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">quantitative</span> <span class="pre">research</span> <span class="pre">question</span></code> can be answered using numerical data and statistical analysis. They generally appear in 3 different forms:</p>
 <ul class="simple">
@@ -1091,10 +706,10 @@
 <li><p>They also may <code class="docutils literal notranslate"><span class="pre">seek</span> <span class="pre">to</span> <span class="pre">explore</span> <span class="pre">experiences</span> <span class="pre">or</span> <span class="pre">perspectives,</span></code> e.g., “What is the experience of living with chronic illness?” or `seek to explore processes, such as how something happens or how people make meaning of their experiences, e.g., “How do parents navigate the challenges of raising a child with autism?” or “What are the processes involved in the formation of group identity among adolescents?</p></li>
 <li><p>They may further be <code class="docutils literal notranslate"><span class="pre">concerned</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">description/exploration</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">nature</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">specific</span> <span class="pre">context,</span></code> such as a culture, community, organization, or group of individuals. For example, “What are the attitudes of young adults towards marriage in a conservative society?” or “How do employees experience the culture of a large multinational corporation?</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="find-out-what-you-need-to-answer-your-research-question">
-<h3>Find out what you need to answer your research question<a class="headerlink" href="#find-out-what-you-need-to-answer-your-research-question" title="Permalink to this headline">¶</a></h3>
+<section id="find-out-what-you-need-to-answer-your-research-question">
+<h3>Find out what you need to answer your research question<a class="headerlink" href="#find-out-what-you-need-to-answer-your-research-question" title="Link to this heading">#</a></h3>
 <p>Next, we’ll have to find out how to work out a compelling, convincing answer to this research question.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Therefore,</span> <span class="pre">we</span> <span class="pre">have</span> <span class="pre">to</span> <span class="pre">define</span> <span class="pre">the</span> <span class="pre">methods</span> <span class="pre">we</span> <span class="pre">want/need</span> <span class="pre">to</span> <span class="pre">employ.</span></code> Ask yourself the following question:</p>
 <ul class="simple">
@@ -1106,23 +721,23 @@
 <li><p>Is this something you can manage <code class="docutils literal notranslate"><span class="pre">Solo,</span> <span class="pre">in</span> <span class="pre">cooperation</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">local</span> <span class="pre">group/researcher,</span> <span class="pre">or</span> <span class="pre">does</span> <span class="pre">the</span> <span class="pre">project</span> <span class="pre">involve</span> <span class="pre">international</span> <span class="pre">collaboration</span></code>?</p></li>
 <li><p>What about <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">protection,</span> <span class="pre">licensing,</span> <span class="pre">and</span> <span class="pre">costs</span></code>?</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="how-do-i-find-the-information-on-research-questions-and-methods">
-<h3>How do I find the information on research questions and methods?<a class="headerlink" href="#how-do-i-find-the-information-on-research-questions-and-methods" title="Permalink to this headline">¶</a></h3>
+<section id="how-do-i-find-the-information-on-research-questions-and-methods">
+<h3>How do I find the information on research questions and methods?<a class="headerlink" href="#how-do-i-find-the-information-on-research-questions-and-methods" title="Link to this heading">#</a></h3>
 <p>Both finding a solid research question and finding the necessary information on how to answer it involve doing a significant part of the research. For guidance on this, check out our lesson on <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/lit_review.html">finding and evaluating data sources, published research, and literature review strategies</a>.</p>
-</div>
-</div>
-<div class="section" id="project-design">
-<h2>Project design<a class="headerlink" href="#project-design" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="project-design">
+<h2>Project design<a class="headerlink" href="#project-design" title="Link to this heading">#</a></h2>
 <p>Project design is mostly concerned with the initial process of planning and organizing the framework to conduct research. This might seem trivial, but it is essential. It allows us not only to engage more deeply with our research question but is also relevant to the reproducibility of a project.</p>
 <p><strong>An individual project will survive longer than the research that is done on it and will (potentially) influence the scientific consensus on a given topic down the line by providing data, insights, or new methods. Therefore, managing the presence and meticulously documenting what was done, what decisions were made, and where the gathered information and data are stored is essential to the long-term impact of your work.</strong></p>
 <p>For this purpose, the following chapters will explore how to set up a project in the “digital age,” what tools to use, what to look out for, and where you may find more information. Don’t be discouraged if most of the tools used will be unfamiliar to you, as we will do our best to provide a short introduction and guide on their usage in the linked chapters.</p>
 <hr class="docutils" />
 <p>The following checklist can be used as a guide on how to organize, store, and connect all information and data relevant to your project. We’ll elaborate on each point in the lesson below.</p>
-<div class="section" id="project-design-checklist">
-<h3>Project design checklist<a class="headerlink" href="#project-design-checklist" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<section id="project-design-checklist">
+<h3>Project design checklist<a class="headerlink" href="#project-design-checklist" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Setup local folder structure (BIDS),</p></li>
 <li><p>Create an online folder structure (Github repo)</p></li>
 <li><p>Setup a project presence (OSF)</p></li>
@@ -1133,9 +748,9 @@
 </ol>
 <hr class="docutils" />
 <p>We’re starting out locally by simply setting up our folder system to have an organized, dedicated space to store all data relevant to our project.</p>
-</div>
-<div class="section" id="setup-local-folder-structure-bids">
-<h3>1. Setup local folder structure (BIDS)<a class="headerlink" href="#setup-local-folder-structure-bids" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="setup-local-folder-structure-bids">
+<h3>1. Setup local folder structure (BIDS)<a class="headerlink" href="#setup-local-folder-structure-bids" title="Link to this heading">#</a></h3>
 <p>It is recommended to adopt a standardized approach to structuring your data, as this not only helps you stay consistent but also allows you and possible collaborators to easily identify where specific data is located.</p>
 <p>Your folder structure depends on your project’s specific need (e.g., folders for data, documents, images, etc.) and should be as clear and consistent as possible. The easiest way to achieve this is to copy and adapt an already existing folder hierarchy template for research projects.</p>
 <p>One example (including a template) is the <a class="reference external" href="https://osf.io/4sdn3/">Transparent project management template for the OSF platform</a> by <a class="reference external" href="https://osf.io/5fukm/">C.H.J. Hartgerink</a></p>
@@ -1174,8 +789,8 @@
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">project_name</span></code> is, of course, the name of the folder containing your project information/data. One level lower, we would have dedicated folders to store all your paperwork, data, or figures.</p>
 <hr class="docutils" />
-<div class="section" id="adapting-to-specific-datatypes-neuroimaging">
-<h4>Adapting to specific datatypes: Neuroimaging<a class="headerlink" href="#adapting-to-specific-datatypes-neuroimaging" title="Permalink to this headline">¶</a></h4>
+<section id="adapting-to-specific-datatypes-neuroimaging">
+<h4>Adapting to specific datatypes: Neuroimaging<a class="headerlink" href="#adapting-to-specific-datatypes-neuroimaging" title="Link to this heading">#</a></h4>
 <p>Working with neuroimaging data makes the setup of your system a little more complicated.<br />
 The most promising/popular approach to structuring your data is the <a class="reference external" href="https://bids.neuroimaging.io/">BIDS</a> (Brain Imaging Data Structure) standard.</p>
 <p>The Bids (Brain Imaging Data Structure) standard is a community-driven specification that aims to facilitate the organization and sharing of neuroimaging data. The Bids standard specifies a common format for storing and organizing neuroimaging data, including MRI, EEG, MEG, and iEEG. The standard can, of course, additionally be used to store behavioral data.</p>
@@ -1188,7 +803,7 @@ The most promising/popular approach to structuring your data is the <a class="re
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">/derivatives</span></code>: contains processed data, such as the results of statistical analyses.</p>
-<p><code class="docutils literal notranslate"><span class="pre">/sub-</span> <span class="pre">folder</span></code>: contains data from one subject. Each subject is identified by a unique code that starts with “sub-“. This folder contains subfolders for each imaging session, which contains separate folders for each imaging file (<code class="docutils literal notranslate"><span class="pre">datatype</span></code> in the diagram above) recorded for this specific subject.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/sub-</span> <span class="pre">folder</span></code>: contains data from one subject. Each subject is identified by a unique code that starts with “sub-”. This folder contains subfolders for each imaging session, which contains separate folders for each imaging file (<code class="docutils literal notranslate"><span class="pre">datatype</span></code> in the diagram above) recorded for this specific subject.</p>
 <p>Neuroimaging datasets mostly contain data from more than one subject; the data folder will, therefore, necessarily contain multiple subject folders, named <code class="docutils literal notranslate"><span class="pre">sub-01,</span> <span class="pre">sub-02</span> <span class="pre">...</span> <span class="pre">sub-0n</span></code>. This could look something like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>project_data
     ├── dataset_description.json
@@ -1234,11 +849,11 @@ Subjects: A list of the subjects (i.e., study participants) included in the data
 <p><code class="docutils literal notranslate"><span class="pre">Task</span></code>: Information about the task or stimulus used in the experiment, if applicable.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Modality</span></code>: Information about the imaging modality used to acquire the data (e.g., fMRI, MRI, MEG, etc.).
 AnatomicalLandmarkCo</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="file-naming-conventions">
-<h3>File naming conventions<a class="headerlink" href="#file-naming-conventions" title="Permalink to this headline">¶</a></h3>
+<section id="file-naming-conventions">
+<h3>File naming conventions<a class="headerlink" href="#file-naming-conventions" title="Link to this heading">#</a></h3>
 <p>The BIDS format also specifies how we should name our files. To make sure that, e.g., others understand what content to expect in a specific file and to make it easier to use automated tools that expect certain file names for, e.g., data analyses.</p>
 </br>
 <p>The general file naming convention looks like this:</p>
@@ -1261,28 +876,28 @@ AnatomicalLandmarkCo</p>
 </div>
 </br>
 <p>Avoid adding descriptions such as <code class="docutils literal notranslate"><span class="pre">version_01</span></code> or <code class="docutils literal notranslate"><span class="pre">final_version</span></code> etc. Instead, you should rely on digital tools with version history functionality, such as <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Docs.</span></code> In the next section, we’ll further introduce the concept of a <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">control</span> <span class="pre">system</span></code> to avoid this issue altogether.</p>
-</div>
-<div class="section" id="to-learn-more">
-<h3>To learn more<a class="headerlink" href="#to-learn-more" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="to-learn-more">
+<h3>To learn more<a class="headerlink" href="#to-learn-more" title="Link to this heading">#</a></h3>
 <p>Checkout our <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/data_management.html">chapter on Data-management</a> or the <a class="reference external" href="https://bids-standard.github.io/bids-starter-kit/index.html">BIDS starter-kit</a></p>
-</div>
-<div class="section" id="github-repo">
-<h3>2. Github repo<a class="headerlink" href="#github-repo" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="github-repo">
+<h3>2. Github repo<a class="headerlink" href="#github-repo" title="Link to this heading">#</a></h3>
 <p>Next, we’ll set up a <code class="docutils literal notranslate"><span class="pre">&quot;Github</span> <span class="pre">repository&quot;</span></code>. This is basically an online folder system mirroring your local file system, where you can store all your code, figures, etc.</p>
 <p>Github comes automatically with the <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">control</span> <span class="pre">system</span> <span class="pre">&quot;Git&quot;</span></code>, which allows you to keep track of every change in your files/filesystem and revert them when necessary. You can also use <code class="docutils literal notranslate"><span class="pre">Git</span></code> to keep track of local files.</p>
 <p>You’ll find out how to do this in detail in the lesson: <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/github.html">Version: GitHub</a></p>
 <p>To learn more about the accompanying <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">control</span> <span class="pre">system</span> <span class="pre">for</span> <span class="pre">Git</span></code> check out the following Lesson: <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/excercise_intro_git.html">Intro to GitHub</a></p>
-</div>
-<div class="section" id="osf-presence">
-<h3>3. OSF presence<a class="headerlink" href="#osf-presence" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="osf-presence">
+<h3>3. OSF presence<a class="headerlink" href="#osf-presence" title="Link to this heading">#</a></h3>
 <p>Next up we create an Open Science Framework (OSF) repository.</p>
 <p>The OSF platform is designed to facilitate the collaborative and transparent sharing of research materials, data, and workflows. It boosts your works visibility and findability and makes your code and data accessible to others, therfore making your work more reporducible. An OSF - repository can be cited, using their automatic citation generator, which makes sure that your projects (even when no publication is in sight or sought) can reliably be shared, e.g. on your CV.</p>
 <p><img alt="OSF Home" src="https://d33v4339jhl8k0.cloudfront.net/docs/assets/6197cc3a0042a2708a127718/images/61d85ed4a0e8d7327cfa9d9c/89aac82c-897e-44a9-a6cf-6a8b56a48bf9.png" /></p>
 <p>OSF further hosts local servers in e.g. Germany, meaning that it is much easier to adhere to data protection regulations when storing data on OSF.</p>
 <p>The Chapter <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/network_outreach.html?highlight=osf">OSF - Manage your Research</a> illustrates how to setup an osf repository and how to link this repository to the Github repository we’ve created in the previous step.</p>
-</div>
-<div class="section" id="zotero-library">
-<h3>4. Zotero Library<a class="headerlink" href="#zotero-library" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zotero-library">
+<h3>4. Zotero Library<a class="headerlink" href="#zotero-library" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.zotero.org/">Zotero</a> is a free and open-source reference management software that helps you organize, store, and share research materials. It further allows you to generate reference lists on the fly, has integrations for most word processing software, such as Google Docs, and interacts seamlessly with literature search tools such as <a class="reference external" href="https://www.researchrabbit.ai/">ResearchRabbit</a>.</p>
 <p>Zotero allows you to:</p>
 <ul class="simple">
@@ -1294,10 +909,10 @@ AnatomicalLandmarkCo</p>
 <li><p>group/organization-level libraries online</p></li>
 <li><p>info for every paper in your collection regarding DOIs, PDF versions online, etc.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="setup-a-zotero-library">
-<h3>Setup a <a class="reference external" href="https://www.zotero.org/">Zotero</a> library<a class="headerlink" href="#setup-a-zotero-library" title="Permalink to this headline">¶</a></h3>
+<section id="setup-a-zotero-library">
+<h3>Setup a <a class="reference external" href="https://www.zotero.org/">Zotero</a> library<a class="headerlink" href="#setup-a-zotero-library" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Follow the official <a class="reference external" href="https://www.zotero.org/support/installation">Zotero installation guide</a> to get a local version for your system</p></li>
 <li><p>Open it, click on the <code class="docutils literal notranslate"><span class="pre">yellow</span> <span class="pre">folder</span> <span class="pre">symbol</span></code> in the top left corner</p></li>
@@ -1323,10 +938,10 @@ AnatomicalLandmarkCo</p>
 <li><p>to create an APA formatted reference list, right-click on your <code class="docutils literal notranslate"><span class="pre">collection</span> <span class="pre">folder</span></code> and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Bibliography</span> <span class="pre">from</span> <span class="pre">collection,</span></code> select the APA format, a language, and an output mode, e.g, <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">it</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">clipboard</span></code> and simply paste it into a document of your choice</p></li>
 </ul>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/zotero_create_references.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="300px">
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="use-zotero-online">
-<h3>Use Zotero online<a class="headerlink" href="#use-zotero-online" title="Permalink to this headline">¶</a></h3>
+<section id="use-zotero-online">
+<h3>Use Zotero online<a class="headerlink" href="#use-zotero-online" title="Link to this heading">#</a></h3>
 <p><strong>Next up, we want to synch our local collection with an online presence to easily access our literature from everywhere in the world or to share it with collaborators</strong></p>
 <p>To do this:</p>
 <ul class="simple">
@@ -1345,10 +960,10 @@ AnatomicalLandmarkCo</p>
 <li><p>if you now log into your Zotero online account and click on <code class="docutils literal notranslate"><span class="pre">web</span> <span class="pre">library,</span></code> your synched libraries will appear in a window with the same capabilities as your local installation</p></li>
 </ul>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/zotero_web_library.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="900px">
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="zotero-connector">
-<h3>Zotero Connector<a class="headerlink" href="#zotero-connector" title="Permalink to this headline">¶</a></h3>
+<section id="zotero-connector">
+<h3>Zotero Connector<a class="headerlink" href="#zotero-connector" title="Link to this heading">#</a></h3>
 <p>If you want to make your life even easier, you can further <a class="reference external" href="https://www.zotero.org/download/connectors">install the Zotero Connector</a> for your respective browser.</p>
 <p>Click on the Zotero symbol in your browser (usually on the top right), and a menu will pop up <code class="docutils literal notranslate"><span class="pre">allowing</span> <span class="pre">you</span> <span class="pre">to</span> <span class="pre">either</span> <span class="pre">save</span> <span class="pre">a</span> <span class="pre">citable</span> <span class="pre">screenshot</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">website</span> <span class="pre">or</span> <span class="pre">an</span> <span class="pre">article</span> <span class="pre">reference</span> <span class="pre">(including</span> <span class="pre">PDF</span> <span class="pre">download</span> <span class="pre">when</span> <span class="pre">possible)</span> <span class="pre">into</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">collections</span></code></p>
 <img src="https://pbs.twimg.com/media/DcDlMsgW0AEdWFA?format=jpg&name=900x900" alt="png depicting the file structure of the course template repository" class="bg-primary" width="300px">
@@ -1356,26 +971,26 @@ AnatomicalLandmarkCo</p>
 <a href="https://twitter.com/zotero/status/991052142717886464">Zotero on Twitter</a> </center></p>
 <hr class="docutils" />
 </br>
-</div>
-<div class="section" id="setting-up-a-programming-environment-i-e-virtualization">
-<h3>5. Setting up a programming environment (i.e., “virtualization)<a class="headerlink" href="#setting-up-a-programming-environment-i-e-virtualization" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="setting-up-a-programming-environment-i-e-virtualization">
+<h3>5. Setting up a programming environment (i.e., “virtualization)<a class="headerlink" href="#setting-up-a-programming-environment-i-e-virtualization" title="Link to this heading">#</a></h3>
 <p>If you’re doing research, you will necessarily need to learn how to program, e.g., organize and clean your data or do statistical analyses.</p>
 <p>To make sure that you’ve got all the prerequisites installed for your respective need, it’s customary to use a <a class="reference external" href="https://towardsdatascience.com/environment-package-management-55168c56b77"><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">and</span> <span class="pre">environment</span> <span class="pre">management</span> <span class="pre">system</span></code></a>. This is commonly done using <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">conda</a>.</p>
-</div>
-<div class="section" id="conda">
-<h3>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="conda">
+<h3>Conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h3>
 <p>Conda is an open-source package and environment management system that simplifies the process of installing, managing, and organizing packages and dependencies. Conda supports a multitude of programming languages, such as Python and R.</p>
 <p>One of the most important functions of Conda is creating and managing isolated environments. An environment, in this case, specifies the specific packages and their versions installed for a specific project. Programming packages are the same as other software such as, e.g., <code class="docutils literal notranslate"><span class="pre">Word</span></code> or <code class="docutils literal notranslate"><span class="pre">Excel.</span></code> As every new <code class="docutils literal notranslate"><span class="pre">Excel</span></code> version adds new functionalities or slight changes to how the program works, so are there changes in the packages of programming languages like <code class="docutils literal notranslate"><span class="pre">Python.</span></code> <code class="docutils literal notranslate"><span class="pre">Python</span></code> uses packages such as <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> for mathematical operations, but with new <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> versions, the way certain calculations are done may change, e.g., to make the program more efficient or stable.</p>
 <p>Should changes like this occur, it becomes hard to reproduce the results of earlier research. Therefore, <code class="docutils literal notranslate"><span class="pre">conda</span></code> allows us to specify which <code class="docutils literal notranslate"><span class="pre">packages</span></code> and what <code class="docutils literal notranslate"><span class="pre">version</span></code> of these packages was used for a certain project. This information is stored in an <code class="docutils literal notranslate"><span class="pre">environment</span> <span class="pre">file.</span></code> Other researchers can use this <code class="docutils literal notranslate"><span class="pre">environment</span> <span class="pre">file</span></code> to reproduce the exact same <code class="docutils literal notranslate"><span class="pre">analyses.</span></code> Thus making the original <code class="docutils literal notranslate"><span class="pre">work</span></code> reproducible.</p>
 <p>It’s recommended that one creates a separate environment for each project or application, with its own set of dependencies and packages, so as not to interfere with other environments or the system itself.</p>
 <hr class="docutils" />
-<div class="section" id="working-with-conda">
-<h4>Working with Conda<a class="headerlink" href="#working-with-conda" title="Permalink to this headline">¶</a></h4>
+<section id="working-with-conda">
+<h4>Working with Conda<a class="headerlink" href="#working-with-conda" title="Link to this heading">#</a></h4>
 <p>There are multiple ways you can install a working Conda version.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="anaconda">
-<h4><code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>:<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h4>
+<section id="anaconda">
+<h4><code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>:<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h4>
 <p>The full <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> installation comes with a web-like <code class="docutils literal notranslate"><span class="pre">Graphical</span> <span class="pre">User</span> <span class="pre">Interface</span></code>. This, unfortunately, means that the installation is fairly large (larger than 2 GB).</p>
 <img src="https://docs.anaconda.com/_images/nav-application-dropdown.png" alt="png depicting the file structure of the course template repository" class="bg-primary" width="900px">
 <p><center> 
@@ -1398,17 +1013,17 @@ AnatomicalLandmarkCo</p>
 <img src="https://docs.anaconda.com/_images/nav-env-backup.png" alt="png depicting the file structure of the course template repository" class="bg-primary" width="900px">
 <p><center> 
 <a href="https://docs.anaconda.com/">Via Anaconda Docs</a> </center></p>
-</div>
-<div class="section" id="additional-material-anaconda">
-<h4>Additional material: Anaconda<a class="headerlink" href="#additional-material-anaconda" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="additional-material-anaconda">
+<h4>Additional material: Anaconda<a class="headerlink" href="#additional-material-anaconda" title="Link to this heading">#</a></h4>
 <p>Find out more using the following resources:</p>
 <p><a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/">Official Anaconda User Guide</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=MUZtVEDKXsk">(Youtube: Python simplified -  Anaconda Beginners Guide for Linux and Windows - Python Working Environments Tutorial</a></p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="miniconda">
-<h3><code class="docutils literal notranslate"><span class="pre">Miniconda</span></code><a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h3>
+<section id="miniconda">
+<h3><code class="docutils literal notranslate"><span class="pre">Miniconda</span></code><a class="headerlink" href="#miniconda" title="Link to this heading">#</a></h3>
 <p>Or the much more lightweight <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation, which requires you to use the <code class="docutils literal notranslate"><span class="pre">Command-Line-interface</span></code> or <code class="docutils literal notranslate"><span class="pre">Shell</span></code> of your system. Unix systems such as Linux and Mac already come with <code class="docutils literal notranslate"><span class="pre">Shell</span></code> preinstalled.</p>
 <p>To learn more about <code class="docutils literal notranslate"><span class="pre">Command-Line-interfaces,</span> </code> checkout the <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/learn_to_code.html">Learn to code - the basics chapter</a>. To learn how to work with the <code class="docutils literal notranslate"><span class="pre">Shell,</span></code> you can also follow the <a class="reference external" href="https://diler-digitell.github.io/DiLER_digital_literacy_course/content/intro_to_shell.html">“Intro - The (unix) command line: BASH” chapter</a></p>
 <p>You can install <code class="docutils literal notranslate"><span class="pre">conda</span></code> by following the <a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/index.html">Conda installation instruction</a> for your System.</p>
@@ -1419,9 +1034,9 @@ To open a Shell in <code class="docutils literal notranslate"><span class="pre">
 On Mac, click the Launchpad icon in the Dock, type Terminal in the search field, and then click Terminal.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Windows</span></code>:
 Windows users will have to download the <code class="docutils literal notranslate"><span class="pre">Windows-subystems-for-linux</span> <span class="pre">(wsl)</span></code> application; this will install a Unix subsystem, which will allow you to work with the bash shell. Simply follow, e.g., the <a class="reference external" href="https://itsfoss.com/install-bash-on-windows/">Foss Guide: Install bash on windows</a>. Afterward, search and open the newly installed <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code> application.</p>
-</div>
-<div class="section" id="generate-an-environment-file-using-conda">
-<h3>Generate an environment file using conda<a class="headerlink" href="#generate-an-environment-file-using-conda" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="generate-an-environment-file-using-conda">
+<h3>Generate an environment file using conda<a class="headerlink" href="#generate-an-environment-file-using-conda" title="Link to this heading">#</a></h3>
 <p>To create an environment file and install packages in it. Copy the following into your <code class="docutils literal notranslate"><span class="pre">Shell</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter.</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">my_project_enviornment</span></code></p>
 </br>
@@ -1455,16 +1070,16 @@ Windows users will have to download the <code class="docutils literal notranslat
 <p>This file can be shared with others or used to recreate the same environment on another machine. So, if someone wants to reproduce this environment, they would simply have to copy this environment file and use the following command in a terminal:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">enviornment.yml</span></code></p>
 <hr class="docutils" />
-<div class="section" id="additional-material-miniconda">
-<h4>Additional material: Miniconda<a class="headerlink" href="#additional-material-miniconda" title="Permalink to this headline">¶</a></h4>
+<section id="additional-material-miniconda">
+<h4>Additional material: Miniconda<a class="headerlink" href="#additional-material-miniconda" title="Link to this heading">#</a></h4>
 <p>To learn more about conda and how to work with environments, check out the following resources:</p>
 <p><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/index.html">Conda: User Guide</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=sDCtY9Z1bqE">(Youtube) Coding Professor - The only CONDA tutorial you’ll need to watch to get started</a></p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="data-management-plan">
-<h3>6. Data Management Plan<a class="headerlink" href="#data-management-plan" title="Permalink to this headline">¶</a></h3>
+<section id="data-management-plan">
+<h3>6. Data Management Plan<a class="headerlink" href="#data-management-plan" title="Link to this heading">#</a></h3>
 <p>An initial step when starting any research project should be to set up a data management plan (DMP).
 This helps you to flesh out, describe, and document what data exactly you want to collect, what you’ll be doing with it, and where and how it’s stored and eventually shared.</p>
 <p>A DMP helps you stay organized and reduces the potential for surprises in the future (e.g., due to too limited data storage capacities or unexpected costs).
@@ -1474,9 +1089,9 @@ It is at times also required by, e.g., your University or agencies funding resea
 <p>There are also public tools to collect and share DMPs, such as <a class="reference external" href="https://dmponline.dcc.ac.uk/">DMPonline</a> for the UK.</p>
 <p>Here, you also find <a class="reference external" href="https://dmponline.dcc.ac.uk/public_plans">publicly published plans</a> that you can use to check what your DMP could/should contain.</p>
 <p>The <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/rdm.html#rr-rdm">Turing Way Project</a> lists the following considerations when creating a DMP. Many of the specific points of this checklist have already been discussed in the previous steps.</p>
-</div>
-<div class="section" id="turing-way-dmp-checklist">
-<h3>Turing way DMP checklist<a class="headerlink" href="#turing-way-dmp-checklist" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="turing-way-dmp-checklist">
+<h3>Turing way DMP checklist<a class="headerlink" href="#turing-way-dmp-checklist" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">Roles</span> <span class="pre">and</span> <span class="pre">Responsibilities</span> <span class="pre">of</span> <span class="pre">project</span> <span class="pre">team</span> <span class="pre">members</span></code></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- discuss who is responsible for different tasks related to project/data management
 - e.g., who is responsible for maintaining the dataset, how takes care of the research ethics review
@@ -1520,15 +1135,15 @@ It is at times also required by, e.g., your University or agencies funding resea
 </pre></div>
 </div>
 <p>To create your DMP, you can either use the discussed tools or create a first draft by noting your thoughts/expectations regarding the above checklist in a document.</p>
-</div>
-<div class="section" id="additional-material">
-<h3>Additional material<a class="headerlink" href="#additional-material" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="additional-material">
+<h3>Additional material<a class="headerlink" href="#additional-material" title="Link to this heading">#</a></h3>
 <p>Find out more about how to organize and store in the <a class="reference external" href="https://m-earnest.github.io/diler_dgitial_literacy_course/content/data_management.html">chapte on Data management</a></p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=K5_ocBG5xek&amp;list=PLEor4jq8YPgK_sgEiAcpHZLw-62mufXus">(Youtube) University of Wisconsin Data Services - Data services playlist </a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=K5_ocBG5xek&amp;amp;list=PLEor4jq8YPgK_sgEiAcpHZLw-62mufXus">(Youtube) University of Wisconsin Data Services - Data services playlist </a></p>
 <p><a class="reference external" href="https://argos.openaire.eu/home">ARGOS Data managment tool</a></p>
-</div>
-<div class="section" id="pre-registration">
-<h3>7. Pre-registration<a class="headerlink" href="#pre-registration" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pre-registration">
+<h3>7. Pre-registration<a class="headerlink" href="#pre-registration" title="Link to this heading">#</a></h3>
 <p>„The specification of a research design, hypotheses, and analysis plan prior to observing the outcomes of a study“  Nosek &amp; Lindsay (2018)</p>
 <p>A pre-registration is a time-stamped record of your experiment design, methods, and planned analysis that is publicly available (can be done either before you collect data or before you begin analysis). A pre-registration can be done either in correspondence with your advisor or via online platforms. You can even apply for a pre-registration for bachelor’s or master’s theses.</p>
 <p>Using an online platform is strongly recommended as this increases reproducibility and trust in your work. The two main platforms providing tools to pre-register your study are:</p>
@@ -1546,9 +1161,9 @@ It is at times also required by, e.g., your University or agencies funding resea
 <li><p>increases reproducibility</p></li>
 <li><p>at times required by funding agencies</p></li>
 </ul>
-</div>
-<div class="section" id="how-to-preregister-a-study">
-<h3>How to preregister a study<a class="headerlink" href="#how-to-preregister-a-study" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="how-to-preregister-a-study">
+<h3>How to preregister a study<a class="headerlink" href="#how-to-preregister-a-study" title="Link to this heading">#</a></h3>
 <p>Using the above mentioned platforms it is increasingly simple to write a pregesitration. Simply head on over to e.g. <a class="reference external" href="https://aspredicted.org/">AsPredicted</a> and click the <code class="docutils literal notranslate"><span class="pre">create</span></code> button. If you’re just trying things out you can select the box:<code class="docutils literal notranslate">&#160;&#160; <span class="pre">Just</span> <span class="pre">trying</span> <span class="pre">it</span> <span class="pre">out;</span> <span class="pre">make</span> <span class="pre">this</span> <span class="pre">pre-registration</span> <span class="pre">self-destroy</span> <span class="pre">in</span> <span class="pre">24</span> <span class="pre">hours.</span></code>.</p>
 <img src="https://github.com/M-earnest/diler_dgitial_literacy_course/blob/main/lecture/static/as_predicted.png?raw=true" alt="png depicting the file structure of the course template repository" class="bg-primary" width="600px">
 <hr class="docutils" />
@@ -1571,27 +1186,27 @@ It is at times also required by, e.g., your University or agencies funding resea
 </br>
 <hr class="docutils" />
 </br>
-</div>
-<div class="section" id="additional-materials-on-pre-registration">
-<h3>Additional materials on pre-registration<a class="headerlink" href="#additional-materials-on-pre-registration" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="additional-materials-on-pre-registration">
+<h3>Additional materials on pre-registration<a class="headerlink" href="#additional-materials-on-pre-registration" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=8QK2-udwoK8">(Youtube) OSF: The What, Why, and How of Preregistration</a></p>
 <p><a class="reference external" href="https://help.osf.io/article/158-create-a-preregistration">OSF Guide: Creating a preregistration</a></p>
 <p><a class="reference external" href="https://help.osf.io/article/145-preregistration">OSF: Article on preregistration</a></p>
 <p><a class="reference external" href="https://osf.io/zab38/wiki/home/">OSF: Preregistration templates</a></p>
 </br>
-</div>
-</div>
-<div class="section" id="tl-dr">
-<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="tl-dr">
+<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
 <p>Let’s summarise!</p>
 <p>We’ve established that project design is an essential step in scientific work. Remember that **an individual project will survive longer than the research done on it and will (potentially) influence the scientific consensus on a given topic by providing data, insights, or new methods.</p>
 <p>We, therefore, design our projects to maximize reproducibility by following the <a class="reference external" href="https://www.go-fair.org/fair-principles/">FAIR principles</a>, i.e., by increasing the <strong>F</strong>indability of our work (e.g. via OSF), the <strong>A</strong>ccesebility (of our data and code), the <strong>I</strong>nteroperability of our analyses (via setting up and sharing environment files) and the <strong>R</strong>eusability (e.g., by providing adequate documentation and description of our datasets and sharing our code via GitHUB).</p>
 <p>We further learned to organize our project by setting up a Data Management Plan and how to establish our project on a <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">level</span></code> (i.e., creating a standardized file and data systems), as well as <code class="docutils literal notranslate"><span class="pre">online</span></code> (via <code class="docutils literal notranslate"><span class="pre">GitHub,</span></code> <code class="docutils literal notranslate"><span class="pre">Zotero,</span></code> <code class="docutils literal notranslate"><span class="pre">OSF.</span></code> Additionally, we learned how to <code class="docutils literal notranslate"><span class="pre">pre-register</span></code> studies and why this is a good idea!</p>
 <hr class="docutils" />
 <p>Remember to use the project design checklist for your future endeavors:</p>
-<div class="section" id="id1">
-<h3>Project design checklist<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<section id="id1">
+<h3>Project design checklist<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Setup local folder structure (BIDS),</p></li>
 <li><p>create an online folder structure (Github repo)</p></li>
 <li><p>setup a project presence (OSF)</p></li>
@@ -1600,11 +1215,11 @@ It is at times also required by, e.g., your University or agencies funding resea
 <li><p>Data management plan</p></li>
 <li><p>Pre-registration</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="id2">
-<h2>Goals<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>Goals<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Did we meet our goals?</p>
 <ul class="simple">
 <li><p>gain a general understanding of the importance of project design</p></li>
@@ -1612,10 +1227,10 @@ It is at times also required by, e.g., your University or agencies funding resea
 <li><p>provide a checklist to follow</p></li>
 <li><p>get familiar with important tools and concepts for project design</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="where-are-we-now">
-<h2>Where are we now?<a class="headerlink" href="#where-are-we-now" title="Permalink to this headline">¶</a></h2>
+<section id="where-are-we-now">
+<h2>Where are we now?<a class="headerlink" href="#where-are-we-now" title="Link to this heading">#</a></h2>
 <p>Please take a moment to reflect on the lesson:</p>
 <p><strong>1. Have you gained a general understanding of the importance of project design?</strong></p>
 <p><strong>2. Which of the separate steps of the project design seems the most important to you</strong></p>
@@ -1624,20 +1239,20 @@ It is at times also required by, e.g., your University or agencies funding resea
 <p><strong>5. Why is that? Which information do you feel you’d still need to implement these steps?</strong></p>
 <p><strong>6. What was the most surprising part of the lecture for you? What information in particular stood out to you?</strong></p>
 <p><strong>7. What tool did you find especially interesting/useful?</strong></p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<section id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <p>The go-to resource for creating and maintaining scientific projects was created by the <a class="reference external" href="https://the-turing-way.netlify.app/welcome.html">Turing Way Project</a>. We’ve adapted some of their material for the Data Management Plan section of the lesson above.</p>
 <p>The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.7625728">https://doi.org/10.5281/zenodo.7625728</a></p>
 <p><a class="reference external" href="https://osf.io/4sdn3/">Transparent project management template for the OSF plattform</a> by <a class="reference external" href="https://osf.io/5fukm/">WEC.H.J. Hartgerink</a></p>
 <p>We’ve adapted some of the directory structure diagrams from the <a class="reference external" href="https://bids-standard.github.io/bids-starter-kit/index.html">BIDS Standard Guide</a>.</p>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>Nosek, B. A., &amp; Lindsay, D. S. (2018). Preregistration becoming the norm in psychological science. APS Observer, 31.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1651,7 +1266,7 @@ It is at times also required by, e.g., your University or agencies funding resea
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content"
         },
         predefinedOutput: true
@@ -1659,44 +1274,156 @@ It is at times also required by, e.g., your University or agencies funding resea
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="media_information_literacy.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Information &amp; Media Literacy: Introduction</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="media_information_literacy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Information &amp; Media Literacy: Introduction</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="lit_review.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="lit_review.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Find and evaluate Data Sources, Published Research &amp; Literature Review Strategies</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Michael Ernst, Felix Körber<br/>
-    
-        &copy; Copyright 2024.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-start">Before we start..</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap">Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-considerations-how-to-get-started">General considerations: How to get started</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-research-question">Find a research question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research-questions">Types of research questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-out-what-you-need-to-answer-your-research-question">Find out what you need to answer your research question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-find-the-information-on-research-questions-and-methods">How do I find the information on research questions and methods?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-design">Project design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-design-checklist">Project design checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-local-folder-structure-bids">1. Setup local folder structure (BIDS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-to-specific-datatypes-neuroimaging">Adapting to specific datatypes: Neuroimaging</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-naming-conventions">File naming conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-learn-more">To learn more</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repo">2. Github repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#osf-presence">3. OSF presence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zotero-library">4. Zotero Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-zotero-library">Setup a Zotero library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-zotero-online">Use Zotero online</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zotero-connector">Zotero Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-programming-environment-i-e-virtualization">5. Setting up a programming environment (i.e., “virtualization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-conda">Working with Conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda"><code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material-anaconda">Additional material: Anaconda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda"><code class="docutils literal notranslate"><span class="pre">Miniconda</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-an-environment-file-using-conda">Generate an environment file using conda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material-miniconda">Additional material: Miniconda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management-plan">6. Data Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-way-dmp-checklist">Turing way DMP checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-material">Additional material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-registration">7. Pre-registration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-preregister-a-study">How to preregister a study</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-materials-on-pre-registration">Additional materials on pre-registration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Project design checklist</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-we-now">Where are we now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
