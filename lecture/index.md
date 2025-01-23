@@ -23,10 +23,7 @@ By the end of the course, students will be equipped with the skills and knowledg
 
 This course is `open` to all students, `regardless of their previous experience` with digital technologies. However, it is tailored toward students with little to no prior experience. Extra lessons on more complex skills, e.g., Neuro- or Data-science, can be found in the `"resources"` section.
 
-As this course is primarily centered around scientific practice, we will not be dealing with basic topics such as "What is this internet?", "what's a meme?" or "How do I use social media?".  We will further not dive into the concepts more commonly labeled under "media literacy," such as how to spot fake news, etc.
-
-As this course is primarily centered around scientific practice, we will not be dealing with basic topics such as "What is this internet?", "what's a meme?" or "How do I use social media?".  We will further not dive into the concepts more commonly labeled under "media literacy," such as how to spot fake news, etc.
-
+As this course is primarily centered around scientific practice, we will not be dealing with basic topics such as "What is this internet?", "What's a meme?" or "How do I use social media?".  We will further not dive into the concepts more commonly labeled under "media literacy," such as how to spot fake news, etc.
 
 ---------------------------------------------
 
@@ -62,13 +59,13 @@ Each lesson will start with a `general overview of the contained contents,` a sh
 
 **The separate chapters of this course can be separated into two kinds of lessons:**
 
-`Interactive Content`:
+**Interactive Content**:
 
 Our Introduction to programming content, such as the Python programming language, makes use of `the interactive features of this website.` You'll be instructed on how to make these hands-on lessons work for you at the beginning of the chapters in question.
 
-`Text-based Tutorials`:
+**Text-based Tutorials**:
 
-Other lessons, e.g., on Project design, are focused on the role of digital tools and skills necessary for modern research endeavors. `They will mostly be text-based guides,` with short `tutorials` concerning the `usage of specific digital research tools that you may want to follow along on your Machine.
+Other lessons, e.g., on Project design, are focused on the role of digital tools and skills necessary for modern research endeavors. They will `mostly be text-based guides,` with short `tutorials` concerning the `usage of specific digital research tools` that you may want to follow along on your Machine.
 
 --------------------------------------------
 
@@ -98,7 +95,7 @@ Other lessons, e.g., on Project design, are focused on the role of digital tools
 
 ### Course Structure
 
-To meet these goals, we will follow a "learning by doing" approach in a tripartite manner. Starting from a basic introduction to `Digital Literacy` (Block I) to `specific abilities and skillsets` (Block II) and `advanced content for scientific work using open-source tools (Block III).)
+To meet these goals, we will follow a "learning by doing" approach in a tripartite manner. Starting from a basic introduction to `Digital Literacy` (Block I) to `specific abilities and skillsets` (Block II) and `advanced content` for scientific work using open-source tools (Block III).
 
 More specifically, we will structure our work into the following chapters:
 
@@ -115,7 +112,7 @@ More specifically, we will structure our work into the following chapters:
 - [Digital Scholarship](./content/digital_scholarship.ipynb)
     -  learn about academic and professional practices that depend on digital systems and emergent technology
 
-**Block:**
+**Block III:**
 - [Advanced Content](./advanced/python_numpy.ipynb)
     - more Python tutorials, In-depth tutorial for learning EEG analyses using [MNE](https://mne.tools/stable/index.html#)
 
@@ -138,7 +135,7 @@ ___
 
 There are many courses out there doing a similar thing to this one with different specifications and foci, so feel free to browse and check the following out:
 
-You might also be interested in checking out these resources for even more in-depth information worth a read:
+<!--You might also be interested in checking out these resources for even more in-depth information worth a read:-->
 
     
 * [**Data Literacy – What is it and why does it matter?**](https://www.coursera.org/learn/data-literacy-what-is-it-and-why-does-it-matter#syllabus)
