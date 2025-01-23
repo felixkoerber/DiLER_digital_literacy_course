@@ -16,6 +16,7 @@ In the following you'll find the `objectives` and `materials` for each of the to
 
 #### Objectives 📍
 - Get to know the concept of digital literarcy
+- 
 - x
 - x
 - x
